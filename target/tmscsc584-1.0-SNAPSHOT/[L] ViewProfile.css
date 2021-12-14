@@ -1,0 +1,113 @@
+*{
+	box-sizing: border-box;
+}
+.header {
+  padding: 5px;
+  text-align: center;
+  background: transparent;
+  color: black;
+  font-size: 27px;
+  margin:auto;
+  font-family: Freestyle Script;
+}
+body {
+  /*background-image: url('img1.jpg');*/
+  background:linear-gradient(135deg, #71b7e6, #9b59b6);
+  height:auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin:auto;
+}
+
+.container {
+  padding: 29px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  background-color:white;
+  max-width: 500px;
+  max-height: 1100px;
+  margin: 100px auto;
+  color:black;
+  font-family:Georgia, serif;
+  font-size:15px;
+}
+.container h2{
+	text-align:center;
+}
+.container img{
+    width: 220px;
+    height: 165px;
+    top: 30px;
+    left: calc(21% - 50px);
+	margin:auto 120px;
+}
+.button {
+  background-color:  black; 
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 2px;
+  cursor: pointer;
+  font-family:Robotto;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  float:right;
+}
+.button1:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a{
+	text-decoration:none;
+	color:white;
+}
+input[type=text], select, textarea {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=password], select, textarea {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.col-25 {
+  float: left;
+  width: 45%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width:40%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}

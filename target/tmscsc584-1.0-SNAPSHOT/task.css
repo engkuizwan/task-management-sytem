@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(135deg, #71b7e6, #9b59b6)
+
+}
+
+.container
+{
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.container .title
+{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+
+
+}
+
+
+
+.container form .taskdetails
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .taskdetails .input-box
+{
+    margin-bottom: 15px;
+    margin: 20px 0 12px 0;
+    width: calc( 100% / 1 - 20px );
+}
+
+.taskdetails .input-box details
+{
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+.taskdetails .input-box input
+{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    padding-top: 4px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.taskdetails .input-box textarea
+{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+
+}
+
+.taskdetails .input-box select
+{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.taskdetails .input-box input-box input:focus,
+.taskdetails .input-box input:valid
+{
+    border-color: #9b9b9b;
+}
+
+.taskdetails .input-box input-box textarea:focus,
+.taskdetails .input-box textarea:valid
+{
+    border-color: #9b9b9b;
+}
+
+.taskdetails .input-box input-box select:focus,
+.taskdetails .input-box select:valid
+{
+    border-color: #9b9b9b;
+}
+
+form .button
+{
+    height:  45px;
+    margin:  15px 0;
+}
+
+form .button input
+{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+
+}
+
+form .button input:hover
+{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+
+}
+
+.w3-bar .w3-button
+{
+    padding: 16px;
+}
+
+dd{
+    font-size: 15px;
+    font-weight: 500;
+    color:slategrey;
+}
+
+@media (max-width: 584px)
+{
+    .container
+    {
+        max-width: 100%;
+
+    }
+
+    form .taskdetails .input-box
+    {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+}

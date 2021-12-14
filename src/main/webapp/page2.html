@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body{   background:linear-gradient(135deg, #71b7e6, #9b59b6);}
+ html
+{
+		height: 100%;
+		line-height: 1.8;
+}
+
+.dropbtn 
+{  
+		position: absolute;
+	    background-color: #6699CC;
+	    color: black;
+	    margin-top:-193px;
+	    margin-left:323px;
+	    font-size: 16px;
+	    border: none;
+}
+
+
+.dropdown-content
+ {
+      position: absolute;
+	  margin-top:-193px;
+	  margin-left:323px;
+	  display: none;
+	  position: absolute;
+	  background-color: #f9f9f9;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+
+}
+
+.dropdown-content a 
+{
+     color: black;
+	 text-align: center;
+     padding: 10px 5px;
+     text-decoration: none;
+     display: block;
+}
+
+.dropdown-content a:hover 
+{
+	background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content 
+{
+	display: block;
+}
+
+.dropdown:hover .dropbtn 
+{
+  background-color: #3e8e41;
+}
+
+h6{					margin-top:-60px;
+
+					padding-top:-500px;
+					padding-left:1300px;
+
+
+}
+
+
+
+.w3-bar .w3-button
+{
+  padding: 16px;
+}
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">iTASK</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+	
+	  <a href="#class" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
+      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-user"></i> PROFILE</a>
+	        <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
+
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+
+
+<!-- Team Section -->
+
+<div class="w3-container" style="padding:128px 16px" id="team">
+	<h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">CREATE CLASS</button></h6>
+  <h3 class="w3-center">CLASSES</h3>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="java.png" alt="John" style="width:100%">
+		
+		 <div class="dropdown">
+			  <button class="dropbtn">...</button>
+			  <div class="dropdown-content">
+					<button class="w3-button w3-block " onclick="document.getElementById('edit').style.display='block'">Edit</button>
+					<button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>				
+
+			  </div>
+			</div>
+			
+        <div class="w3-container w3-sand">
+          <h3>CSC584</h3>
+          <p class="w3-opacity">DR AHMAD FIRDAUS AHMAD FADZIL</p>
+          <p>M3CS2664B</p>
+          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+        </div>
+      </div>
+    </div>
+	
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="database.png" alt="Jane" style="width:100%">
+			
+		 <div class="dropdown">
+			  <button class="dropbtn">...</button>
+			  <div class="dropdown-content">
+					<button class="w3-button w3-block " onclick="document.getElementById('edit').style.display='block'">Edit</button>
+				<button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>				
+
+			  </div>
+			</div>
+			
+        <div class="w3-container w3-sand">
+          <h3>ICT502</h3>
+          <p class="w3-opacity">DR AHMAD FIRDAUS AHMAD FADZI</p>
+		   <p>M3CS2664A</p>
+          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+        </div>
+      </div>
+    </div>
+	
+    
+    </div>
+  </div>
+</div>
+
+
+<!-- Join Modal -->
+<div id="subscribe" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+      <h2 class="w3-wide">CREATE CLASS</h2>
+      <p>Enter your class details here</p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Class Subject"></p>
+	        <p><input class="w3-input w3-border" type="text" placeholder="Class Name"></p>
+			      <p><input class="w3-input w3-border" type="text" placeholder="Total student"></p>
+
+
+      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">CREATE CLASS</button>
+    </div>
+  </div>
+</div>
+
+<div id="edit" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('edit').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+    <h2 class="w3-wide">UPDATE CLASS</h2>
+      <p>Update your class details here</p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Class Subject"></p>
+	        <p><input class="w3-input w3-border" type="text" placeholder="Class Name"></p>
+			      <p><input class="w3-input w3-border" type="text" placeholder="Total student"></p>
+
+
+      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">UPDATE CLASS</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javaScript">
+						function myFunction()
+						{	
+							confirm("Are you sure you want to delete your class?");
+						}
+					</script>	
+
+
+</body>
+</html>
