@@ -28,7 +28,7 @@
         <a href="LoginLecturer.jsp">
             <img src="teachIcon.png">
             </br></br>
-            <h3>LECTURER</h3>
+            <h3>LECTURERRR</h3>
         </a>
     </div>
 </div>
