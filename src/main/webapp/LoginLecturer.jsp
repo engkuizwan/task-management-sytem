@@ -31,9 +31,9 @@
 						</div>
 					</div>
 					<p>Don't have an account?</p>
-					<button type="submit" class="button button1" name="submit" ><a href ="%5BL%5D%20ViewProfile.htmle.html">Login</a></button>
+					<button type="submit" class="button button1" name="submit" ><a href ="ViewProfile.jsp">Login</a></button>
 					
-					<button type="submit" class="button2 button1 " name="submit" ><a href ="%5BL%5D%20SignUp.htmlp.html">Sign up</a></button><br><br>
+					<button type="submit" class="button2 button1 " name="submit" ><a href ="SignUp.jsp">Sign up</a></button><br><br>
 						
 			
 		</div>
