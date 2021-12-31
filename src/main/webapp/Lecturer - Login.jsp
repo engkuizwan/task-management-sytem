@@ -3,7 +3,7 @@
 	<head>
 	<title>TASK MANAGEMENT SYSTEM</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="Lecturer - Login.css">
+		<link rel="stylesheet" href="LoginLecturer.css">
 		<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 	</head>
 
@@ -31,9 +31,9 @@
 						</div>
 					</div>
 					<p>Don't have an account?</p>
-					<button type="submit" class="button button1" name="submit" ><a href ="%5BL%5D%20ViewProfile.htmle.html">Login</a></button>
+					<button type="submit" class="button button1" name="submit" ><a href ="ViewProfile.jsp">Login</a></button>
 					
-					<button type="submit" class="button2 button1 " name="submit" ><a href ="Lecturer%20-%20Signup.jsp">Sign up</a></button><br><br>
+					<button type="submit" class="button2 button1 " name="submit" ><a href ="SignUp.jsp">Sign up</a></button><br><br>
 						
 			
 		</div>
