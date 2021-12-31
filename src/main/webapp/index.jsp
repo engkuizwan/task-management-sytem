@@ -4,7 +4,7 @@
 <head>
     <title>TASK MANAGEMENT SYSTEM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Front.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 
 <div class="column">
     <div class="container">
-        <a href="LoginStudent.jsp">
+        <a href="Student - Login.jsp">
             <img src="studIcon.png">
             <h3>STUDENT</h3>
         </a>
@@ -25,7 +25,7 @@
 
 <div class="column">
     <div class="container1">
-        <a href="LoginLecturer.jsp">
+        <a href="Lecturer - Login.jsp">
             <img src="teachIcon.png">
             </br></br>
             <h3>LECTURER</h3>

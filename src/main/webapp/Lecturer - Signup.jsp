@@ -3,7 +3,7 @@
 	<head>
 	<title>TASK MANAGEMENT SYSTEM</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="[S] SignUp.css">
+		<link rel="stylesheet" href="Student - Signup.css">
 		<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
 	</head>
 
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 					
-					<button type="submit" class="button button1 " name="submit" ><a href ="SignUp.jsp">Sign Up</a></button><br><br>
+					<button type="submit" class="button button1 " name="submit" ><a href ="Lecturer - Signup.jsp">Sign Up</a></button><br><br>
 						
 			
 		</div>
