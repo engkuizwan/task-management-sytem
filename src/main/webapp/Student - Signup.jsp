@@ -42,7 +42,7 @@
 				</div>
 			</div>
 					
-					<button type="submit" class="button button1 " name="submit" ><a href ="%5BS%5D%20ViewProfile.htmle.html">Sign Up</a></button><br><br>
+					<button type="submit" class="button button1 " name="submit" ><a href ="Student - viewprofile.jsp">Sign Up</a></button><br><br>
 						
 			
 		</div>
