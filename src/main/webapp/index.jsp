@@ -15,7 +15,7 @@
 
 <div class="column">
     <div class="container">
-        <a href="Student - Login.jsp">
+        <a href="Student-Login.jsp">
             <img src="studIcon.png">
             <h3>STUDENT</h3>
         </a>
