@@ -49,7 +49,7 @@
 						function myFunction()
 						{	
 							confirm("Are you sure you want to delete your profile?");
-							form.action="studentdeleteservlet";
+							form.action="StudentServlet";
 						}
 					</script>
 			</div>
