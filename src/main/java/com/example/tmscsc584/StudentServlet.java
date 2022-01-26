@@ -38,8 +38,8 @@ public class StudentServlet extends HttpServlet {
                 case "login":
                     login(request, response);
                     break;
-                case "/delete":
-                    /*deleteUser(request, response);*/
+                case "delete":
+                    deleteUser(request, response);
                     break;
                 case "/edit":
                     /*showEditForm(request, response);*/
@@ -158,6 +158,15 @@ public class StudentServlet extends HttpServlet {
         session.removeAttribute("student");
         session.setAttribute("student", student);
         response.sendRedirect("Student-viewprofile.jsp");
+    }
+
+    /*######################################################( DELETE )#############################################################*/
+
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("studentid"));
+        sd.deleteUser(id);
+        response.sendRedirect("Student-Login.jsp");
     }
 
 
