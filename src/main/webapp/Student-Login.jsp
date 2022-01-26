@@ -31,7 +31,7 @@
 						</div>
 						<div class="col-75">
 							<input type="password" name="studentpassword" placeholder="Your email" >
-							<input type="hidden" name="action" placeholder="login" >
+							<input type="hidden" name="action" value="login" >
 						</div>
 					</div>
 					<p>Don't have an account?</p>
