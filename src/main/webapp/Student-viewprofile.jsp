@@ -20,7 +20,7 @@
 							<label style="" >Student Name</label>
 						</div>
 						<div class="col-75">
-							<label >${student.studentName}</label>
+							<label ></label>
 						</div>
 					</div>
 					<div class="row">

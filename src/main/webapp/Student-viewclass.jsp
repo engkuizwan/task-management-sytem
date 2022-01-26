@@ -38,7 +38,7 @@
 			  
         <div class="w3-container w3-sand">
           <h3>CSC584</h3>
-          <p class="w3-opacity">DR AHMAD FIRDAUS AHMAD FADZIL</p>
+          <p class="w3-opacity">${student.studentName}</p>
           <p>M3CS2664B</p>
           <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
         </div>
