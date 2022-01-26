@@ -103,10 +103,9 @@ public class StudentServlet extends HttpServlet {
                     {
                         session.setAttribute("studentid",res.getString(1));
                         Student student = new Student(res.getString(2), res.getString(3), res.getString(4));
-                        request.setAttribute("student", student);
+                        session.setAttribute("student", student);
 
-                        RequestDispatcher rd = request.getRequestDispatcher("Student-viewclass.jsp");
-                        rd.forward(request, response);
+                        response.sendRedirect("Student-viewclass.jsp");
 
                     }else{
                         out.println("User not exist");
