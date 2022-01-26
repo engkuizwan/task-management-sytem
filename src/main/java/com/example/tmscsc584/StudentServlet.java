@@ -45,7 +45,7 @@ public class StudentServlet extends HttpServlet {
                     /*showEditForm(request, response);*/
                     break;
                 case "/update":
-                    /*updateUser(request, response);*/
+                    updateUser(request, response);
                     break;
                 default:
                     /*listUser(request, response);*/
@@ -59,15 +59,25 @@ public class StudentServlet extends HttpServlet {
     }
 
 
+    /*######################################################( SINGNUP )#############################################################*/
+
     private void signup(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         String name = request.getParameter("studentname");
         String password = request.getParameter("studentpassword");
         String email = request.getParameter("studentemail");
-        Student student = new Student(name, password, email);
+        Student student = new Student();
+
+        student.setStudentName(name);
+        student.setStudentPassword(password);
+        student.setStudentEmail(email);
+
         sd.signup(student);
         response.sendRedirect("Student-Login.jsp");
     }
+
+    /*######################################################( LOGIN )#############################################################*/
+
 
     private void login(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
@@ -102,10 +112,17 @@ public class StudentServlet extends HttpServlet {
                     if(email.equals(res.getString("studentemail")) && password.equals(res.getString("studentpassword")))
                     {
                         session.setAttribute("studentid",res.getString(1));
-                        Student student = new Student(res.getString(2), res.getString(3), res.getString(4));
+                        Student student = new Student();
+
+
+                                student.setStudentName(res.getString(2));
+                                student.setStudentPassword(res.getString(3));
+                                student.setStudentEmail(res.getString(4));
+
                         session.setAttribute("student", student);
 
                         response.sendRedirect("Student-viewclass.jsp");
+
 
                     }else{
                         out.println("User not exist");
@@ -117,10 +134,33 @@ public class StudentServlet extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
-
         }
+
+
+    /*######################################################( UPDATE )#############################################################*/
+
+
+    private void updateUser(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        HttpSession session = request.getSession();
+        int id = Integer.parseInt(request.getParameter("studentid"));
+        String name = request.getParameter("studentname");
+        String password = request.getParameter("studentpassword");
+        String email = request.getParameter("studentemail");
+        Student student = new Student();
+
+        student.setStudentId(id);
+        student.setStudentName(name);
+        student.setStudentPassword(password);
+        student.setStudentEmail(email);
+        sd.updateUser(student);
+
+        session.removeAttribute("student");
+        session.setAttribute("student", student);
+        response.sendRedirect("Student-viewprofile.jsp");
+    }
+
+
 
 
     }

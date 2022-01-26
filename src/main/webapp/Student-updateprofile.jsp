@@ -12,6 +12,7 @@
 	<body>
 	<%@include file="Student-navbar.html"%>
 		<form action="" method="POST">
+
 			<div class="container">
 				<img src="studIcon.png">
 				<h2>STUDENT PROFILE</h2>
@@ -20,7 +21,10 @@
 							<label style="">Student Name</label>
 						</div>
 						<div class="col-75">
-							<input type="text" name="email" placeholder="Enter your email" value="Anis Nur Athirah">
+							<input type="text" name="studentname" value="${student.studentName}">
+						</div>
+						<div class="col-75">
+							<input type="hidden" name="studentid" value="${studentid}">
 						</div>
 					</div>
 					<div class="row">
@@ -28,7 +32,7 @@
 							<label style="">Student Email</label>
 						</div>
 						<div class="col-75">
-							<input type="text" name="email" placeholder="Enter your email" value="anis@gmail.com">
+							<input type="text" name="studentemail" value="${student.studentEmail}">
 						</div>
 					</div>
 						
@@ -37,18 +41,15 @@
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<input type="password" name="lecturerPassword" placeholder="Your email" value="haluu"> 
+							<input type="password" name="studentpassword" value="${student.studentPassword}">
+							<input type="hidden" name="action" value="update">
 						</div>
 					</div>
-					<button type="submit" onclick="myFunction(); return false" class="button button1" name="submit" >Update</button>
-					<button type="submit" class="button button1" name="submit" ><a href="%5BS%5D%20ViewProfile.htmle.html">Cancel</a></button><br><br>
+					<button type="submit"  class="button button1" name="submit" onclick="form.action='StudentServlet'" >Update</button>
+					<button type="submit" class="button button1" name="submit" ><a href="Student-viewprofile.jsp">Cancel</a></button>
+				<br><br>
 					
-					<script type="text/javaScript">
-						function myFunction()
-						{							
-							alert(" Your profile succefully updated!");
-						}
-					</script>
+
 			</div>
 		</form>
 	<body>

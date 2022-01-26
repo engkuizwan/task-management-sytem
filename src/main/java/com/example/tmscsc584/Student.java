@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Student implements Serializable
 {
+    public int studentId;
     public String studentName;
     public String studentPassword;
     public String studentEmail;
@@ -11,13 +12,13 @@ public class Student implements Serializable
     public Student() {
     }
 
-    public Student(String studentName, String studentPassword, String studentEmail) {
-        this.studentName = studentName;
-        this.studentPassword = studentPassword;
-        this.studentEmail = studentEmail;
+    public int getStudentId() {
+        return studentId;
     }
 
-
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 
     public String getStudentName() {
         return studentName;
@@ -45,7 +46,8 @@ public class Student implements Serializable
 
     @Override
     public String toString() {
-        return "classs{" +
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentPassword='" + studentPassword + '\'' +
                 ", studentEmail='" + studentEmail + '\'' +

@@ -12,6 +12,7 @@
 	<body>
 	<%@include file="Student-navbar.html"%>
 		<form action="" method="POST">
+			<input type="number" name="studentid"  value="${studentid}" hidden>
 			<div class="container">
 				<img src="studIcon.png">
 				<h2>STUDENT PROFILE</h2>
@@ -40,7 +41,8 @@
 							<label>${student.studentPassword}</label>
 						</div>
 					</div>
-					<button type="submit" class="button button1" name="submit" onclick="form.action='Student-updateprofile.jsp'">Update</button>
+					<input type="hidden" name="action" value="delete">
+					<button type="submit" class="button button1" name="submit"><a href="Student-updateprofile.jsp">Update</a></button>
 					<button type="submit" onclick="myFunction(); return false" class="button button1" name="submit" >Delete</button><br><br>
 					
 					<script type="text/javaScript">

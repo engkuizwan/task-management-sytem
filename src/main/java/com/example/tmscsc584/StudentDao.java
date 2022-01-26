@@ -47,6 +47,21 @@ public class StudentDao {
 
 
 
+    public boolean updateUser(Student student) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE student set studentname=?,studentpassword=?,studentemail=? where studentid=?");)
+        {
+            statement.setString(1, student.getStudentName());
+            statement.setString(2, student.getStudentPassword());
+            statement.setString(3, student.getStudentEmail());
+            statement.setInt(4, student.getStudentId());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
