@@ -45,6 +45,29 @@ public class StudentDao {
         }
     }
 
+    public boolean validate(Student student) throws ClassNotFoundException {
+        boolean status = false;
+
+        Class.forName("org.postgresql.Driver");
+
+        try (Connection connection = getConnection();
+             // Step 2:Create a statement using connection object
+             PreparedStatement preparedStatement = connection
+                     .prepareStatement("select * from student where studentname = ? and studentpassword = ? ")) {
+            preparedStatement.setString(1, student.getStudentName());
+            preparedStatement.setString(2, student.getStudentPassword());
+
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            status = rs.next();
+
+        } catch (SQLException e) {
+            // process sql exception
+            printSQLException(e);
+        }
+        return status;
+    }
+
 
 
 

@@ -1,10 +1,15 @@
 package com.example.tmscsc584;
 
-public class Student
+import java.io.Serializable;
+
+public class Student implements Serializable
 {
     public String studentName;
     public String studentPassword;
     public String studentEmail;
+
+    public Student() {
+    }
 
     public Student(String studentName, String studentPassword, String studentEmail) {
         this.studentName = studentName;

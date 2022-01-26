@@ -19,10 +19,10 @@
 		<h2>STUDENT LOGIN</h2>
 			<div class="row">
 				<div class="col-25">
-					<label style="">Student Email</label>
+					<label style="">Student Username</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="studentemail" placeholder="Enter your email" >
+					<input type="text" name="studentusername" placeholder="Enter your username" >
 				</div>
 			</div>
 					<div class="row">
