@@ -44,7 +44,7 @@ public class StudentServlet extends HttpServlet {
                 case "/edit":
                     /*showEditForm(request, response);*/
                     break;
-                case "/update":
+                case "update":
                     updateUser(request, response);
                     break;
                 default:
