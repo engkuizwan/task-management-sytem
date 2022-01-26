@@ -11,7 +11,7 @@
 	<div class="header">
 			<h1>iTASK</h1>
 		</div>
-	<form action="" method="POST">
+	<form action="LecturerServlet" method="POST">
 		<div class="container">
 		<img src="teachIcon.png">
 		<h2>LECTURER LOGIN</h2>
@@ -20,7 +20,7 @@
 					<label style="">Lecturer Name</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="name" placeholder="Enter your name" value="">
+					<input type="text" name="lecturername" placeholder="Enter your name" value="">
 				</div>
 			</div>
 			
@@ -38,7 +38,7 @@
 					<label style="">Lecturer Email</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="email" placeholder="Enter your email" value="">
+					<input type="text" name="lectureremail" placeholder="Enter your email" value="">
 				</div>
 			</div>
 					

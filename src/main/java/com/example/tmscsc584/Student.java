@@ -2,25 +2,17 @@ package com.example.tmscsc584;
 
 public class Student
 {
-    public String studentId;
     public String studentName;
     public String studentPassword;
     public String studentEmail;
 
-    public Student(String studentId, String studentName, String studentPassword, String studentEmail) {
-        this.studentId = studentId;
+    public Student(String studentName, String studentPassword, String studentEmail) {
         this.studentName = studentName;
         this.studentPassword = studentPassword;
         this.studentEmail = studentEmail;
     }
 
-    public String getStudentId() {
-        return studentId;
-    }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
 
     public String getStudentName() {
         return studentName;
@@ -49,7 +41,6 @@ public class Student
     @Override
     public String toString() {
         return "classs{" +
-                "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentPassword='" + studentPassword + '\'' +
                 ", studentEmail='" + studentEmail + '\'' +

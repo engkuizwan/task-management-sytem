@@ -62,13 +62,14 @@
 							<label>*****</label>
 						</div>
 					</div>
-					<button type="submit" class="button button1" name="submit" ><a href="%5BS%5D%20UpdateProfile.htmle.html">Update</a></button>
+					<button type="submit" class="button button1" name="submit" onclick="form.action='Student-updateprofile.jsp'">Update</button>
 					<button type="submit" onclick="myFunction(); return false" class="button button1" name="submit" >Delete</button><br><br>
 					
 					<script type="text/javaScript">
 						function myFunction()
 						{	
 							confirm("Are you sure you want to delete your profile?");
+							form.action="studentdeleteservlet";
 						}
 					</script>
 			</div>

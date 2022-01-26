@@ -32,8 +32,8 @@
 						</div>
 					</div>
 					<p>Don't have an account?</p>
-					<button type="submit" class="button button1" name="submit" ><a href ="Student - viewprofile.jsp">Login</a></button>
-					<button type="submit" class="button2 button1 " name="submit" ><a href ="Student - Signup.jsp">Sign up</a></button><br><br>
+					<button type="submit" class="button button1" name="submit" onclick="form.action='StudentLoginServlet'">Login</button>
+					<button type="submit" class="button2 button1 " name="submit" ><a href ="Student-Signup.jsp">Sign up</a></button><br><br>
 			
 		</div>
 		</form>
