@@ -66,7 +66,7 @@ public class StudentServlet extends HttpServlet {
         String email = request.getParameter("studentemail");
         Student student = new Student(name, password, email);
         sd.signup(student);
-        response.sendRedirect("list");
+        response.sendRedirect("Student-Login.jsp");
     }
 
 
