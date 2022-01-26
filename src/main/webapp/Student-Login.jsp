@@ -12,6 +12,8 @@
 			<h1>iTASK</h1>
 		</div>
 	<form action="" method="POST">
+
+
 		<div class="container">
 			<img src="studIcon.png">
 		<h2>STUDENT LOGIN</h2>
@@ -20,7 +22,7 @@
 					<label style="">Student Email</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="email" placeholder="Enter your email" value="">
+					<input type="text" name="studentemail" placeholder="Enter your email" >
 				</div>
 			</div>
 					<div class="row">
@@ -28,14 +30,15 @@
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<input type="password" name="studentPassword" placeholder="Your email" value="">
+							<input type="password" name="studentpassword" placeholder="Your email" >
+							<input type="hidden" name="action" placeholder="login" >
 						</div>
 					</div>
 					<p>Don't have an account?</p>
-					<button type="submit" class="button button1" name="submit" onclick="form.action='StudentLoginServlet'">Login</button>
+					<button type="submit" class="button button1" name="submit" onclick="form.action='StudentServlet'">Login</button>
 					<button type="submit" class="button2 button1 " name="submit" ><a href ="Student-Signup.jsp">Sign up</a></button><br><br>
 			
 		</div>
 		</form>
-	<body>
+	</body>
 </html>

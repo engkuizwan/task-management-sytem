@@ -35,8 +35,8 @@ public class StudentServlet extends HttpServlet {
                 case "signup":
                     signup(request, response);
                     break;
-                case "/insert":
-                    /*insertUser(request, response);*/
+                case "login":
+                    login(request, response);
                     break;
                 case "/delete":
                     /*deleteUser(request, response);*/
@@ -67,6 +67,26 @@ public class StudentServlet extends HttpServlet {
         Student student = new Student(name, password, email);
         sd.signup(student);
         response.sendRedirect("Student-Login.jsp");
+    }
+
+    private void login(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        PrintWriter out = response.getWriter();
+
+        String name = request.getParameter("studentname");
+        String password = request.getParameter("studentpassword");
+        String email = request.getParameter("studentemail");
+        Student student = new Student(name, password, email);
+        sd.login(student);
+
+        if(student.getStudentName() == null){
+            out.println("User not exist");
+        }else {
+            request.setAttribute("student", student);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Student-viewclass.jsp");
+        }
+
+
     }
 
 

@@ -1,9 +1,9 @@
 package com.example.tmscsc584;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
+import java.sql.*;
+
+import static java.lang.System.out;
 
 public class StudentDao {
 
@@ -38,11 +38,51 @@ public class StudentDao {
             preparedStatement.setString(1, student.getStudentName());
             preparedStatement.setString(2, student.getStudentPassword());
             preparedStatement.setString(3, student.getStudentEmail());
-            System.out.println(preparedStatement);
+            out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         }
+    }
+
+    public Student login (Student student){
+
+        try
+        {
+            Connection connection = getConnection();
+            String sql = "select * from student";
+
+            if (connection != null){
+
+                DatabaseMetaData dm = connection.getMetaData();
+                out.println("Driver name: " + dm.getDriverName());
+                out.println("Driver version: " + dm.getDriverVersion());
+                out.println("Product Name: " + dm.getDatabaseProductName());
+                out.println("Product version: " + dm.getDatabaseProductVersion());
+
+                Statement st = connection.createStatement();
+                ResultSet res = st.executeQuery(sql);
+
+                while (res.next()){
+                    if(student.getStudentName().equals(res.getString("studentname")) && student.getStudentPassword().equals(res.getString("studentpassword")))
+                    {
+                        return student;
+
+                    }else{
+                        Student student1 = new Student(null,null, null);
+                        return student1;
+                    }
+                }
+
+            }
+
+        }catch (SQLException e){
+            printSQLException(e);
+        }
+
+
+
+        return student;
     }
 
 
@@ -55,7 +95,7 @@ public class StudentDao {
                 System.err.println("Message: " + e.getMessage());
                 Throwable t = ex.getCause();
                 while (t != null) {
-                    System.out.println("Cause: " + t);
+                    out.println("Cause: " + t);
                     t = t.getCause();
                 }
             }
