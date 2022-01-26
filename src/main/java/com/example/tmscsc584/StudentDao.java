@@ -45,45 +45,7 @@ public class StudentDao {
         }
     }
 
-    public Student login (Student student){
 
-        try
-        {
-            Connection connection = getConnection();
-            String sql = "select * from student";
-
-            if (connection != null){
-
-                DatabaseMetaData dm = connection.getMetaData();
-                out.println("Driver name: " + dm.getDriverName());
-                out.println("Driver version: " + dm.getDriverVersion());
-                out.println("Product Name: " + dm.getDatabaseProductName());
-                out.println("Product version: " + dm.getDatabaseProductVersion());
-
-                Statement st = connection.createStatement();
-                ResultSet res = st.executeQuery(sql);
-
-                while (res.next()){
-                    if(student.getStudentName().equals(res.getString("studentname")) && student.getStudentPassword().equals(res.getString("studentpassword")))
-                    {
-                        return student;
-
-                    }else{
-                        Student student1 = new Student(null,null, null);
-                        return student1;
-                    }
-                }
-
-            }
-
-        }catch (SQLException e){
-            printSQLException(e);
-        }
-
-
-
-        return student;
-    }
 
 
     private void printSQLException(SQLException ex) {

@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
+import java.sql.*;
 
 @WebServlet(name = "StudentServlet", value = "/StudentServlet")
 public class StudentServlet extends HttpServlet {
@@ -72,22 +72,63 @@ public class StudentServlet extends HttpServlet {
     private void login(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
 
-        String name = request.getParameter("studentname");
         String password = request.getParameter("studentpassword");
         String email = request.getParameter("studentemail");
-        Student student = new Student(name, password, email);
-        sd.login(student);
 
-        if(student.getStudentName() == null){
-            out.println("User not exist");
-        }else {
-            request.setAttribute("student", student);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Student-viewclass.jsp");
+        try {
+
+            Class.forName("org.postgresql.Driver"); // ni stay
+            String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+            String user = "awludfehnzjioi"; //ni user dri heroku database
+            String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            String sql  ="SELECT * from student";
+
+            if (conn != null){
+                DatabaseMetaData dm = conn.getMetaData();
+                System.out.println("Driver name: " + dm.getDriverName());
+                System.out.println("Driver version: " + dm.getDriverVersion());
+                System.out.println("Product Name: " + dm.getDatabaseProductName());
+                System.out.println("Product version: " + dm.getDatabaseProductVersion());
+
+
+                Statement statement = conn.createStatement();
+                ResultSet res = statement.executeQuery(sql);
+
+                while (res.next()){
+                    if(email.equals(res.getString("studentemail")) && password.equals(res.getString("studentpassword")))
+                    {
+                        session.setAttribute("studentid",res.getString(1));
+                        session.setAttribute("studentusername",res.getString(2));
+                        session.setAttribute("studentpassword",res.getString(3));
+                        session.setAttribute("studentemail",res.getString(4));
+
+                        Student student = new Student(res.getString(2), res.getString(2), res.getString(3));
+                        request.setAttribute("student", student);
+
+                        RequestDispatcher rd = request.getRequestDispatcher("Student-viewclass.jsp");
+                        rd.forward(request, response);
+
+                    }else{
+                        out.println("User not exist");
+                    }
+                }
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
         }
 
 
     }
 
 
-}
+
