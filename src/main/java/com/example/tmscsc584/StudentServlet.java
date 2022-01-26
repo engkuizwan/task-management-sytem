@@ -74,25 +74,52 @@ public class StudentServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
 
-        String username = request.getParameter("studentusername");
         String password = request.getParameter("studentpassword");
-        Student student = new Student();
-
-        student.setStudentName(username);
-        student.setStudentPassword(password);
+        String email = request.getParameter("studentemail");
 
         try {
-            if (sd.validate(student)){
-                session.setAttribute("student", student);
-                response.sendRedirect("Student-viewclass.jsp");
-            }else{
-                session.setAttribute("login", student);
-                response.sendRedirect("Student-Login.jsp");
+
+            Class.forName("org.postgresql.Driver"); // ni stay
+            String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+            String user = "awludfehnzjioi"; //ni user dri heroku database
+            String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            String sql  ="SELECT * from student";
+
+            if (conn != null){
+                DatabaseMetaData dm = conn.getMetaData();
+                System.out.println("Driver name: " + dm.getDriverName());
+                System.out.println("Driver version: " + dm.getDriverVersion());
+                System.out.println("Product Name: " + dm.getDatabaseProductName());
+                System.out.println("Product version: " + dm.getDatabaseProductVersion());
+
+
+                Statement statement = conn.createStatement();
+                ResultSet res = statement.executeQuery(sql);
+
+                while (res.next()){
+                    if(email.equals(res.getString("studentemail")) && password.equals(res.getString("studentpassword")))
+                    {
+                        session.setAttribute("studentid",res.getString(1));
+                        Student student = new Student(res.getString(2), res.getString(3), res.getString(4));
+                        request.setAttribute("student", student);
+
+                        RequestDispatcher rd = request.getRequestDispatcher("Student-viewclass.jsp");
+                        rd.forward(request, response);
+
+                    }else{
+                        out.println("User not exist");
+                    }
+                }
             }
+
 
         }catch (Exception e){
             e.printStackTrace();
         }
+
+
 
         }
 
