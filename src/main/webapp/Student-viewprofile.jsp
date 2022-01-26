@@ -20,7 +20,7 @@
 							<label style="" >Student Name</label>
 						</div>
 						<div class="col-75">
-							<label style="">Anir Nur Athirah</label>
+							<label >${student.studentName}</label>
 						</div>
 					</div>
 					<div class="row">
@@ -28,7 +28,7 @@
 							<label style="" >Student Email</label>
 						</div>
 						<div class="col-75">
-							<label style="">anis@gmail.com</label>
+							<label style="">${student.studentEmail}</label>
 						</div>
 					</div>
 						
@@ -37,8 +37,7 @@
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<!--<input type="password" name="lecturerPassword" placeholder="Your email" value=""> -->
-							<label>*****</label>
+							<label>${student.studentPassword}</label>
 						</div>
 					</div>
 					<button type="submit" class="button button1" name="submit" onclick="form.action='Student-updateprofile.jsp'">Update</button>
@@ -53,5 +52,5 @@
 					</script>
 			</div>
 		</form>
-	<body>
+	</body>
 </html>
