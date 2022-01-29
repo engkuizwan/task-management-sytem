@@ -70,7 +70,7 @@ public class LecturerServlet extends HttpServlet {
         lecturer.setLecturerEmail(email);
 
         ld.signup(lecturer);
-        response.sendRedirect("Student-Login.jsp");
+        response.sendRedirect("Lecturer-Login.jsp");
     }
 
 
