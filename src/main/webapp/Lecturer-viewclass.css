@@ -1,0 +1,73 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body{   background:linear-gradient(135deg, #71b7e6, #9b59b6);}
+html
+{
+    height: 100%;
+    line-height: 1.8;
+}
+
+.dropbtn
+{
+    position: absolute;
+    background-color: #6699CC;
+    color: black;
+    margin-top:-193px;
+    margin-left:323px;
+    font-size: 16px;
+    border: none;
+}
+
+
+.dropdown-content
+{
+    position: absolute;
+    margin-top:-193px;
+    margin-left:323px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropdown-content a
+{
+    color: black;
+    text-align: center;
+    padding: 10px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover
+{
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content
+{
+    display: block;
+}
+
+.dropdown:hover .dropbtn
+{
+    background-color: #3e8e41;
+}
+
+h6{					margin-top:-60px;
+
+    padding-top:-500px;
+    padding-left:1300px;
+
+
+}
+
+
+
+.w3-bar .w3-button
+{
+    padding: 16px;
+}

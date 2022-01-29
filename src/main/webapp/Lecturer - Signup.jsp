@@ -29,7 +29,7 @@
 					<label>Password</label>
 				</div>
 				<div class="col-75">
-					<input type="password" name="lecturerPassword" placeholder="Your Password" value="">
+					<input type="password" name="lecturerpassword" placeholder="Your Password" value="">
 				</div>
 			</div>	
 			
@@ -39,10 +39,11 @@
 				</div>
 				<div class="col-75">
 					<input type="text" name="lectureremail" placeholder="Enter your email" value="">
+					<input type="hidden" name="action" value="signup">
 				</div>
 			</div>
 					
-					<button type="submit" class="button button1 " name="submit" ><a href ="Lecturer - Signup.jsp">Sign Up</a></button><br><br>
+					<button type="submit" class="button button1 " name="submit" >Sign Up</button><br><br>
 						
 			
 		</div>
