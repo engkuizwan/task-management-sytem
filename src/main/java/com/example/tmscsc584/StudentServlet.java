@@ -41,9 +41,6 @@ public class StudentServlet extends HttpServlet {
                 case "delete":
                     deleteUser(request, response);
                     break;
-                case "/edit":
-                    /*showEditForm(request, response);*/
-                    break;
                 case "update":
                     updateUser(request, response);
                     break;
