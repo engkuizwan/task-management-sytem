@@ -39,10 +39,10 @@ public class LecturerServlet extends HttpServlet {
                     login(request, response);
                     break;
                 case "delete":
-                    deleteUser(request, response);
+                    /*deleteUser(request, response);*/
                     break;
                 case "update":
-                   updateUser(request, response);
+                   /*updateUser(request, response);*/
                     break;
                 default:
                     /*listUser(request, response);*/
@@ -136,39 +136,7 @@ public class LecturerServlet extends HttpServlet {
 
 
 
-    /*######################################################( UPDATE )#############################################################*/
 
-
-    private void updateUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        HttpSession session = request.getSession();
-        int id = Integer.parseInt(request.getParameter("lecturerid"));
-        String name = request.getParameter("lecturername");
-        String password = request.getParameter("lecturerpassword");
-        String email = request.getParameter("lectureremail");
-        Lecturer lecturer = new Lecturer();
-
-        lecturer.setLecturerId(id);
-        lecturer.setLecturerName(name);
-        lecturer.setLecturerPassword(password);
-        lecturer.setLecturerEmail(email);
-        ld.updateUser(lecturer);
-
-        session.removeAttribute("lecturer");
-        session.setAttribute("lecturer", lecturer);
-        response.sendRedirect("Lecturer - Viewprofile.jsp");
-    }
-
-
-
-    /*######################################################( DELETE )#############################################################*/
-
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("lecturerid"));
-        ld.deleteUser(id);
-        response.sendRedirect("Lecturer - Login.jsp");
-    }
 
 
 
