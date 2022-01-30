@@ -109,10 +109,9 @@ public class LecturerServlet extends HttpServlet {
                 while (res.next()){
                     if(email.equals(res.getString("lectureremail")) && password.equals(res.getString("lecturerpassword")))
                     {
-                        session.setAttribute("lecturerid",res.getString(1));
                         Lecturer lecturer = new Lecturer();
 
-
+                        lecturer.setLecturerId(res.getInt(1));
                         lecturer.setLecturerName(res.getString(2));
                         lecturer.setLecturerEmail(res.getString(3));
                         lecturer.setLecturerPassword(res.getString(4));

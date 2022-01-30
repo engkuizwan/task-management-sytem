@@ -24,7 +24,7 @@
 						</div>
 						<div class="col-75">
 							<label style="">${lecturer.lecturerName}</label>
-							<input type="hidden" name="lecturerid" value="${lecturer.lecturerid}">
+							<input type="hidden" name="lecturerid" value="${lecturer.lecturerId}">
 						</div>
 					</div>
 					<div class="row">
