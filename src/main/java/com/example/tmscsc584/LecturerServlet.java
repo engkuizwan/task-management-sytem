@@ -137,6 +137,7 @@ public class LecturerServlet extends HttpServlet {
 
 
 
+
     /*######################################################( UPDATE )#############################################################*/
 
 
@@ -170,6 +171,11 @@ public class LecturerServlet extends HttpServlet {
         ld.deleteUser(id);
         response.sendRedirect("Lecturer - Login.jsp");
     }
+
+
+
+
+
 
 
 

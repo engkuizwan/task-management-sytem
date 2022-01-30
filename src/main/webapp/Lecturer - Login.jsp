@@ -27,7 +27,7 @@
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<input type="password" name="lecturerPassword" placeholder="Your email">
+							<input type="password" name="lecturerpassword" placeholder="Enter your password">
 							<input type="hidden" name="action" value="login">
 						</div>
 					</div>
