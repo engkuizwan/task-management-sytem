@@ -157,7 +157,7 @@ public class LecturerServlet extends HttpServlet {
 
         session.removeAttribute("lecturer");
         session.setAttribute("lecturer", lecturer);
-        response.sendRedirect("Lecturer - Viewprofile.jsp");
+        response.sendRedirect("Lecturer - ViewProfile.jsp");
     }
 
 
