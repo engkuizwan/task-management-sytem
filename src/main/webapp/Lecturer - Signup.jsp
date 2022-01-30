@@ -20,7 +20,7 @@
 					<label style="">Lecturer Name</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="lecturername" placeholder="Enter your name" value="">
+					<input type="text" name="lecturername" placeholder="Enter your name" >
 				</div>
 			</div>
 			
@@ -29,7 +29,7 @@
 					<label>Password</label>
 				</div>
 				<div class="col-75">
-					<input type="password" name="lecturerpassword" placeholder="Your Password" value="">
+					<input type="password" name="lecturerpassword" placeholder="Your Password">
 				</div>
 			</div>	
 			
@@ -38,7 +38,7 @@
 					<label style="">Lecturer Email</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="lectureremail" placeholder="Enter your email" value="">
+					<input type="text" name="lectureremail" placeholder="Enter your email">
 					<input type="hidden" name="action" value="signup">
 				</div>
 			</div>
@@ -48,5 +48,5 @@
 			
 		</div>
 		</form>
-	<body>
+	</body>
 </html>

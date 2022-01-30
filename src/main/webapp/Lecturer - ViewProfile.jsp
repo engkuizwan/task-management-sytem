@@ -10,28 +10,10 @@
 	</head>
 
 	<body>
-	<!--<div class="header">
-			<h1>iTASK</h1>
-		</div>-->
-		<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">iTASK</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-	
-	  <a href="#class" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-user"></i> PROFILE</a>
-	        <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
 
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+	<%@include file="Lecturer-navbar.html"%>
 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
+
 		<form action="" method="POST">
 			<div class="container">
 				<img src="teachIcon.png">
@@ -41,7 +23,8 @@
 							<label style="" >Lecturer Name</label>
 						</div>
 						<div class="col-75">
-							<label style="">Wan Nur Athirah</label>
+							<label style="">${lecturer.lecturerName}</label>
+							<input type="hidden" name="lecturerid" value="${lecturer.lecturerid}">
 						</div>
 					</div>
 					<div class="row">
@@ -49,7 +32,7 @@
 							<label style="" >Lecturer Email</label>
 						</div>
 						<div class="col-75">
-							<label style="">athirah@gmail.com</label>
+							<label style="">${lecturer.lecturerEmail}</label>
 						</div>
 					</div>
 						
@@ -58,20 +41,15 @@
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<!--<input type="password" name="lecturerPassword" placeholder="Your email" value=""> -->
-							<label>*****</label>
+							<label>${lecturer.lecturerPassword}</label>
+							<input type="hidden" name="action" value="delete">
 						</div>
 					</div>
-					<button type="submit" class="button button1" name="submit" ><a href="%5BL%5D%20UpdateProfile.htmle.html">Update</a></button>
-					<button type="submit" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button><br><br>
+					<button type="submit" class="button button1" name="submit" ><a href="Lecturer%20-%20UpdateProfile.jsp">Update</a></button>
+					<button type="submit" class="button button1" name="submit" formaction="LecturerServlet" onclick="return confirm('Confirm delete your account?');" >Delete</button><br><br>
 					
-					<script type="text/javaScript">
-						function myFunction()
-						{	
-							confirm("Are you sure you want to delete your profile?");
-						}
-					</script>
+
 			</div>
 		</form>
-	<body>
+	</body>
 </html>

@@ -20,23 +20,24 @@
 					<label style="">Lecturer Email</label>
 				</div>
 				<div class="col-75">
-					<input type="text" name="email" placeholder="Enter your email" value="">
+					<input type="text" name="email" placeholder="Enter your email">
 				</div></div>
 					<div class="row">
 						<div class="col-25">
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<input type="password" name="lecturerPassword" placeholder="Your email" value="">
+							<input type="password" name="lecturerPassword" placeholder="Your email">
+							<input type="hidden" name="action" value="login">
 						</div>
 					</div>
 					<p>Don't have an account?</p>
-					<button type="submit" class="button button1" name="submit" ><a href ="Lecturer - ViewProfile.jsp">Login</a></button>
+					<button type="submit" class="button button1" name="submit" onclick="form.action = 'LecturerServlet' ">Login</button>
 					
 					<button type="submit" class="button2 button1 " name="submit" ><a href ="Lecturer - Signup.jsp">Sign up</a></button><br><br>
 						
 			
 		</div>
 		</form>
-	<body>
+	</body>
 </html>

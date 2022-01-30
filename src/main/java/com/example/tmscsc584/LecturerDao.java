@@ -37,11 +37,11 @@ public class LecturerDao {
 
         // try-with-resource statement will auto close the connection.
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into student(studentname, studentpassword, studentemail) values(?,?,?)");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into lecturer(lecturername, lectureremail, lecturerpassword) values(?,?,?)");)
         {
-            preparedStatement.setString(2, lecturer.getLecturerName());
-            preparedStatement.setString(4, lecturer.getLecturerPassword());
-            preparedStatement.setString(3, lecturer.getLecturerEmail());
+            preparedStatement.setString(1, lecturer.getLecturerName());
+            preparedStatement.setString(3, lecturer.getLecturerPassword());
+            preparedStatement.setString(2, lecturer.getLecturerEmail());
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -50,6 +50,33 @@ public class LecturerDao {
     }
 
 
+
+    public boolean updateUser(Lecturer lecturer) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE lecturer set lecturername=?,lectureremail=?,lecturerpassword=? where lecturerid=?");)
+        {
+            statement.setString(1, lecturer.getLecturerName());
+            statement.setString(3, lecturer.getLecturerPassword());
+            statement.setString(2, lecturer.getLecturerEmail());
+            statement.setInt(4, lecturer.getLecturerId());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+
+
+    public boolean deleteUser(int id) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("delete from lecturer where lecturerid=?");) {
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
 
 
 
@@ -68,6 +95,10 @@ public class LecturerDao {
             }
         }
     }
+
+
+
+
 
 
 }

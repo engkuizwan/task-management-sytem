@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Lecturer implements Serializable
 {
-    public String lecturerId;
+    public int lecturerId;
     public String lecturerName;
     public String lecturerEmail;
     public String lecturerPassword;
@@ -12,7 +12,7 @@ public class Lecturer implements Serializable
     public Lecturer() {
     }
 
-    public Lecturer(String lecturerId, String lecturerName, String lecturerEmail, String lecturerPassword) {
+    public Lecturer(int lecturerId, String lecturerName, String lecturerEmail, String lecturerPassword) {
         this.lecturerId = lecturerId;
         this.lecturerName = lecturerName;
         this.lecturerEmail = lecturerEmail;
@@ -20,11 +20,11 @@ public class Lecturer implements Serializable
     }
 
 
-    public String getLecturerId() {
+    public int getLecturerId() {
         return lecturerId;
     }
 
-    public void setLecturerId(String lecturerId) {
+    public void setLecturerId(int lecturerId) {
         this.lecturerId = lecturerId;
     }
 

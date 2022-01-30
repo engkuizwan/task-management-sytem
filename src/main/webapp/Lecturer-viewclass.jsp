@@ -8,117 +8,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="Lecturer-viewclass.css">
 
 
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-
-body{   background:linear-gradient(135deg, #71b7e6, #9b59b6);}
- html
-{
-		height: 100%;
-		line-height: 1.8;
-}
-
-.dropbtn 
-{  
-		position: absolute;
-	    background-color: #6699CC;
-	    color: black;
-	    margin-top:-193px;
-	    margin-left:323px;
-	    font-size: 16px;
-	    border: none;
-}
-
-
-.dropdown-content
- {
-      position: absolute;
-	  margin-top:-193px;
-	  margin-left:323px;
-	  display: none;
-	  position: absolute;
-	  background-color: #f9f9f9;
-	  min-width: 160px;
-	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	  z-index: 1;
-
-}
-
-.dropdown-content a 
-{
-     color: black;
-	 text-align: center;
-     padding: 10px 5px;
-     text-decoration: none;
-     display: block;
-}
-
-.dropdown-content a:hover 
-{
-	background-color: #f1f1f1
-}
-
-.dropdown:hover .dropdown-content 
-{
-	display: block;
-}
-
-.dropdown:hover .dropbtn 
-{
-  background-color: #3e8e41;
-}
-
-h6{					margin-top:-60px;
-
-					padding-top:-500px;
-					padding-left:1300px;
-
-
-}
-
-
-
-.w3-bar .w3-button
-{
-  padding: 16px;
-}
-
-</style>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">iTASK</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-	
-	  <a href="#class" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-user"></i> PROFILE</a>
-	        <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
-
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-</nav>
-
-
+<%@include file="Lecturer-navbar.html"%>
 
 <!-- Team Section -->
 
