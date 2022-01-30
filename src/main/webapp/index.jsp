@@ -14,23 +14,23 @@
 
 
 <div class="column">
+    <a href="Student-Login.jsp">
     <div class="container">
-        <a href="Student-Login.jsp">
             <img src="studIcon.png">
             <h3>STUDENT</h3>
-        </a>
     </div>
+    </a>
 </div>
 
 
 <div class="column">
+    <a href="Lecturer - Login.jsp">
     <div class="container1">
-        <a href="Lecturer - Login.jsp">
             <img src="teachIcon.png">
             </br></br>
             <h3>LECTURER</h3>
-        </a>
     </div>
+    </a>
 </div>
 
 
