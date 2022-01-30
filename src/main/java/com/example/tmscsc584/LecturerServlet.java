@@ -93,7 +93,7 @@ public class LecturerServlet extends HttpServlet {
             String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-            String sql  ="SELECT * from student";
+            String sql  ="SELECT * from lecturer";
 
             if (conn != null){
                 DatabaseMetaData dm = conn.getMetaData();
