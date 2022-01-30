@@ -21,7 +21,7 @@
 							<label style="">Lecturer Name</label>
 						</div>
 						<div class="col-75">
-							<input type="text" name="email"  value="${lecturer.lecturerName}">
+							<input type="text" name="lecturername"  value="${lecturer.lecturerName}">
 							<input type="hidden" name="lecturerid"  value="${lecturer.lecturerId}">
 						</div>
 					</div>
@@ -30,7 +30,7 @@
 							<label style="">Lecturer Email</label>
 						</div>
 						<div class="col-75">
-							<input type="text" name="email" value="${lecturer.lecturerEmail}">
+							<input type="text" name="lectureremail" value="${lecturer.lecturerEmail}">
 						</div>
 					</div>
 						
@@ -39,7 +39,7 @@
 							<label>Password</label>
 						</div>
 						<div class="col-75">
-							<input type="password" name="lecturerPassword" value="${lecturer.lecturerPassword}">
+							<input type="password" name="lecturerpassword" value="${lecturer.lecturerPassword}">
 							<input type="hidden" name="action" value="update">
 						</div>
 					</div>
@@ -49,5 +49,5 @@
 
 			</div>
 		</form>
-	<body>
+	</body>
 </html>
