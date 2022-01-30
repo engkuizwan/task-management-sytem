@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>TASK MANAGEMENT SYSTEM</title>
+	<title>View Profile</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="Lecturer - ViewProfile.css">
 		<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
