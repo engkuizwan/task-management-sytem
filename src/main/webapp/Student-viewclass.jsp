@@ -24,67 +24,39 @@
   <h3 class="w3-center">CLASSES</h3>
 
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+
+      <sql:setDataSource var="con" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
+
+      <sql:query dataSource="${con}" var="lc">
+          <sql:param value="${student.studentId}" />
+      </sql:query>
+
+
+      <c:forEach var="result" items="${lc.rows}">
+
+
+        <c:set var="classid" scope="session" value="${result.classid}"/>
+
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
 	  
 			<img src="java.png" alt="John" style="width:100%">
 				 	
 			  <div class="dropdown">
-			  <button class="dropbtn">...</button>
-			  <div class="dropdown-content">
-				<button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>				
+                  <button class="dropbtn">...</button>
+                  <div class="dropdown-content">
+                    <button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>
+                  </div>
 			  </div>
-			  </div>
-			  
-        <div class="w3-container w3-sand">
-          <h3>CSC584</h3>
-          <p class="w3-opacity">${student.studentName}</p>
-          <p>M3CS2664B</p>
-          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-        </div>
+
+              <div class="w3-container w3-sand">
+                  <h3><c:out value="${result.classsubject}"/></h3>
+                  <p><c:out value="${result.classname}"/></p>
+                  <p><c:out value="${result.classtotalstudent}"/></p>
+                  <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+              </div>
       </div>
     </div>
-	
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="database.png" alt="Jane" style="width:100%">
-			 	
-			  <div class="dropdown">
-			  <button class="dropbtn">...</button>
-			  <div class="dropdown-content">
-			  				<button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>				
-
-			  </div>
-			</div>
-        <div class="w3-container w3-sand">
-          <h3>ICT502</h3>
-          <p class="w3-opacity">NURUL LIYANA HAIRUDDIN</p>
-          <p>M3CS2664B</p>
-          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-        </div>
-      </div>
-    </div>
-	
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="mandarin.png" alt="Mike" style="width:100%">
-			 	
-			  <div class="dropdown">
-			  <button class="dropbtn">...</button>
-			  <div class="dropdown-content">
-			  				<button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>				
-
-			  </div>
-			</div>
-        <div class="w3-container w3-sand">
-          <h3>TMC451</h3>
-          <p class="w3-opacity">NURUL NAJIHAH ISMAIL</p>
-          <p>M3CS2664A/4B</p>
-          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
@@ -107,10 +79,15 @@
   <div class="w3-modal-content" style="padding:32px">
     <div class="w3-container w3-white">
       <i onclick="document.getElementById('delete').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+
       <h2 class="w3-wide">JOIN CLASS</h2>
-      <p>Ask your teacher for the class code, then enter it here.</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
-      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('delete').style.display='none'">Join class</button>
+      <form action="classServlet" method="post">
+          <p>Ask your teacher for the class code, then enter it here.</p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
+          <input type="hidden" name="studentid" value="${student.studentId}">
+          <input type="hidden" name="action" value="create">
+          <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('delete').style.display='none'">Join class</button>
+      </form>
     </div>
   </div>
 </div>
