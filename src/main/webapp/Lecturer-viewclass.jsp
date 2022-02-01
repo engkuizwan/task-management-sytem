@@ -1,3 +1,6 @@
+<%@ page import="java.sql.*" %>
+<%@ page import="com.example.tmscsc584.Lecturer" %>
+<%@ page import="com.example.tmscsc584.Classs" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -26,64 +29,86 @@
 
 
 
-      <sql:setDataSource var="con" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
+      <%
+          Class.forName("org.postgresql.Driver"); // ni stay
+          String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+          String user = "awludfehnzjioi"; //ni user dri heroku database
+          String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+          Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-      <sql:query dataSource="${con}" var="lc">
-          SELECT classid,classname,classsubject from class where lecturerid=?;
-            <sql:param value="${lecturer.lecturerId}" />
-      </sql:query>
+          String sql  ="SELECT * from class";
 
-
-
-             <c:forEach var="result" items="${lc.rows}">
-
-
-                <c:set var="classid" scope="session" value="${result.classid}"/>
-
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-card">
-                        <img src="java.png" alt="John" style="width:100%">
-
-                        <div class="dropdown">
-                            <button class="dropbtn">...</button>
-                            <div class="dropdown-content">
-                                <button class="w3-button w3-block " onclick="document.getElementById('edit').style.display='block'">Edit</button>
-                                <button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>
-
-                            </div>
-                        </div>
-
-                        <div class="w3-container w3-sand">
-                            <h3><c:out value="${result.classsubject}"/></h3>
-                            <p><c:out value="${result.classname}"/></p>
-                            <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-                        </div>
-                    </div>
-                </div>
+          if (conn != null){
+              DatabaseMetaData dm = conn.getMetaData();
+              System.out.println("Driver name: " + dm.getDriverName());
+              System.out.println("Driver version: " + dm.getDriverVersion());
+              System.out.println("Product Name: " + dm.getDatabaseProductName());
+              System.out.println("Product version: " + dm.getDatabaseProductVersion());
 
 
+              Statement statement = conn.createStatement();
+              ResultSet res = statement.executeQuery(sql);
 
-                 <div id="edit" class="w3-modal w3-animate-opacity">
-                     <div class="w3-modal-content" style="padding:32px">
-                         <div class="w3-container w3-white">
-                             <i onclick="document.getElementById('edit').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-                             <h2 class="w3-wide">UPDATE CLASS</h2>
-                             <p>Update your class details here</p>
-                             <form>
-                                 <input type="hidden" name="classid" value="${result.classid}">
-                                 <p><input class="w3-input w3-border" type="text" name="classsubject" value="${result.classsubject}"></p>
-                                 <p><input class="w3-input w3-border" type="text" name="classname" value="${result.classname}"></p>
-                                 <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="${result.classtotalstudent}"></p>
-                                 <input type="hidden" name="action" value="update">
-                                 <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='classServlet'">UPDATE CLASS</button>
-                             </form>
-                         </div>
-                     </div>
-                 </div>
+              while (res.next()){
+
+                      Classs classs = new Classs();
+
+                  classs.setClassId(res.getInt(1));
+                  classs.setClassName(res.getString(2));
+                  classs.setClassSubject(res.getString(3));
+                  classs.setClassTotalstud(res.getInt(4));
+
+      %>
+
+      <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-card">
+              <img src="java.png" alt="John" style="width:100%">
+
+              <div class="dropdown">
+                  <button class="dropbtn">...</button>
+                  <div class="dropdown-content">
+                      <button class="w3-button w3-block " onclick="document.getElementById('edit').style.display='block'">Edit</button>
+                      <button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>
+
+                  </div>
+              </div>
+
+              <div class="w3-container w3-sand">
+                  <h3><%=classs.getClassSubject()%></h3>
+                  <p><%=classs.getClassName()%></p>
+                  <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+              </div>
+          </div>
+      </div>
 
 
-            </c:forEach>
 
+      <div id="edit" class="w3-modal w3-animate-opacity">
+          <div class="w3-modal-content" style="padding:32px">
+              <div class="w3-container w3-white">
+                  <i onclick="document.getElementById('edit').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+                  <h2 class="w3-wide">UPDATE CLASS</h2>
+                  <p>Update your class details here</p>
+                  <form>
+                      <input type="hidden" name="classid" value="<%=classs.getClassId()%>">
+                      <p><input class="w3-input w3-border" type="text" name="classsubject" value="<%=classs.getClassSubject()%>"></p>
+                      <p><input class="w3-input w3-border" type="text" name="classname" value="<%=classs.getClassName()%>"></p>
+                      <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="<%=classs.getClassTotalstud()%>"></p>
+                      <input type="hidden" name="action" value="update">
+                      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='classServlet'">UPDATE CLASS</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+
+
+      <%
+
+
+              }
+          }
+      %>
 
 
 
