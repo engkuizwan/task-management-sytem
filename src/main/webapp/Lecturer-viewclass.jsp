@@ -79,7 +79,7 @@
       <h2 class="w3-wide">CREATE CLASS</h2>
         <form action="classServlet" method="post">
             <p>Enter your class details here</p>
-            <p><input class="w3-input w3-border" type="text" name="classubject" placeholder="Class Subject"></p>
+            <p><input class="w3-input w3-border" type="text" name="classsubject" placeholder="Class Subject"></p>
 	        <p><input class="w3-input w3-border" type="text" name="classname" placeholder="Class Name"></p>
             <p><input class="w3-input w3-border" type="text" name="classtotalstudent" placeholder="Total student"></p>
             <input type="hidden" name="lecturerid" value="${lecturer.lecturerId}">
