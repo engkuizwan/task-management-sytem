@@ -42,7 +42,7 @@ public class ClassServlet extends HttpServlet {
                     /*deleteUser(request, response);*/
                     break;
                 case "update":
-                    /*updateUser(request, response);*/
+                    update(request, response);
                     break;
                 default:
                     /*listUser(request, response);*/
@@ -85,6 +85,31 @@ public class ClassServlet extends HttpServlet {
         session.setAttribute("class", classs);
         response.sendRedirect("Lecturer-viewclass.jsp");
 
+    }
+
+
+
+    /*######################################################( UPDATE )#############################################################*/
+
+
+    private void update(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        HttpSession session = request.getSession();
+        int id = Integer.parseInt(request.getParameter("classid"));
+        String subject = request.getParameter("classsubject");
+        String name = request.getParameter("classname");
+        int total = Integer.parseInt(request.getParameter("classtotalstudent"));
+        Classs classs = new Classs();
+
+        classs.setClassId(id);
+        classs.setClassSubject(subject);
+        classs.setClassName(name);
+        classs.setClassTotalstud(total);
+        cd.update(classs);
+
+        session.removeAttribute("class");
+        session.setAttribute("class", classs);
+        response.sendRedirect("Lecturer - viewclass.jsp");
     }
 
 

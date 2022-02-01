@@ -51,6 +51,23 @@ public class ClassDao {
 
 
 
+    public boolean update(Classs classs) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE class set classname=?,classsubject=?,classtotalstudent=? where classid=?");)
+        {
+            statement.setString(1, classs.getClassName());
+            statement.setString(3, classs.getClassSubject());
+            statement.setInt(2, classs.getClassTotalstud());
+            statement.setInt(4, classs.getClassId());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+
+
 
 
 
