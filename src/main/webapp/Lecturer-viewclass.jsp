@@ -34,7 +34,7 @@
       </sql:query>
 
 
-        <div class="overflow-auto">
+
              <c:forEach var="result" items="${lc.rows}">
 
 
@@ -82,7 +82,7 @@
 
 
             </c:forEach>
-        </div>
+
 
 
 
