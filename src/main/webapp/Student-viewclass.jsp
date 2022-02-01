@@ -21,15 +21,19 @@
 
 <div class="w3-container" style="padding:128px 16px" id="team">
 	<h5><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">JOIN CLASS</button></h5>
-    <h3 class="w3-center">CLASSE</h3>
+    <h3 class="w3-center">CLASSES</h3>
 
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
 
       <sql:setDataSource var="con" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
       <sql:query dataSource="${con}" var="sc">
-
-          <sql:param value="${student.studentId}" />
+          SELECT c.classid,c.classname,c.classsubject
+          from class c
+          join class_student cs
+          on c.classid=cs.classid
+          where studentid=?;
+          <sql:param value="${class_student.studentId}" />
       </sql:query>
 
 
@@ -84,7 +88,7 @@
       <form action="classServlet" method="post">
           <p>Ask your teacher for the class code, then enter it here.</p>
           <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
-          <input type="hidden" name="studentid" value="${student.studentId}">
+          <input type="hidden" name="studentid" value="${class_student.studentId}">
           <input type="hidden" name="action" value="create">
           <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('delete').style.display='none'">Join class</button>
       </form>
