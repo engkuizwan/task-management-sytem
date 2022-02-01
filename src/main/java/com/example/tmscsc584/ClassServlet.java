@@ -69,6 +69,7 @@ public class ClassServlet extends HttpServlet {
         Lecturer lecturer = new Lecturer();
         Classs classs = new Classs();
 
+        lecturer.setLecturerId(lecturerid);
         classs.setClassName(name);
         classs.setClassSubject(subject);
         classs.setClassTotalstud(totalstudent);
