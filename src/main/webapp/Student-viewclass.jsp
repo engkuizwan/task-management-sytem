@@ -84,25 +84,7 @@
         </div>
       </div>
     </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="english.png" alt="Dan" style="width:100%">
-			 	
-			  <div class="dropdown">
-			  <button class="dropbtn">...</button>
-			  <div class="dropdown-content">
-			  				<button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>				
 
-			  </div>
-			</div>
-        <div class="w3-container w3-sand">
-          <h3>ELC550</h3>
-          <p class="w3-opacity">NOR AQILAH NORWAHI</p>
-          <p>M3CS2664B</p>
-          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
