@@ -21,7 +21,7 @@
 
 <div class="w3-container" style="padding:128px 16px" id="team">
 	<h5><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">JOIN CLASS</button></h5>
-    <h3 class="w3-center">CLASSES</h3>
+    <h3 class="w3-center">CLASSE</h3>
 
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
 
