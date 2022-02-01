@@ -78,7 +78,7 @@
                                  <p><input class="w3-input w3-border" type="text" name="classname" value="${result.classname}"></p>
                                  <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="${result.classtotalstudent}"></p>
                                  <input type="hidden" name="action" value="update">
-                                 <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='ClassServlet'">UPDATE CLASS</button>
+                                 <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='classServlet'">UPDATE CLASS</button>
                              </form>
                          </div>
                      </div>
