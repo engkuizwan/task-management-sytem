@@ -33,7 +33,7 @@
           join class_student cs
           on c.classid=cs.classid
           where studentid=?;
-          <sql:param value="${class_student.studentId}" />
+          <sql:param value="${class_student.classId}" />
       </sql:query>
 
 
@@ -88,7 +88,7 @@
       <form action="classServlet" method="post">
           <p>Ask your teacher for the class code, then enter it here.</p>
           <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
-          <input type="hidden" name="studentid" value="${class_student.studentId}">
+          <input type="hidden" name="classid" value="${class_student.classId}">
           <input type="hidden" name="action" value="create">
           <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('delete').style.display='none'">Join class</button>
       </form>
