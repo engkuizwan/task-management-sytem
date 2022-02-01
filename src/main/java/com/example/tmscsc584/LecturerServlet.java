@@ -117,6 +117,7 @@ public class LecturerServlet extends HttpServlet {
                         lecturer.setLecturerPassword(res.getString(4));
 
                         session.setAttribute("lecturer", lecturer);
+                        session.setAttribute("id", res.getInt(1));
 
                         response.sendRedirect("Lecturer-viewclass.jsp");
 
