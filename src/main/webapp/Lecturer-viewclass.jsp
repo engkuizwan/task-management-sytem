@@ -57,6 +57,7 @@
                             <h3><c:out value="${result.classsubject}"/></h3>
                             <p><c:out value="${result.classname}"/></p>
                             <p><c:out value="${result.classtotalstudent}"/></p>
+                            <p><c:out value="${result.classid}"/></p>
                             <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
                         </div>
                     </div>

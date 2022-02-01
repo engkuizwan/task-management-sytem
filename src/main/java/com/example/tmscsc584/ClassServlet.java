@@ -67,7 +67,7 @@ public class ClassServlet extends HttpServlet {
         int lecturerid = Integer.parseInt(request.getParameter("lecturerid"));
         String subject = request.getParameter("classsubject");
         String name = request.getParameter("classname");
-        int totalstudent = Integer.parseInt(request.getParameter("classtotalstudent"));
+        String totalstudent = request.getParameter("classtotalstudent");
         out.println(lecturerid);
         out.println(subject);
         out.println(name);
@@ -98,7 +98,7 @@ public class ClassServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("classid"));
         String subject = request.getParameter("classsubject");
         String name = request.getParameter("classname");
-        int total = Integer.parseInt(request.getParameter("classtotalstudent"));
+        String total = request.getParameter("classtotalstudent");
         Classs classs = new Classs();
 
         classs.setClassId(id);

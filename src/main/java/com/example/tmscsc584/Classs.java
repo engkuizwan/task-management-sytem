@@ -7,7 +7,7 @@ public class Classs implements Serializable
     public int classId;
     public String classSubject;
     public String className;
-    public int classTotalstud;
+    public String classTotalstud;
 
     public Classs() {
     }
@@ -39,11 +39,11 @@ public class Classs implements Serializable
         this.className = className;
     }
 
-    public int getClassTotalstud() {
+    public String getClassTotalstud() {
         return classTotalstud;
     }
 
-    public void setClassTotalstud(int classTotalstud) {
+    public void setClassTotalstud(String classTotalstud) {
         this.classTotalstud = classTotalstud;
     }
 
