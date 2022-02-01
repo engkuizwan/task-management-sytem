@@ -62,10 +62,17 @@ public class ClassServlet extends HttpServlet {
             throws SQLException, IOException {
 
         HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+
         int lecturerid = Integer.parseInt(request.getParameter("lecturerid"));
         String subject = request.getParameter("classsubject");
         String name = request.getParameter("classname");
         int totalstudent = Integer.parseInt(request.getParameter("classtotalstudent"));
+        out.println(lecturerid);
+        out.println(subject);
+        out.println(name);
+        out.println(totalstudent);
+
         Lecturer lecturer = new Lecturer();
         Classs classs = new Classs();
 
