@@ -75,7 +75,7 @@ public class ClassServlet extends HttpServlet {
 
         cd.create(classs,lecturer);
         session.setAttribute("class", classs);
-        response.sendRedirect("Student-Login.jsp");
+
     }
 
 
