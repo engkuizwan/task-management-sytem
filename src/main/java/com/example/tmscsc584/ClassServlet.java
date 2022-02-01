@@ -95,11 +95,14 @@ public class ClassServlet extends HttpServlet {
     private void update(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
         int id = Integer.parseInt(request.getParameter("classid"));
         String subject = request.getParameter("classsubject");
         String name = request.getParameter("classname");
         String total = request.getParameter("classtotalstudent");
         Classs classs = new Classs();
+        out.println(id);
+
 
         classs.setClassId(id);
         classs.setClassSubject(subject);
