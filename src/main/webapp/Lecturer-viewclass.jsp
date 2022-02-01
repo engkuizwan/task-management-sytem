@@ -84,7 +84,7 @@
             <p><input class="w3-input w3-border" type="text" name="classtotalstudent" placeholder="Total student"></p>
             <input type="hidden" name="lecturerid" value="${lecturer.lecturerId}">
             <input type="hidden" name="action" value="create">
-            <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'; form.action='ClassServlet';">CREATE CLASS</button>
+            <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'; form.action='classServlet';">CREATE CLASS</button>
         </form>
     </div>
   </div>
