@@ -1,25 +1,25 @@
 package com.example.tmscsc584;
 
-public class Classs
+import java.io.Serializable;
+
+public class Classs implements Serializable
 {
-    public String classId;
+    public int classId;
     public String classSubject;
     public String className;
-    public String classTotalstud;
+    public int classTotalstud;
 
-    public Classs(String classId, String classSubject, String className, String classTotalstud) {
-        this.classId = classId;
-        this.classSubject = classSubject;
-        this.className = className;
-        this.classTotalstud = classTotalstud;
+    public Classs() {
     }
 
 
-    public String getClassId() {
+
+
+    public int getClassId() {
         return classId;
     }
 
-    public void setClassId(String classId) {
+    public void setClassId(int classId) {
         this.classId = classId;
     }
 
@@ -39,11 +39,11 @@ public class Classs
         this.className = className;
     }
 
-    public String getClassTotalstud() {
+    public int getClassTotalstud() {
         return classTotalstud;
     }
 
-    public void setClassTotalstud(String classTotalstud) {
+    public void setClassTotalstud(int classTotalstud) {
         this.classTotalstud = classTotalstud;
     }
 

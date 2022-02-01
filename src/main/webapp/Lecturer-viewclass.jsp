@@ -77,13 +77,15 @@
     <div class="w3-container w3-white">
       <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
       <h2 class="w3-wide">CREATE CLASS</h2>
-      <p>Enter your class details here</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Class Subject"></p>
-	        <p><input class="w3-input w3-border" type="text" placeholder="Class Name"></p>
-			      <p><input class="w3-input w3-border" type="text" placeholder="Total student"></p>
-
-
-      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">CREATE CLASS</button>
+        <form action="classServlet" method="post">
+            <p>Enter your class details here</p>
+            <p><input class="w3-input w3-border" type="text" name="classubject" placeholder="Class Subject"></p>
+	        <p><input class="w3-input w3-border" type="text" name="classname" placeholder="Class Name"></p>
+            <p><input class="w3-input w3-border" type="text" name="classtotalstudent" placeholder="Total student"></p>
+            <input type="hidden" name="lecturerid" value="${lecturer.lecturerId}">
+            <input type="hidden" name="action" value="create">
+            <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">CREATE CLASS</button>
+        </form>
     </div>
   </div>
 </div>
