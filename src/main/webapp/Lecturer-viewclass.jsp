@@ -56,6 +56,7 @@
                         <div class="w3-container w3-sand">
                             <h3><c:out value="${result.classsubject}"/></h3>
                             <p><c:out value="${result.classname}"/></p>
+                            <p><c:out value="${result.classtotalstudent}"/></p>
                             <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
                         </div>
                     </div>
@@ -69,11 +70,15 @@
                              <i onclick="document.getElementById('edit').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
                              <h2 class="w3-wide">UPDATE CLASS</h2>
                              <p>Update your class details here</p>
-                             <p><input class="w3-input w3-border" type="text" name="classsubject" value="${result.classsubject}"></p>
-                             <p><input class="w3-input w3-border" type="text" name="classname" value="${result.classname}"></p>
-                             <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="${result.classtotalstudent}"></p>
-                             <input type="hidden" name="action" value="update">
-                             <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='ClassServlet'">UPDATE CLASS</button>
+                             <form>
+                                 <input type="hidden" name="action" value="update">
+                                 <input type="hidden" name="classid" value="${result.classid}">
+                                 <p><input class="w3-input w3-border" type="text" name="classsubject" value="${result.classsubject}"></p>
+                                 <p><input class="w3-input w3-border" type="text" name="classname" value="${result.classname}"></p>
+                                 <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="${result.classtotalstudent}"></p>
+                                 <input type="hidden" name="action" value="update">
+                                 <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='ClassServlet'">UPDATE CLASS</button>
+                             </form>
                          </div>
                      </div>
                  </div>
