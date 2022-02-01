@@ -56,8 +56,6 @@
                         <div class="w3-container w3-sand">
                             <h3><c:out value="${result.classsubject}"/></h3>
                             <p><c:out value="${result.classname}"/></p>
-                            <p><c:out value="${result.classtotalstudent}"/></p>
-                            <p><c:out value="${result.classid}"/></p>
                             <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
                         </div>
                     </div>
@@ -72,7 +70,6 @@
                              <h2 class="w3-wide">UPDATE CLASS</h2>
                              <p>Update your class details here</p>
                              <form>
-                                 <input type="hidden" name="action" value="update">
                                  <input type="hidden" name="classid" value="${result.classid}">
                                  <p><input class="w3-input w3-border" type="text" name="classsubject" value="${result.classsubject}"></p>
                                  <p><input class="w3-input w3-border" type="text" name="classname" value="${result.classname}"></p>

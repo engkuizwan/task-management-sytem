@@ -40,7 +40,7 @@ public class ClassDao {
         {
             preparedStatement.setString(1, classs.getClassName());
             preparedStatement.setString(2, classs.getClassSubject());
-            preparedStatement.setString(3, classs.getClassTotalstud());
+            preparedStatement.setInt(3, classs.getClassTotalstud());
             preparedStatement.setInt(4, lecturer.getLecturerId());
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
@@ -58,7 +58,7 @@ public class ClassDao {
         {
             statement.setString(1, classs.getClassName());
             statement.setString(3, classs.getClassSubject());
-            statement.setString(2, classs.getClassTotalstud());
+            statement.setInt(2, classs.getClassTotalstud());
             statement.setInt(4, classs.getClassId());
 
             rowUpdated = statement.executeUpdate() > 0;
