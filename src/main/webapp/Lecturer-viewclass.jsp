@@ -39,34 +39,37 @@
           String id = (String) session.getAttribute("id");
           int lecturerid = Integer.parseInt(session.getAttribute("lecturer.lecturerid").toString());
 
+
+
           try{
+              String sql  ="SELECT * from class where lecturerid=?";
+              PreparedStatement st = conn.prepareStatement(sql);
+              st.setInt(1,lecturerid);
 
-          String sql  ="SELECT * from class where lecturerid=?";
-          PreparedStatement st = conn.prepareStatement(sql);
-          st.setInt(1,lecturerid);}catch (Exception e){
-              e.printStackTrace();
-          }
-
-
-          if (conn != null){
-              DatabaseMetaData dm = conn.getMetaData();
-              System.out.println("Driver name: " + dm.getDriverName());
-              System.out.println("Driver version: " + dm.getDriverVersion());
-              System.out.println("Product Name: " + dm.getDatabaseProductName());
-              System.out.println("Product version: " + dm.getDatabaseProductVersion());
+              if (conn != null){
+                  DatabaseMetaData dm = conn.getMetaData();
+                  System.out.println("Driver name: " + dm.getDriverName());
+                  System.out.println("Driver version: " + dm.getDriverVersion());
+                  System.out.println("Product Name: " + dm.getDatabaseProductName());
+                  System.out.println("Product version: " + dm.getDatabaseProductVersion());
 
 
-              Statement statement = conn.createStatement();
-              ResultSet res = statement.executeQuery(sql);
+                  /*Statement statement = conn.createStatement();*/
+                  ResultSet res = st.executeQuery(sql);
 
-              while (res.next()){
+                  while (res.next()){
 
                       Classs classs = new Classs();
+                      classs.setClassId(res.getInt(1));
+                      classs.setClassName(res.getString(2));
+                      classs.setClassSubject(res.getString(3));
+                      classs.setClassTotalstud(res.getInt(4));
 
-                  classs.setClassId(res.getInt(1));
-                  classs.setClassName(res.getString(2));
-                  classs.setClassSubject(res.getString(3));
-                  classs.setClassTotalstud(res.getInt(4));
+
+
+
+
+
 
       %>
 
@@ -118,6 +121,10 @@
 
 
               }
+          }
+
+          }catch (Exception e){
+              e.printStackTrace();
           }
       %>
 
