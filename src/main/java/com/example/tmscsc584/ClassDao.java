@@ -57,8 +57,8 @@ public class ClassDao {
              PreparedStatement statement = connection.prepareStatement("UPDATE class set classname=?,classsubject=?,classtotalstudent=? where classid=?");)
         {
             statement.setString(1, classs.getClassName());
-            statement.setString(3, classs.getClassSubject());
-            statement.setInt(2, classs.getClassTotalstud());
+            statement.setString(2, classs.getClassSubject());
+            statement.setInt(3, classs.getClassTotalstud());
             statement.setInt(4, classs.getClassId());
 
             rowUpdated = statement.executeUpdate() > 0;
