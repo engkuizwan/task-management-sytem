@@ -102,7 +102,7 @@
 
 
         <div class="button">
-            <input type="submit">
+            <input type="submit" value="update">
         </div>
 
 
