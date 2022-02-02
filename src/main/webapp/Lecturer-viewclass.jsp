@@ -94,7 +94,7 @@
                   <h2 class="w3-wide">UPDATE CLASS</h2>
                   <p>Update your class details here</p>
                   <form>
-                      <input type="hidden" name="classid" value="<%=classs.getClassId()%>">
+                      <p><input class="w3-input w3-border" type="text" name="classid" value="<%=classs.getClassId()%>"></p>
                       <p><input class="w3-input w3-border" type="text" name="classsubject" value="<%=classs.getClassSubject()%>"></p>
                       <p><input class="w3-input w3-border" type="text" name="classname" value="<%=classs.getClassName()%>"></p>
                       <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="<%=classs.getClassTotalstud()%>"></p>
