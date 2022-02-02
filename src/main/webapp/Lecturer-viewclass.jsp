@@ -78,15 +78,17 @@
               <div class="dropdown">
                   <button class="dropbtn">...</button>
                   <div class="dropdown-content">
-                      <button class="w3-button w3-block " ><a href="Lecturer-classupdate.jsp">Edit</a></button>
+                      <button class="w3-button w3-block " onclick="form.action='Lecturer-classupdate.jsp'" >Edit</button>
                       <button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>
 
                   </div>
               </div>
 
               <div class="w3-container w3-sand">
+
                   <h3><%=obj.getClassSubject()%></h3>
                   <p><%=obj.getClassName()%></p>
+                  <input type="text" name="classid" value="<%=obj.getClassId()%>">
                   <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
               </div>
           </div>
