@@ -85,21 +85,19 @@
           </div>
       </div>
 
-
-
       <div id="edit" class="w3-modal w3-animate-opacity">
           <div class="w3-modal-content" style="padding:32px">
               <div class="w3-container w3-white">
                   <i onclick="document.getElementById('edit').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
                   <h2 class="w3-wide">UPDATE CLASS</h2>
                   <p>Update your class details here</p>
-                  <form>
-                      <p><input class="w3-input w3-border" type="text" name="classid" value="<%=classs.getClassId()%>"></p>
+                  <form action="classServlet" method="post">
+                      <input type="hidden" name="classid" value="<%=classs.getClassId()%>">
                       <p><input class="w3-input w3-border" type="text" name="classsubject" value="<%=classs.getClassSubject()%>"></p>
                       <p><input class="w3-input w3-border" type="text" name="classname" value="<%=classs.getClassName()%>"></p>
                       <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="<%=classs.getClassTotalstud()%>"></p>
                       <input type="hidden" name="action" value="update">
-                      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="form.action='classServlet'">UPDATE CLASS</button>
+                      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" >UPDATE CLASS</button>
                   </form>
               </div>
           </div>
