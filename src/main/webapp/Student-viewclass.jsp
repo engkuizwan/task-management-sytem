@@ -28,7 +28,7 @@
       <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
       <sql:query dataSource="${ic}" var="oc">
-          SELECT * from class;
+          SELECT * from classs;
       </sql:query>
 
       <div class="w3-col l3 m6 w3-margin-bottom">
@@ -43,7 +43,7 @@
 			  </div>
 
               <div class="w3-container w3-sand">
-                    <c:forEach> var="result" items="${oc.rows}">
+                    <c:forEach var="result" items="${oc.rows}">
                           <h3><c:out value="${result.classsubject}"/></h3>
                           <p><c:out value="${result.classname}"/></p>
                           <p><c:out value="${result.classtotalstudent}"/></p>
