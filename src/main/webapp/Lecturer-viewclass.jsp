@@ -36,39 +36,32 @@
           String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
           Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-          int lecturerid = 5;
+          if (conn != null){
+              DatabaseMetaData dm = conn.getMetaData();
+              System.out.println("Driver name: " + dm.getDriverName());
+              System.out.println("Driver version: " + dm.getDriverVersion());
+              System.out.println("Product Name: " + dm.getDatabaseProductName());
+              System.out.println("Product version: " + dm.getDatabaseProductVersion());
 
 
+              int lecturerid = 5;
 
-          try{
-              String sql  ="SELECT * from class where lecturerid=5";
-              PreparedStatement st = conn.prepareStatement(sql);
-              /*st.setInt(1,lecturerid);*/
+              try{
 
-              if (conn != null){
-                  DatabaseMetaData dm = conn.getMetaData();
-                  System.out.println("Driver name: " + dm.getDriverName());
-                  System.out.println("Driver version: " + dm.getDriverVersion());
-                  System.out.println("Product Name: " + dm.getDatabaseProductName());
-                  System.out.println("Product version: " + dm.getDatabaseProductVersion());
+              String sql  ="SELECT * from class where lecturerid=?";
+              PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=?");
+              st.setInt(1,lecturerid);
 
+              ResultSet res = st.getResultSet();
 
-                  /*Statement statement = conn.createStatement();*/
-                  ResultSet res = st.executeQuery(sql);
-
-                  while (res.next()){
+              while (res.next()){
 
                       Classs classs = new Classs();
-                      classs.setClassId(res.getInt(1));
-                      classs.setClassName(res.getString(2));
-                      classs.setClassSubject(res.getString(3));
-                      classs.setClassTotalstud(res.getInt(4));
 
-
-
-
-
-
+                  classs.setClassId(res.getInt(1));
+                  classs.setClassName(res.getString(2));
+                  classs.setClassSubject(res.getString(3));
+                  classs.setClassTotalstud(res.getInt(4));
 
       %>
 
@@ -88,7 +81,6 @@
               <div class="w3-container w3-sand">
                   <h3><%=classs.getClassSubject()%></h3>
                   <p><%=classs.getClassName()%></p>
-                  <p><%=lecturerid%></p>
                   <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
               </div>
           </div>
@@ -120,10 +112,9 @@
 
 
               }
-          }
-
-          }catch (Exception e){
-              e.printStackTrace();
+              }catch (Exception e){
+                  e.printStackTrace();
+              }
           }
       %>
 
