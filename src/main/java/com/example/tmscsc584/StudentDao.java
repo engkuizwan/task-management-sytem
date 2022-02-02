@@ -75,6 +75,21 @@ public class StudentDao {
         return rowDeleted;
     }
 
+    public void joinclass(Student student, Classs classs)throws SQLException{
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into class_student(classid, studentid) values(?,?)");)
+        {
+            preparedStatement.setInt(1, classs.getClassId());
+            preparedStatement.setInt(2, student.getStudentId());
+            out.println(preparedStatement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+    }
+
 
 
 

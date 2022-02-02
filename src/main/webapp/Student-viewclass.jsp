@@ -73,20 +73,29 @@
 
       <div class="w3-col l3 m6 w3-margin-bottom">
           <div class="w3-card">
+
+
               <img src="java.png" alt="John" style="width:100%">
 
-			  <div class="dropdown">
-                  <button class="dropbtn">...</button>
-                  <div class="dropdown-content">
-                    <button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>
-                  </div>
-			  </div>
 
               <div class="w3-container w3-sand">
-                          <h3><%=obj.getClassSubject()%></h3>
-                          <p><%=obj.getClassName()%></p>
-                          <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+
+                  <form>
+                      <h3><%=obj.getClassSubject()%></h3>
+                      <p><%=obj.getClassName()%></p>
+                      <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
+                      <input type="hidden" name="action" value="quitclass">
+                      <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+                      <p><button type="submit" formaction="StudentServlet"
+                                 onclick="return confirm('Confirm quit Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">
+                          <img src="delete.png" style="width:10%">
+                      </button></p>
+                  </form>
+
               </div>
+
+
+
          </div>
         </div>
 
@@ -120,9 +129,10 @@
 
             <p>Ask your teacher for the class code, then enter it here.</p>
             <p><input class="w3-input w3-border" type="text" name="classid" placeholder="Enter class code"></p>
-            <input type="text" name="studentid" value="<%=studentid%>">
+            <input type="hidden" name="studentid" value="<%=studentid%>">
             <input type="hidden" name="action" value="joinclass">
             <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Join class</button>
+
 
         </form>
     </div>

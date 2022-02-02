@@ -44,6 +44,10 @@ public class StudentServlet extends HttpServlet {
                 case "update":
                     updateUser(request, response);
                     break;
+                case "joinclass":
+                    joinclass(request, response);
+                case "quitclass":
+                    /*quitclass(request,response);*/
                 default:
                     /*listUser(request, response);*/
                     break;
@@ -165,6 +169,26 @@ public class StudentServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("studentid"));
         sd.deleteUser(id);
         response.sendRedirect("Student-Login.jsp");
+    }
+
+
+
+    /*######################################################( JOIN CLASS )#############################################################*/
+
+    private void joinclass(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+
+        int studentid = Integer.parseInt(request.getParameter("studentid"));
+        int classid = Integer.parseInt(request.getParameter("classid"));
+        Student student = new Student();
+        Classs classs = new Classs();
+
+        student.setStudentId(studentid);
+        classs.setClassId(classid);
+
+        sd.joinclass(student,classs);
+        response.sendRedirect("Student-viewclass.jsp");
+
     }
 
 
