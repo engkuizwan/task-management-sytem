@@ -23,16 +23,8 @@ public class ClassServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
-
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println(request.getParameter("classid"));
-        out.println(request.getParameter("classname"));
-        out.println(request.getParameter("classsubject"));
-        out.println(request.getParameter("classtotalstudent"));
 
         String action = request.getParameter("action");
 
@@ -91,8 +83,6 @@ public class ClassServlet extends HttpServlet {
 
     private void update(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
 
         int id = Integer.parseInt(request.getParameter("classid"));
         String subject = request.getParameter("classsubject");
@@ -105,15 +95,7 @@ public class ClassServlet extends HttpServlet {
         classs.setClassName(name);
         classs.setClassTotalstud(total);
 
-        out.println(classs.getClassId());
-        out.println(classs.getClassName());
-        out.println(classs.getClassSubject());
-        out.println(classs.getClassTotalstud());
-
         cd.update(classs);
-
-        session.removeAttribute("class");
-        session.setAttribute("class", classs);
         response.sendRedirect("Lecturer - viewclass.jsp");
     }
 
