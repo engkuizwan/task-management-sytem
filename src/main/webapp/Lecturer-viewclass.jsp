@@ -92,7 +92,7 @@
                   <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
                   <input type="hidden" name="action" value="update">
                   <p><button type="submit" formaction="viewtask" class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-                  <button type="submit" formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%; height:10%; padding-bottom: 10%;"></button>
+                  <button type="submit" formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%; height:10%; margin-bottom: 10%;"></button>
                   </form>
               </div>
           </div>
