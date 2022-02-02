@@ -82,6 +82,7 @@
 <div class="container">
     <div class="title">Update Class</div>
     <form action="classServlet" method="post">
+        <input type="hidden" name="classid" value="<%=id%>">
 
         <div class="taskdetails" >
             <div class="input-box">
