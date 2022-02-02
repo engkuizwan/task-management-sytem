@@ -96,7 +96,7 @@ public class ClassServlet extends HttpServlet {
         classs.setClassTotalstud(total);
 
         cd.update(classs);
-        response.sendRedirect("Lecturer - viewclass.jsp");
+        response.sendRedirect("Lecturer-viewclass.jsp");
     }
 
 
