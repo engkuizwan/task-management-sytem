@@ -80,6 +80,7 @@
               <div class="w3-container w3-sand">
                   <h3><%=classs.getClassSubject()%></h3>
                   <p><%=classs.getClassName()%></p>
+                   <p><%=classs.getClassId()%></p>
                   <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
               </div>
           </div>
