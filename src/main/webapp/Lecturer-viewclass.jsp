@@ -44,7 +44,7 @@
               System.out.println("Product version: " + dm.getDatabaseProductVersion());
 
 
-              Integer lecturerid = (Integer) session.getAttribute("lecturer.lecturerId");
+              int lecturerid = (int) session.getAttribute("lecturer.lecturerId");
 
               try{
 
