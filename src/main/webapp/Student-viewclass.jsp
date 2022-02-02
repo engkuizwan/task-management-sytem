@@ -1,3 +1,6 @@
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="com.example.tmscsc584.Classs" %>
 <!DOCTYPE html>
 <html>
 <title>List Class</title>
@@ -25,11 +28,46 @@
 
   <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
 
-      <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
-      <sql:query dataSource="${ic}" var="oc">
+      <%
+          Class.forName("org.postgresql.Driver"); // ni stay
+          String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+          String user = "awludfehnzjioi"; //ni user dri heroku database
+          String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+          Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-      </sql:query>
+          if (conn != null){
+              DatabaseMetaData dm = conn.getMetaData();
+              System.out.println("Driver name: " + dm.getDriverName());
+              System.out.println("Driver version: " + dm.getDriverVersion());
+              System.out.println("Product Name: " + dm.getDatabaseProductName());
+              System.out.println("Product version: " + dm.getDatabaseProductVersion());
+
+
+              int studentid = (Integer) session.getAttribute("id");
+
+              try{
+
+                  PreparedStatement st = conn.prepareStatement("SELECT class_student.classid, class.classid, class.classname, class.classsubject from class_student full join class ON  class_student.classid = class.classid where class_student.studentid=?;");
+                  st.setInt(1,studentid);
+                  ResultSet res = st.executeQuery();
+                  LinkedList listclass = new LinkedList();
+
+                  int count=0;
+
+                  while (res.next()){
+
+                      Classs classs = new Classs();
+
+                      classs.setClassId(res.getInt(2));
+                      classs.setClassName(res.getString(3));
+                      classs.setClassSubject(res.getString(4));
+                      listclass.add(classs);
+                      Classs obj = (Classs) listclass.get(count);
+
+      %>
+
+
 
       <div class="w3-col l3 m6 w3-margin-bottom">
           <div class="w3-card">
@@ -43,14 +81,27 @@
 			  </div>
 
               <div class="w3-container w3-sand">
-                    <c:forEach var="result" items="${oc.rows}">
-                          <h3><c:out value="${result.classsubject}"/></h3>
-                          <p><c:out value="${result.classname}"/></p>
+                          <h3><%=obj.getClassSubject()%></h3>
+                          <p><%=obj.getClassName()%></p>
                           <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
-                    </c:forEach>
               </div>
          </div>
         </div>
+
+
+      <%
+
+                      count++;
+                  }
+              }catch (Exception e){
+                  e.printStackTrace();
+              }
+          }
+      %>
+
+
+
+
   </div>
 </div>
 
@@ -66,8 +117,10 @@
       <p>Ask your teacher for the class code, then enter it here.</p>
       <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
       <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Join class</button>
+            </form>
     </div>
   </div>
+</div>
 
 
 <script type="text/javaScript">

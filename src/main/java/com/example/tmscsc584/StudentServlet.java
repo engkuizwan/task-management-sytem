@@ -117,6 +117,7 @@ public class StudentServlet extends HttpServlet {
                                 student.setStudentEmail(res.getString(4));
 
                         session.setAttribute("student", student);
+                        session.setAttribute("id", res.getInt(1));
 
                         response.sendRedirect("Student-viewclass.jsp");
 
