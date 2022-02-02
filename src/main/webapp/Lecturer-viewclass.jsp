@@ -44,12 +44,12 @@
               System.out.println("Product version: " + dm.getDatabaseProductVersion());
 
 
-              int lecturerid = 5;
+              int lecturerid = Integer.parseInt(session.getAttribute("lecturer.lecturerId").toString());
 
               try{
 
-              PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=5");
-              /*st.setInt(1,lecturerid);*/
+              PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=?");
+              st.setInt(1,lecturerid);
 
               ResultSet res = st.executeQuery();
 
