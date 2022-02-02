@@ -67,6 +67,17 @@ public class ClassDao {
     }
 
 
+    public boolean delete(int id) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("delete from class where classid=?");) {
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+
+
 
 
 
