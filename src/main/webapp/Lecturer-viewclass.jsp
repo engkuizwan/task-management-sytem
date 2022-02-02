@@ -1,6 +1,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.example.tmscsc584.Lecturer" %>
 <%@ page import="com.example.tmscsc584.Classs" %>
+<%@ page import="java.util.LinkedList" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -53,6 +54,10 @@
 
               ResultSet res = st.executeQuery();
 
+                  LinkedList listclass = new LinkedList();
+
+                  int count=0;
+
               while (res.next()){
 
                       Classs classs = new Classs();
@@ -61,6 +66,8 @@
                   classs.setClassName(res.getString(2));
                   classs.setClassSubject(res.getString(3));
                   classs.setClassTotalstud(res.getInt(4));
+                  listclass.add(classs);
+                  Classs obj = (Classs) listclass.get(count);
 
       %>
 
@@ -92,10 +99,10 @@
                   <h2 class="w3-wide">UPDATE CLASS</h2>
                   <p>Update your class details here</p>
                   <form action="classServlet" method="post">
-                      <input type="hidden" name="classid" value="<%=classs.getClassId()%>">
-                      <p><input class="w3-input w3-border" type="text" name="classsubject" value="<%=classs.getClassSubject()%>"></p>
-                      <p><input class="w3-input w3-border" type="text" name="classname" value="<%=classs.getClassName()%>"></p>
-                      <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="<%=classs.getClassTotalstud()%>"></p>
+                      <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
+                      <p><input class="w3-input w3-border" type="text" name="classsubject" value="<%=obj.getClassSubject()%>"></p>
+                      <p><input class="w3-input w3-border" type="text" name="classname" value="<%=obj.getClassName()%>"></p>
+                      <p><input class="w3-input w3-border" type="text" name="classtotalstudent" value="<%=obj.getClassTotalstud()%>"></p>
                       <input type="hidden" name="action" value="update">
                       <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" >UPDATE CLASS</button>
                   </form>
@@ -107,7 +114,7 @@
 
       <%
 
-
+            count++;
               }
               }catch (Exception e){
                   e.printStackTrace();
