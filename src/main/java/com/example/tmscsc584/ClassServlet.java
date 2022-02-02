@@ -25,8 +25,14 @@ public class ClassServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
+
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        out.println(request.getParameter("classid"));
+        out.println(request.getParameter("classname"));
+        out.println(request.getParameter("classsubject"));
+        out.println(request.getParameter("classtotalstudent"));
 
         String action = request.getParameter("action");
 
@@ -35,17 +41,8 @@ public class ClassServlet extends HttpServlet {
                 case "create":
                     create(request, response);
                     break;
-                case "login":
-                    /*login(request, response);*/
-                    break;
-                case "delete":
-                    /*deleteUser(request, response);*/
-                    break;
                 case "update":
                     update(request, response);
-                    break;
-                default:
-                    /*listUser(request, response);*/
                     break;
             }
         } catch (Exception ex) {
