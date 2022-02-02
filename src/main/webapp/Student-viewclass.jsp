@@ -36,6 +36,8 @@
           String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
           Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
+          int studentid = (Integer) session.getAttribute("id");
+
           if (conn != null){
               DatabaseMetaData dm = conn.getMetaData();
               System.out.println("Driver name: " + dm.getDriverName());
@@ -44,7 +46,7 @@
               System.out.println("Product version: " + dm.getDatabaseProductVersion());
 
 
-              int studentid = (Integer) session.getAttribute("id");
+
 
               try{
 
@@ -111,13 +113,18 @@
   <div class="w3-modal-content" style="padding:32px">
     <div class="w3-container w3-white">
       <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-            <form action="classServlet" method="post">
+
             <h2 class="w3-wide">JOIN CLASS</h2>
 
-      <p>Ask your teacher for the class code, then enter it here.</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
-      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Join class</button>
-            </form>
+        <form action="StudentServlet" method="post">
+
+            <p>Ask your teacher for the class code, then enter it here.</p>
+            <p><input class="w3-input w3-border" type="text" name="classid" placeholder="Enter class code"></p>
+            <input type="text" name="studentid" value="<%=studentid%>">
+            <input type="hidden" name="action" value="joinclass">
+            <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Join class</button>
+
+        </form>
     </div>
   </div>
 </div>
