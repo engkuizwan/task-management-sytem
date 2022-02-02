@@ -36,11 +36,16 @@
           String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
           Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-          int lecturerid = Integer.parseInt(session.getAttribute("id").toString());
+          String id = (String) session.getAttribute("id");
+          int lecturerid = Integer.parseInt(session.getAttribute("lecturer.lecturerid").toString());
 
-          String sql  ="SELECT * from class where lecturerid=5";
-          /*PreparedStatement st = conn.prepareStatement(sql);
-          st.setInt(1,lecturerid);*/
+          try{
+
+          String sql  ="SELECT * from class where lecturerid=?";
+          PreparedStatement st = conn.prepareStatement(sql);
+          st.setInt(1,lecturerid);}catch (Exception e){
+              e.printStackTrace();
+          }
 
 
           if (conn != null){
@@ -81,6 +86,7 @@
               <div class="w3-container w3-sand">
                   <h3><%=classs.getClassSubject()%></h3>
                   <p><%=classs.getClassName()%></p>
+                  <p><%=lecturerid%></p>
                   <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
               </div>
           </div>
