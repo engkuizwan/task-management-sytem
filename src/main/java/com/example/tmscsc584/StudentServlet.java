@@ -196,7 +196,11 @@ public class StudentServlet extends HttpServlet {
     private void quitclass(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("classid"));
-        sd.quitclass(id);
+        Classs classs = new Classs();
+
+
+        classs.setClassId(id);
+        sd.quitclass(classs);
         response.sendRedirect("Student-viewclass.jsp");
     }
 

@@ -91,11 +91,11 @@ public class StudentDao {
     }
 
 
-    public boolean quitclass(int id) throws SQLException {
+    public boolean quitclass(Classs classs) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement("delete from class_student where classid=?");) {
-            statement.setInt(1, id);
+            statement.setInt(1, classs.getClassId());
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
