@@ -105,32 +105,15 @@
     <div class="w3-container w3-white">
       <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
       <h2 class="w3-wide">JOIN CLASS</h2>
-      <p>Ask your teacher for the class code, then enter it here.</p>
+        <form action="classServlet" method="post">
+
+        <p>Ask your teacher for the class code, then enter it here.</p>
       <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
         <input type="hidden" name="lecturerid" value="${lecturer.lecturerId}">
         <input type="hidden" name="action" value="create">
       <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Join class</button>
     </div>
   </div>
-
-
-<!-- Delete Modal -->
-<div id="delete" class="w3-modal w3-animate-opacity">
-  <div class="w3-modal-content" style="padding:32px">
-    <div class="w3-container w3-white">
-      <i onclick="document.getElementById('delete').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-
-      <h2 class="w3-wide">JOIN CLASS</h2>
-      <form action="classServlet" method="post">
-          <p>Ask your teacher for the class code, then enter it here.</p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
-          <input type="hidden" name="classid" value="${class_student.classId}">
-          <input type="hidden" name="action" value="create">
-          <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('delete').style.display='none'">Join class</button>
-      </form>
-    </div>
-  </div>
-</div>
 
 <script type="text/javaScript">
 						function myFunction()
