@@ -48,9 +48,8 @@
 
               try{
 
-              String sql  ="SELECT * from class where lecturerid=?";
-              PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=?");
-              st.setInt(1,lecturerid);
+              PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=5");
+              /*st.setInt(1,lecturerid);*/
 
               ResultSet res = st.getResultSet();
 
