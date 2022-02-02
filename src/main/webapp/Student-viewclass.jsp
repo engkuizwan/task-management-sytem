@@ -55,8 +55,7 @@
       <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
             <form action="classServlet" method="post">
             <h2 class="w3-wide">JOIN CLASS</h2>
-            <input type="hidden" name="lecturerid" value="${lecturer.lecturerId}">
-            <input type="hidden" name="action" value="create">
+            <input type="hidden" name="classid" value="${classs.classId}">
       <p>Ask your teacher for the class code, then enter it here.</p>
       <p><input class="w3-input w3-border" type="text" placeholder="Enter class code"></p>
       <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Join class</button>
