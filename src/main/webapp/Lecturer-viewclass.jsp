@@ -51,7 +51,7 @@
               PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=5");
               /*st.setInt(1,lecturerid);*/
 
-              ResultSet res = st.getResultSet();
+              ResultSet res = st.executeQuery();
 
               while (res.next()){
 
