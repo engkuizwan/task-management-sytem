@@ -75,21 +75,24 @@
           <div class="w3-card">
               <img src="java.png" alt="John" style="width:100%">
 
-              <div class="dropdown">
+              <%--<div class="dropdown">
                   <button class="dropbtn">...</button>
                   <div class="dropdown-content">
                       <button class="w3-button w3-block " onclick="form.action='Lecturer-classupdate.jsp'" >Edit</button>
                       <button type="submit" class="w3-button w3-block" onclick="myFunction(); return false" class="button button1" name="submit"  >Delete</button>
 
                   </div>
-              </div>
+              </div>--%>
 
               <div class="w3-container w3-sand">
-
+                  <form>
                   <h3><%=obj.getClassSubject()%></h3>
                   <p><%=obj.getClassName()%></p>
-                  <input type="text" name="classid" value="<%=obj.getClassId()%>">
-                  <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+                  <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
+                  <input type="hidden" name="action" value="update">
+                  <p><button type="submit" formaction="viewtask" class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
+                  <p><button type="submit" formaction="Lecturer-classupdate.jsp"><i class="uil uil-edit"></i></button></p>
+                  </form>
               </div>
           </div>
       </div>
