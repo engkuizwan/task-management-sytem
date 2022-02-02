@@ -41,9 +41,9 @@
 
 
           try{
-              String sql  ="SELECT * from class where lecturerid=?";
+              String sql  ="SELECT * from class where lecturerid=5";
               PreparedStatement st = conn.prepareStatement(sql);
-              st.setInt(1,lecturerid);
+              /*st.setInt(1,lecturerid);*/
 
               if (conn != null){
                   DatabaseMetaData dm = conn.getMetaData();
