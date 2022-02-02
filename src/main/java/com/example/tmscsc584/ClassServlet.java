@@ -108,7 +108,9 @@ public class ClassServlet extends HttpServlet {
     private void delete(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("classid"));
-        cd.delete(id);
+        Classs classs = new Classs();
+        classs.setClassId(id);
+        cd.delete(classs);
         response.sendRedirect("Lecturer-viewclass.jsp");
     }
 

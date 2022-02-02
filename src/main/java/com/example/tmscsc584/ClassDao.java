@@ -67,11 +67,11 @@ public class ClassDao {
     }
 
 
-    public boolean delete(int id) throws SQLException {
+    public boolean delete(Classs classs) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement("delete from class where classid=?");) {
-            statement.setInt(1, id);
+            statement.setInt(1, classs.getClassId());
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
