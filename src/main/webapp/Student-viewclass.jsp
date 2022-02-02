@@ -80,11 +80,13 @@
 
               <div class="w3-container w3-sand">
 
-                  <form>
                       <h3><%=obj.getClassSubject()%></h3>
                       <p><%=obj.getClassName()%></p>
+
+                  <form>
                       <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
                       <input type="hidden" name="action" value="quitclass">
+
                       <p><button class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
                       <p><button type="submit" formaction="StudentServlet"
                                  onclick="return confirm('Confirm quit Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">

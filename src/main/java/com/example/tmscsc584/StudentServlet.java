@@ -47,7 +47,7 @@ public class StudentServlet extends HttpServlet {
                 case "joinclass":
                     joinclass(request, response);
                 case "quitclass":
-                    /*quitclass(request,response);*/
+                    quitclass(request,response);
                 default:
                     /*listUser(request, response);*/
                     break;
@@ -189,6 +189,15 @@ public class StudentServlet extends HttpServlet {
         sd.joinclass(student,classs);
         response.sendRedirect("Student-viewclass.jsp");
 
+    }
+
+    /*######################################################( QUIT CLASS )#############################################################*/
+
+    private void quitclass(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("classid"));
+        sd.quitclass(id);
+        response.sendRedirect("Student-viewclass.jsp");
     }
 
 

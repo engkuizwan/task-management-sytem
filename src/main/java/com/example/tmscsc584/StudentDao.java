@@ -91,6 +91,17 @@ public class StudentDao {
     }
 
 
+    public boolean quitclass(int id) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("delete from class_student where classid=?");) {
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+
+
 
 
     private void printSQLException(SQLException ex) {
