@@ -38,7 +38,7 @@
 
           int lecturerid = Integer.parseInt(session.getAttribute("id").toString());
 
-          String sql  ="SELECT * from class where lecturerid=?";
+          String sql  ="SELECT * from class where lecturerid=5";
           PreparedStatement st = conn.prepareStatement(sql);
           st.setInt(1,lecturerid);
 
