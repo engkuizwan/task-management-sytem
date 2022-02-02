@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 <!DOCTYPE html>
 
 <html>
@@ -40,7 +44,38 @@
     </div>
 </div>
 
+<%
 
+    Class.forName("org.postgresql.Driver"); // ni stay
+    String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+    String user = "awludfehnzjioi"; //ni user dri heroku database
+    String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+    Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+    int id = Integer.parseInt(request.getParameter("classid"));
+    String name= null, subject=null;
+    int total = 0;
+
+    try {
+
+        PreparedStatement st = conn.prepareStatement("SELECT * from class where classid=?");
+        st.setInt(1, id);
+
+        ResultSet res = st.executeQuery();
+
+        while(res.next()){
+
+            name = res.getString(2);
+            subject = res.getString(3);
+            total = res.getInt(4);
+
+        }
+
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+
+%>
 
 
 <!--form-->
@@ -51,23 +86,23 @@
         <div class="taskdetails" >
             <div class="input-box">
                 <span class="details">Class Name</span>
-                <input type="text" name="classname" value="" required>
+                <input type="text" name="classname" value="<%= name %>" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Subject</span>
-                <input type="text" name="classsubject" value="" required>
+                <input type="text" name="classsubject" value="<%= subject %>" required>
             </div>
             <div class="input-box">
                 <span class="details">Total Student</span>
-                <input type="text" name="classtotalstudent" value="" required>
+                <input type="text" name="classtotalstudent" value="<%= total %>" required>
             </div>
         </div>
             <input type="hidden" name="action" value="update">
 
 
         <div class="button">
-            <input type="submit" value="update">
+            <input type="submit">
         </div>
 
 
