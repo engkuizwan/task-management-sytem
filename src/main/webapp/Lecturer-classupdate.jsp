@@ -51,16 +51,16 @@
         <div class="taskdetails" >
             <div class="input-box">
                 <span class="details">Class Name</span>
-                <input type="text" name="classname" value="${class.className}" required>
+                <input type="text" name="classname" value="" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Subject</span>
-                <input type="text" name="classsubject" value="${class.classSubject}" required>
+                <input type="text" name="classsubject" value="" required>
             </div>
             <div class="input-box">
                 <span class="details">Total Student</span>
-                <input type="text" name="classtotalstudent" value="${class.classTotalStudent}" required>
+                <input type="text" name="classtotalstudent" value="" required>
             </div>
         </div>
             <input type="hidden" name="action" value="update">
