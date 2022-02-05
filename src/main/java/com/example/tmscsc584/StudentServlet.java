@@ -200,8 +200,10 @@ public class StudentServlet extends HttpServlet {
 
 
         classs.setClassId(id);
+        try{
         sd.quitclass(classs);
         response.sendRedirect("Student-viewclass.jsp");
+        request.getRequestDispatcher("Student-viewclass.jsp").forward(request,response);}catch (Exception e){e.printStackTrace();}
 
     }
 
