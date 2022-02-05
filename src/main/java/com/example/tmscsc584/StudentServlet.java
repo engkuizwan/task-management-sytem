@@ -47,7 +47,7 @@ public class StudentServlet extends HttpServlet {
                 case "joinclass":
                     joinclass(request, response);
                 case "quitclass":
-                    /*quitclass(request,response);*/
+                    quitclass(request,response);
                 default:
                     /*listUser(request, response);*/
                     break;
