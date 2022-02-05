@@ -39,7 +39,7 @@ public class TaskServlet extends HttpServlet {
                     /*deleteUser(request, response);*/
                     break;
                 case "update":
-                    /*updateUser(request, response);*/
+                    update(request, response);
 
             }
         } catch (SQLException ex) {
@@ -72,6 +72,31 @@ public class TaskServlet extends HttpServlet {
         classs.setClassId(id);
 
         td.create(task, classs);
+        response.sendRedirect("Lecturer-viewclass.jsp");
+    }
+
+
+    /*######################################################( UPDATE )#############################################################*/
+
+
+    private void update(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        HttpSession session = request.getSession();
+        int id = Integer.parseInt(request.getParameter("taskid"));
+        String name = request.getParameter("taskname");
+        String type = request.getParameter("tasktype");
+        String desc = request.getParameter("taskdescription");
+        Date duedate = Date.valueOf(request.getParameter("taskduedate"));
+        Task task = new Task();
+
+        task.setTaskName(name);
+        task.setTaskType(type);
+        task.setTaskDesc(desc);
+        task.setTaskDueDate(duedate);
+        task.setTaskId(id);
+
+        td.update(task);
+
         response.sendRedirect("Lecturer-viewclass.jsp");
     }
 

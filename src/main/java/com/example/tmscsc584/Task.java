@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Task implements Serializable
 {
-    public String taskId;
+    public int taskId;
     public String taskName;
     public String taskType;
     public Date taskDueDate;
@@ -14,11 +14,11 @@ public class Task implements Serializable
     public String taskMarks;
     public String taskStatus;
 
-    public String getTaskId() {
+    public int getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(String taskId) {
+    public void setTaskId(int taskId) {
         this.taskId = taskId;
     }
 

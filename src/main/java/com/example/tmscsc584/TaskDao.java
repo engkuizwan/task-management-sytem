@@ -55,6 +55,26 @@ public class TaskDao {
 
 
 
+    public boolean update(Task task) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE task set taskname=?,tasktype=?,taskduedate=?, taskdescription=? where taskid=?");)
+        {
+            statement.setString(1, task.getTaskName());
+            statement.setString(2, task.getTaskType());
+            statement.setDate(3, task.getTaskDueDate());
+            statement.setString(4, task.getTaskDesc());
+            statement.setInt(5, task.getTaskId());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+
+
+
+
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {

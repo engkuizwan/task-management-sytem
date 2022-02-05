@@ -40,46 +40,44 @@
     </div>
 </div>
 
-
+<%
+   int taskid = 3;
+    /*int taskid = Integer.parseInt(request.getParameter("taskid"));*/
+%>
 
 
 <!--form-->
 <div class="container">
-    <div class="title">Update Task</div>
-    <form action="#">
+    <div class="title">Add Task</div>
+    <form action="TaskServlet" method="post">
+
+        <input type="hidden" name="taskid" value="<%=taskid%>">
 
         <div class="taskdetails" >
             <div class="input-box">
                 <span class="details">Task Name</span>
-                <input type="text" placeholder="Enter task name" required>
+                <input type="text" name="taskname" value="" required>
             </div>
 
             <div class="input-box">
-                <span class="details">Assign Date</span>
-                <input type="date"  required>
+                <span class="details">Task Type</span>
+                <input type="text" name="tasktype" value="" required>
             </div>
             <div class="input-box">
                 <span class="details">Due Date</span>
-                <input type="date"  required>
+                <input type="date" name="taskduedate"  value="" required>
             </div>
-            <div class="input-box">
-                <span class="details">Status</span>
-                <select name="status" class="details">
-                    <option value="1">Assign</option>
-                    <option value="2">In progress</option>
-                    <option value="3">Completed</option>
-                    <option value="4">Incompleted</option>
-                </select>
-            </div></br>
             <div class="input-box">
                 <span class="details">Description</span></br>
-                <textarea name="description" cols="30" rows="10" placeholder="Enter task description"></textarea>
+                <input name="taskdescription" cols="30" rows="10" placeholder="Enter task description" value="">
             </div>
+
+            <input type="hidden" name="action" value="update">
 
         </div>
 
         <div class="button">
-            <input type="submit" value="update">
+            <input type="submit" value="Update">
         </div>
 
     </form>
