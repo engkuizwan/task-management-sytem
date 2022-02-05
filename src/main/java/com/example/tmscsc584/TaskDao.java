@@ -36,13 +36,13 @@ public class TaskDao {
 
         // try-with-resource statement will auto close the connection.
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into task(taskname, tasktype, taskduedate, taskdescription, classid) values(?,?,?,?,?)");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into task(taskname, tasktype, taskdescription, classid) values(?,?,?,?)");)
         {
             preparedStatement.setString(1, task.getTaskName());
             preparedStatement.setString(2, task.getTaskType());
-            preparedStatement.setDate(3, task.getTaskDueDate());
-            preparedStatement.setString(4,task.getTaskDesc());
-            preparedStatement.setInt(5,classs.getClassId());
+       /*     preparedStatement.setDate(3, task.getTaskDueDate());*/
+            preparedStatement.setString(3,task.getTaskDesc());
+            preparedStatement.setInt(4,classs.getClassId());
 
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
