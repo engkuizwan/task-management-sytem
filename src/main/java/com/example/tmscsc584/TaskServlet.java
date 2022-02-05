@@ -58,7 +58,7 @@ public class TaskServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("classid"));
         String name = request.getParameter("taskname");
         String type = request.getParameter("tasktype");
-        String email = request.getParameter("taskdescription");
+        String desc = request.getParameter("taskdescription");
         /*Date duedate = Date.valueOf(request.getParameter("taskduedate"));*/
 
         Task task = new Task();
@@ -66,7 +66,7 @@ public class TaskServlet extends HttpServlet {
 
         task.setTaskName(name);
         task.setTaskType(type);
-        task.setTaskDesc(email);
+        task.setTaskDesc(desc);
         /*task.setTaskDueDate(duedate);*/
 
         classs.setClassId(id);
