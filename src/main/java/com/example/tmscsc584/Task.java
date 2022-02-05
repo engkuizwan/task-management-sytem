@@ -1,27 +1,18 @@
 package com.example.tmscsc584;
 
-public class Task
+import java.io.Serializable;
+import java.sql.Date;
+
+public class Task implements Serializable
 {
     public String taskId;
     public String taskName;
+    public String taskType;
+    public Date taskDueDate;
     public String taskDesc;
-    public String taskAssignDate;
-    public String taskDueDate;
+    public Date taskAssignDate;
     public String taskMarks;
     public String taskStatus;
-    public String taskType;
-
-    public Task(String taskId, String taskName, String taskDesc, String taskAssignDate, String taskDueDate, String taskMarks, String taskStatus, String taskType) {
-        this.taskId = taskId;
-        this.taskName = taskName;
-        this.taskDesc = taskDesc;
-        this.taskAssignDate = taskAssignDate;
-        this.taskDueDate = taskDueDate;
-        this.taskMarks = taskMarks;
-        this.taskStatus = taskStatus;
-        this.taskType = taskType;
-    }
-
 
     public String getTaskId() {
         return taskId;
@@ -39,6 +30,22 @@ public class Task
         this.taskName = taskName;
     }
 
+    public String getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
+    }
+
+    public Date getTaskDueDate() {
+        return taskDueDate;
+    }
+
+    public void setTaskDueDate(Date taskDueDate) {
+        this.taskDueDate = taskDueDate;
+    }
+
     public String getTaskDesc() {
         return taskDesc;
     }
@@ -47,20 +54,12 @@ public class Task
         this.taskDesc = taskDesc;
     }
 
-    public String getTaskAssignDate() {
+    public Date getTaskAssignDate() {
         return taskAssignDate;
     }
 
-    public void setTaskAssignDate(String taskAssignDate) {
+    public void setTaskAssignDate(Date taskAssignDate) {
         this.taskAssignDate = taskAssignDate;
-    }
-
-    public String getTaskDueDate() {
-        return taskDueDate;
-    }
-
-    public void setTaskDueDate(String taskDueDate) {
-        this.taskDueDate = taskDueDate;
     }
 
     public String getTaskMarks() {
@@ -77,27 +76,5 @@ public class Task
 
     public void setTaskStatus(String taskStatus) {
         this.taskStatus = taskStatus;
-    }
-
-    public String getTaskType() {
-        return taskType;
-    }
-
-    public void setTaskType(String taskType) {
-        this.taskType = taskType;
-    }
-
-    @Override
-    public String toString() {
-        return "Task{" +
-                "taskId='" + taskId + '\'' +
-                ", taskName='" + taskName + '\'' +
-                ", taskDesc='" + taskDesc + '\'' +
-                ", taskAssignDate='" + taskAssignDate + '\'' +
-                ", taskDueDate='" + taskDueDate + '\'' +
-                ", taskMarks='" + taskMarks + '\'' +
-                ", taskStatus='" + taskStatus + '\'' +
-                ", taskType='" + taskType + '\'' +
-                '}';
     }
 }

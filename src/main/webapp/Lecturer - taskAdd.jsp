@@ -1,3 +1,5 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 
 <html>
@@ -37,37 +39,42 @@
     </div>
 </div>
 
+
+<%
+    int classid = Integer.parseInt(request.getParameter("classid"));
+    Date today = new Date();
+
+    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+    String date = DATE_FORMAT.format(today);
+
+%>
+
 <div class="container">
     <div class="title">Add Task</div>
-    <form action="#">
+    <form action="TaskServlet">
+
+        <input type="hidden" name="classid" value="<%=classid%>">
 
         <div class="taskdetails" >
             <div class="input-box">
                 <span class="details">Task Name</span>
-                <input type="text" placeholder="Enter task name" required>
+                <input type="text" name="taskname" placeholder="Enter task name" required>
             </div>
 
             <div class="input-box">
-                <span class="details">Assign Date</span>
-                <input type="date"  required>
+                <span class="details">Task Type</span>
+                <input type="text" name="tasktype" required>
             </div>
             <div class="input-box">
                 <span class="details">Due Date</span>
-                <input type="date"  required>
+                <input type="date" name="taskduedate"  required>
             </div>
-            <div class="input-box">
-                <span class="details">Status</span>
-                <select name="status" class="details">
-                    <option value="1">Assign</option>
-                    <option value="2">In progress</option>
-                    <option value="3">Completed</option>
-                    <option value="4">Incompleted</option>
-                </select>
-            </div></br>
             <div class="input-box">
                 <span class="details">Description</span></br>
-                <textarea name="description" cols="30" rows="10" placeholder="Enter task description"></textarea>
+                <textarea name="taskdescription" cols="30" rows="10" placeholder="Enter task description"></textarea>
             </div>
+
+            <input type="hidden" name="action" value="create">
 
         </div>
 
