@@ -191,9 +191,9 @@ public class StudentServlet extends HttpServlet {
 
     }
 
-/*    *//*######################################################( QUIT CLASS )#############################################################*//*
+    /*######################################################( QUIT CLASS )#############################################################*/
 
-    private void quitclass(HttpServletRequest request, HttpServletResponse response)
+    /*private void quitclass(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("classid"));
         Classs classs = new Classs();
@@ -205,12 +205,12 @@ public class StudentServlet extends HttpServlet {
         response.sendRedirect("Student-viewclass.jsp");
         request.getRequestDispatcher("Student-viewclass.jsp").forward(request,response);}catch (Exception e){e.printStackTrace();}
 
-    }
-
-
-
-
     }*/
+
+
+
+
+    }
 
 
 
