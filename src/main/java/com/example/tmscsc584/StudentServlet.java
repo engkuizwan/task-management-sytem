@@ -47,7 +47,7 @@ public class StudentServlet extends HttpServlet {
                 case "joinclass":
                     joinclass(request, response);
                 case "quitclass":
-                    quitclass(request,response);
+                    /*quitclass(request,response);*/
                 default:
                     /*listUser(request, response);*/
                     break;
@@ -191,7 +191,7 @@ public class StudentServlet extends HttpServlet {
 
     }
 
-    /*######################################################( QUIT CLASS )#############################################################*/
+/*    *//*######################################################( QUIT CLASS )#############################################################*//*
 
     private void quitclass(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
@@ -210,7 +210,7 @@ public class StudentServlet extends HttpServlet {
 
 
 
-    }
+    }*/
 
 
 
