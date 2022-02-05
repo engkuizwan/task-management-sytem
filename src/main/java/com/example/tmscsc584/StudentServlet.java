@@ -201,6 +201,7 @@ public class StudentServlet extends HttpServlet {
 
         classs.setClassId(id);
         sd.quitclass(classs);
+        request.setAttribute("class", classs);
         response.sendRedirect("Student-viewclass.jsp");
     }
 
