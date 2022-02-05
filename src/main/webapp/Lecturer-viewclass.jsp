@@ -80,7 +80,7 @@
 
 
               <div class="w3-container w3-sand">
-                  <form>
+                  <form method="post">
 
                   <h3><%=obj.getClassSubject()%></h3>
                   <p><%=obj.getClassName()%></p>

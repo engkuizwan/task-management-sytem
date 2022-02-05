@@ -83,7 +83,7 @@
                       <h3><%=obj.getClassSubject()%></h3>
                       <p><%=obj.getClassName()%></p>
 
-                  <form>
+                  <form method="post">
                       <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
                       <input type="hidden" name="action" value="quitclass">
 
