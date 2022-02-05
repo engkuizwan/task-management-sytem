@@ -53,7 +53,7 @@
     <div class="title">Add Task</div>
     <form action="TaskServlet">
 
-        <input type="hidden" name="classid" value="<%=classid%>">
+        <input type="" name="classid" value="<%=classid%>">
 
         <div class="taskdetails" >
             <div class="input-box">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="button">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Add">
         </div>
 
     </form>
