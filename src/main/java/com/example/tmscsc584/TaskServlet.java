@@ -32,7 +32,7 @@ public class TaskServlet extends HttpServlet {
 
         try {
             switch (action) {
-                case "signup":
+                case "create":
                     create(request, response);
                     break;
                 case "delete":
