@@ -50,7 +50,12 @@
 
               try{
 
-                  PreparedStatement st = conn.prepareStatement("SELECT class_student.classid, class.classid, class.classname, class.classsubject from class_student full join class ON  class_student.classid = class.classid where class_student.studentid=?;");
+                  PreparedStatement st = conn.prepareStatement("SELECT class_student.classid, class.classid, class.classname, class.classsubject " +
+                          "from class_student " +
+                          "full join class ON  class_student.classid = class.classid " +
+                          "where class_student.studentid=?;");
+
+
                   st.setInt(1,studentid);
                   ResultSet res = st.executeQuery();
                   LinkedList listclass = new LinkedList();

@@ -46,10 +46,9 @@ public class StudentServlet extends HttpServlet {
                     break;
                 case "joinclass":
                     joinclass(request, response);
+                    break;
                 case "quitclass":
-                    quitclass(request,response);
-                default:
-                    /*listUser(request, response);*/
+                    quitclass(request, response);
                     break;
             }
         } catch (SQLException ex) {
