@@ -1,9 +1,8 @@
 package com.example.tmscsc584;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import oracle.jdbc.proxy.annotation.Pre;
+
+import java.sql.*;
 
 import static java.lang.System.out;
 
@@ -38,6 +37,7 @@ public class TaskDao {
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("insert into task(taskname, tasktype, taskduedate, taskdescription, classid) values(?,?,?,?,?)");)
         {
+
             preparedStatement.setString(1, task.getTaskName());
             preparedStatement.setString(2, task.getTaskType());
             preparedStatement.setDate(3, task.getTaskDueDate());
@@ -46,6 +46,15 @@ public class TaskDao {
 
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
+
+            PreparedStatement s = connection.prepareStatement("select max(taskid) from class_student");
+            ResultSet res = s.executeQuery();
+            int taskid = res.getInt(1);
+
+            PreparedStatement st = connection.prepareStatement("update class_student set taskid=? where classid=?");
+            st.setInt(1,taskid);
+            st.setInt(2,classs.getClassId());
+
         } catch (SQLException e) {
             printSQLException(e);
         }
