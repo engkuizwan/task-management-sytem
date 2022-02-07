@@ -47,7 +47,7 @@ public class TaskDao {
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
 
-            PreparedStatement s = connection.prepareStatement("select max(taskid) from class_student");
+            PreparedStatement s = connection.prepareStatement("select max(taskid) from task");
             ResultSet res = s.executeQuery();
             int taskid = res.getInt(1);
 
