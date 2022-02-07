@@ -49,10 +49,12 @@ public class TaskDao {
 
             PreparedStatement s = connection.prepareStatement("select max(taskid) from task");
             ResultSet res = s.executeQuery();
-            int taskid = res.getInt(1);
+            while (res.next()){
+                task.setTaskId(res.getInt(1));
+            }
 
             PreparedStatement st = connection.prepareStatement("update class_student set taskid=? where classid=?");
-            st.setInt(1,taskid);
+            st.setInt(1,task.getTaskId());
             st.setInt(2,classs.getClassId());
             st.executeUpdate();
 
