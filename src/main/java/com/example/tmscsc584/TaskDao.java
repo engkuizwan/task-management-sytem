@@ -54,6 +54,7 @@ public class TaskDao {
             PreparedStatement st = connection.prepareStatement("update class_student set taskid=? where classid=?");
             st.setInt(1,taskid);
             st.setInt(2,classs.getClassId());
+            st.executeUpdate();
 
         } catch (SQLException e) {
             printSQLException(e);
