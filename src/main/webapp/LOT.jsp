@@ -56,7 +56,7 @@
         try{
 
 
-            PreparedStatement st = conn.prepareStatement("SELECT student.studentname from student " +
+            PreparedStatement st = conn.prepareStatement("SELECT class_student.classid, student.studentname from student " +
                     "full join class_student ON  student.studentid = class_student.studentid" +
                     " join  class ON class.classid = class_student.classid " +
                     "where class_student.classid=?;" );
@@ -71,10 +71,10 @@
             while (res.next()){
 
                 Student student = new Student();
-                //Classs classs = new Classs();
+                Classs classs = new Classs();
 
-                //classs.setClassId(res.getInt(2));
-                student.setStudentName(res.getString(2));
+                classs.setClassId(res.getInt(2));
+                student.setStudentName(res.getString(3));
                 listclass.add(student);
                 Student obj = (Student) listclass.get(count);
 
