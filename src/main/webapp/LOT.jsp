@@ -36,7 +36,7 @@
 
         <sql:query dataSource="${ic}" var="oc">
                 <c:set var="classid" value="3"/>
-                SELECT t.taskName,t.taskAssignDate,t.taskDueDate from task t JOIN class c ON t.classid = c.classid WHERE c.classid=?
+                SELECT task.taskName,task.taskAssignDate,task.taskDueDate from task full join class ON task.classid = class.classid WHERE class.classid=?
                 <sql:param value="${classid}" />
         </sql:query>
 
