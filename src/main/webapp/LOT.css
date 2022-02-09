@@ -1,0 +1,139 @@
+
+body{
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.boxb{
+    width: 700px;
+    height: 50px;
+    background-color: white;
+    overflow: visible;
+    border-radius: 11px 11px 0px 0px;
+    border:none;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration:none;
+    margin: 100px auto 50px auto;  /*(top right bottom left)*/
+}
+
+.boxb a {
+    text-decoration: none;
+    padding:10px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+
+a:nth-child(1){
+    width: 330px;
+}
+
+a:nth-child(2){
+    width: 330px;
+}
+
+
+.frame {
+    width: 700px;
+    height: 120px;
+    box-shadow:4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #fcfcfc;
+    overflow: visible;
+    border-radius: 21px;
+    margin: 15px auto;
+}
+
+#e1,#e2{
+    display: inline-block;
+}
+
+#e1{
+    padding-top: 12px;
+    padding-left: 12px;
+}
+
+#e2{
+    float: right;
+    padding-right: 10px;
+}
+
+.frame .myLink {
+   text-align: center;
+}
+
+.frame .myLink button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-weight: 700;
+    text-decoration: underline;
+    font-family: "Inter-Bold", "Inter", sans-serif;
+    margin-bottom: 10px;
+}
+
+.createbtn {
+    margin: 10px;
+    text-align: center;
+}
+
+.createbtn button {
+    background-color: slateblue;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 17px;
+    cursor: pointer;
+    width: 700px;
+}
+
+button :hover {
+    background-color: whitesmoke;
+    color: slateblue;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: black;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding:10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: lightgrey;
+}

@@ -92,7 +92,7 @@
                       <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
                       <input type="hidden" name="action" value="quitclass">
 
-                      <p><button type= "submit" class="w3-button w3-blue-grey w3-block"><a href ="Student-taskView.jsp"></i> View class</a></button></p>
+                      <p><button type="submit" formaction="LOT.jsp" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <!-- dyana betulkan dekat sini-->
                       <p><button type="submit" formaction="StudentServlet"
                                  onclick="return confirm('Confirm quit Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">
                           <img src="delete.png" style="width:10%">
