@@ -62,7 +62,7 @@
                     "where class_student.classid=?;" );
 
 
-            //st.setInt(1,studentid);
+            st.setInt(1,classid);
             ResultSet res = st.executeQuery();
             LinkedList listclass = new LinkedList();
 
@@ -71,9 +71,10 @@
             while (res.next()){
 
                 Student student = new Student();
+                //Classs classs = new Classs();
 
-                //student.setStudentId(res.getInt(2));
-                student.setStudentName(res.getString(1));
+                //classs.setClassId(res.getInt(2));
+                student.setStudentName(res.getString(3));
                 listclass.add(student);
                 Student obj = (Student) listclass.get(count);
 
