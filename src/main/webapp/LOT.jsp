@@ -41,7 +41,7 @@
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
     //int studentid = (Integer) session.getAttribute("id");
-    //int classid = (Integer) session.getAttribute("id");
+    int classid = (Integer) session.getAttribute("id");
 
     if (conn != null){
         DatabaseMetaData dm = conn.getMetaData();
@@ -57,11 +57,12 @@
 
 
             PreparedStatement st = conn.prepareStatement("SELECT student.studentname from student " +
-                    "full join class_student ON  student.studentid = class_student.studentid");
+                    "full join class_student ON  student.studentid = class_student.studentid " +
+                    "where class_student.classid=?");
 
 
             //st.setInt(1,studentid);
-            //st.setInt(1,classid);
+            st.setInt(1,classid);
             ResultSet res = st.executeQuery();
             LinkedList listclass = new LinkedList();
 
