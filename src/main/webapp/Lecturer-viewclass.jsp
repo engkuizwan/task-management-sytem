@@ -87,7 +87,7 @@
                   <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
                   <input type="hidden" name="action" value="delete">
 
-                  <p><button type="submit" formaction="LOT.jsp" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <!-- DYANA BETULKAN KAT SINI FORMACTION-->
+                  <p><button type="submit" formaction="Lecturer - taskAdd.jsp" class="w3-button w3-blue-grey w3-block"></i> View class</button></p>
                   <p><button type="submit" formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%"></button></p>
                   <p><button type="submit" formaction="classServlet"
                              onclick="return confirm('Confirm delete Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">

@@ -35,8 +35,8 @@
                           user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
         <sql:query dataSource="${ic}" var="oc">
-                <c:set var="classid" value=""/>
-                SELECT task.taskname,task.taskassigndate,task.taskduedate from task full join class ON task.classid = class.classid WHERE class.classid=?;
+                <c:set var="classid" value="3"/>
+                SELECT t.taskName,t.taskAssignDate,t.taskDueDate from task t JOIN class c ON t.classid = c.classid WHERE c.classid=?
                 <sql:param value="${classid}" />
         </sql:query>
 
