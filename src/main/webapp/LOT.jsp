@@ -73,7 +73,7 @@
                 Student student = new Student();
 
                 //student.setStudentId(res.getInt(2));
-                student.setStudentName(res.getString(1));
+                student.setStudentName(res.getString(2));
                 listclass.add(student);
                 Student obj = (Student) listclass.get(count);
 
