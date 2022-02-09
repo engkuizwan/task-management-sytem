@@ -41,7 +41,7 @@
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
     //int studentid = (Integer) session.getAttribute("id");
-    int classid = (Integer) session.getAttribute("classID");
+    int classid = (Integer) session.getAttribute("id");
 
     if (conn != null){
         DatabaseMetaData dm = conn.getMetaData();
@@ -74,7 +74,7 @@
                 //Classs classs = new Classs();
 
                 //classs.setClassId(res.getInt(2));
-                student.setStudentName(res.getString(3));
+                student.setStudentName(res.getString(2));
                 listclass.add(student);
                 Student obj = (Student) listclass.get(count);
 
