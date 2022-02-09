@@ -59,7 +59,7 @@
                     "full join class_student ON  student.studentid = class_student.studentid " );
 
 
-            st.setInt(1,studentid);
+            //st.setInt(1,studentid);
             ResultSet res = st.executeQuery();
             LinkedList listclass = new LinkedList();
 
@@ -69,8 +69,8 @@
 
                 Student student = new Student();
 
-                student.setStudentId(res.getInt(2));
-                student.setStudentName(res.getString(3));
+                //student.setStudentId(res.getInt(2));
+                student.setStudentName(res.getString(1));
                 listclass.add(student);
                 Student obj = (Student) listclass.get(count);
 
