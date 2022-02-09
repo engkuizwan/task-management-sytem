@@ -40,7 +40,8 @@
     String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-    int studentid = (Integer) session.getAttribute("id");
+    //int studentid = (Integer) session.getAttribute("id");
+    //int classid = (Integer) session.getAttribute("id");
 
     if (conn != null){
         DatabaseMetaData dm = conn.getMetaData();
@@ -56,11 +57,11 @@
 
 
             PreparedStatement st = conn.prepareStatement("SELECT student.studentname from student " +
-                    "full join class_student ON  student.studentid = class_student.studentid" +
-                    " join  class ON class.classid = class_student.classid " );
+                    "full join class_student ON  student.studentid = class_student.studentid");
 
 
             //st.setInt(1,studentid);
+            //st.setInt(1,classid);
             ResultSet res = st.executeQuery();
             LinkedList listclass = new LinkedList();
 
