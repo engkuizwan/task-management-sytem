@@ -57,8 +57,7 @@
 
 
             PreparedStatement st = conn.prepareStatement("SELECT class_student.classid, student.studentname from student " +
-                    "full join class_student ON  student.studentid = class_student.studentid" +
-                    "where class_student.classid=?;" );
+                    "full join class_student ON  student.studentid = class_student.studentid where class_student.classid=?;" );
 
 
             st.setInt(1,classid);
