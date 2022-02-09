@@ -1,0 +1,145 @@
+
+body{
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.boxb{
+    width: 700px;
+    height: 50px;
+    background-color: white;
+    overflow: visible;
+    border-radius: 11px 11px 0px 0px;
+    border:none;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration:none;
+    margin: 100px auto 50px auto;  /*(top right bottom left)*/
+}
+
+.boxb a {
+    text-decoration: none;
+    padding:10px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.boxb a:hover {
+    color: purple;
+    font-weight: bolder;
+}
+
+
+a:nth-child(1){
+    width: 330px;
+}
+
+a:nth-child(2){
+    width: 330px;
+}
+
+.active{
+    width: 330px;
+    height: 10px;
+    background-color: #71437a;
+    overflow: hidden;
+    border-radius: 11px 11px 0px 0px;
+    margin: 137px 10px;
+    z-index: 2;
+}
+
+.frame {
+    width: 700px;
+    height: 110px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #fcfcfc;
+    overflow: visible;
+    border-radius: 21px;
+    margin: 10px auto;
+}
+
+.frame img {
+    width: 71px;
+    height: 70px;
+    margin: 20px;
+    overflow: visible;
+}
+
+.frame img,#text1,#text2 {
+    display: inline-block;
+}
+
+#text2{
+    float: right;
+    padding: 45px 60px;
+    font-weight: 700;
+}
+
+.round p{
+    text-align: center;
+    color: white;
+    margin: auto;
+}
+
+.round {
+    margin-top: 10px;
+    width: 39px;
+    height: 22px;
+    background-color: #240948;
+    overflow: visible;
+    border-radius: 74px;
+}
+
+.frame2 {
+    width: 700px;
+    height: 40px;
+    background-color: transparent;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#text3{
+    color: #ffffff;
+    font-weight: 500;
+    float: left;
+    margin-top: 10px;
+    padding-left: 5px;
+    margin-right: 10px;
+}
+
+.frame2 button{
+    margin-right: 10px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+#text3,.round{
+    display: inline-block;
+}
+
+.frame3 {
+    width: 700px;
+    height: 103px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #b8a4cc;
+    overflow: visible;
+    border-radius: 21px;
+    margin: 10px auto;
+}
+
+.frame3 img, #text4{
+    display: inline-block;
+}
+
+/*.dropdown{*/
+/*    float: right;*/
+/*}*/
+
+.frame3 img{
+    width: 63px;
+    height: 64px;
+    margin: 20px;
+}
