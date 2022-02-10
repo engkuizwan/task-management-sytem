@@ -64,7 +64,7 @@
 
 
 <%
-    int classid = Integer.parseInt(request.getParameter("classid"));
+/*    int classid = Integer.parseInt(request.getParameter("classid"));*/
 %>
 
 
@@ -75,7 +75,7 @@
 
 <div class="createbtn">
     <form>
-        <input type="hidden" name="classid" value="<%=classid%>">
+        <input type="hidden" name="classid" value="${classid}>
         <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
     </form>
 </div>

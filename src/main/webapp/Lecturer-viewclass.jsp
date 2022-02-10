@@ -69,9 +69,7 @@
                   classs.setClassTotalstud(res.getInt(4));
                   listclass.add(classs);
                   Classs obj = (Classs) listclass.get(count);
-
-
-
+                  session.setAttribute("classid",classs.getClassId());
 
       %>
 
