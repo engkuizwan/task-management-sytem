@@ -6,14 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="com.example.tmscsc584.Classs" %>
+<%@ page import="com.example.tmscsc584.Student" %>
 
 <html>
 <head>
     <title>List Of Task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Student-taskList.css">
+    <link rel="stylesheet" href="Student-viewclass.css">
 
 </head>
 <body>
