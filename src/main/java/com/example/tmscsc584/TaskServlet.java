@@ -26,7 +26,6 @@ public class TaskServlet extends HttpServlet {
 
 
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
 
         String action = request.getParameter("action");
 
@@ -57,7 +56,7 @@ public class TaskServlet extends HttpServlet {
     private void create(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         HttpSession session = request.getSession();
-        int id = Integer.parseInt(session.getAttribute("classid").toString());
+        int id = Integer.parseInt(request.getParameter("classid"));
         String name = request.getParameter("taskname");
         String type = request.getParameter("tasktype");
         String desc = request.getParameter("taskdescription");

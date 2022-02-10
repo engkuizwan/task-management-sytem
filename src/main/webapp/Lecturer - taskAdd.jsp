@@ -54,7 +54,7 @@
     <div class="title">Add Task</div>
     <form action="TaskServlet" method="post">
 
-        <input type="" name="classid" value="<%=classid%>">
+        <input type="hidden" name="classid" value="<%=classid%>">
 
         <div class="taskdetails" >
             <div class="input-box">
