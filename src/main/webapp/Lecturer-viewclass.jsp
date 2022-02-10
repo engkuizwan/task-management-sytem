@@ -70,6 +70,9 @@
                   listclass.add(classs);
                   Classs obj = (Classs) listclass.get(count);
 
+                  session.setAttribute("classid", classs.getClassId());
+
+
       %>
 
       <div class="w3-col l3 m6 w3-margin-bottom">
