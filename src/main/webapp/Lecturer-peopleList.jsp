@@ -17,18 +17,37 @@
 
 <%@include file="NavBar.jsp"%>
 
+<sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
+
+<sql:query dataSource="${ic}" var="oc">
+    <%
+        int id = Integer.parseInt(request.getParameter("clssid")); //dpt dri taskListpage
+    %>
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT L.lecturerid,L.lecturername,S.studentid,S.studentname
+    from student S
+    JOIN class_student CS
+    ON S.studentid=CS.studentid
+    JOIN class C
+    ON CS.classid=C.classid
+    JOIN lecturer L
+    ON C.lecturerid=L.lecturerid
+    WHERE C.classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
+
         <div class="boxb">
-            <a href="Lecturer-taskList.jsp" class="T">Task</a>
+            <a href="Lecturer-taskList.jsp" class="T"><button>Task</button></a>
             <a href="#" class="P">Person</a>
         </div>
 
-
+<c:forEach var="result" items="${oc.rows}">
         <div class="frame">
             <img src="images/lect.png"/>
-           <div id="text1">LECTURER NAME</div>
+           <div id="text1">${result.lecturername}</div>
             <div id="text2">Teacher</div>
         </div>
-
+</c:forEach>
 
          <div class="frame2">
              <div id="text3">TOTAL STUDENTS</div>
@@ -36,10 +55,10 @@
              <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
          </div>
 
-
+<c:forEach var="result" items="${oc.rows}">
          <div class="frame3">
              <img src="images/Capture_ccexpress.png"/>
-             <div id="text4">STUDENT NAME</div>
+             <div id="text4"><c:out value="${result.studentname}"/></div>
              <div class="dropdown">
                  <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                  <div class="dropdown-content">
@@ -47,6 +66,7 @@
                  </div>
              </div>
          </div>
+</c:forEach>
 
 </body>
 </html>
