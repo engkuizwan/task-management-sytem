@@ -35,14 +35,14 @@
     String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-    /*int id = Integer.parseInt(request.getParameter("classid"));*/
+    int id = Integer.parseInt(request.getParameter("classid"));
 %>
 
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
 <sql:query dataSource="${ic}" var="oc">
-    <c:set var="clsid" value="${classid}"/>
+    <c:set var="clsid" value="<%=id%>"/>
     SELECT taskid,taskname,taskduedate,taskassigndate from task where classid=?
     <sql:param value="${clsid}" />
 </sql:query>
@@ -54,7 +54,6 @@
 
 <div class="createbtn">
     <form>
-        <input type="hidden" name="classid" value="${classid}>">
         <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
     </form>
 </div>
@@ -76,7 +75,10 @@
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
-            <button type="submit">View Task</button>
+            <form action="Lecturer-taskView.jsp">
+                <input type="hidden" name="taskid" value="${result.taskid}">
+                <button type="submit">View Task</button>
+            </form>
         </div>
     </div>
 </c:forEach>
