@@ -40,17 +40,24 @@
 
           int lecturerid = (Integer) session.getAttribute("id");
 
-          String query = "select classid from class where lecturerid = '" + lecturerid + "'";
-          Statement st = conn.createStatement();
-          ResultSet res  = st.executeQuery(query);
-
           int[] id = new int[999];
           int count = 0;
 
-          while(res.next()){
-              id[count] = res.getInt(1);
-              count++;
-          }
+          try {
+              String query = "select classid from class where lecturerid = '" + lecturerid + "'";
+              Statement st = conn.createStatement();
+              ResultSet res  = st.executeQuery(query);
+
+
+
+              while(res.next()){
+                  id[count] = res.getInt(1);
+                  count++;
+              }
+
+          }catch (Exception e){e.printStackTrace();}
+
+
 
 
       %>
