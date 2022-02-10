@@ -13,11 +13,10 @@
 <head>
     <title>List Of Task</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Lecturer-taskList.css">
 
 </head>
 <body>
-<style><%@include file="Lecturer-taskList.css"%></style>
-
 <%@include file="Lecturer-navbar.html"%>
 
 <%--        <div class="boxb">--%>
