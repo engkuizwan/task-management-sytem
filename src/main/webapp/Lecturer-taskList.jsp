@@ -50,8 +50,8 @@
 <div class="boxb">
     <a href="#" class="T">Task</a>
     <form>
-     <input type="hidden" name="clssid" value="<%=id%>">
-    <a href="Lecturer-peopleList.jsp" class="P"><button type="submit">Person</button></a>
+     <input type="text" name="clssid" value="<%=id%>">
+    <a href="Lecturer-peopleList.jsp" class="P"><button type="submit" formaction="Lecturer-peopleList.jsp">Person</button></a>
     </form>
 </div>
 
