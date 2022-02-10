@@ -48,6 +48,7 @@
 
           int[] id = new int[20];
           int count = 0;
+          int d=0;
 
           while(res.next()){
               id[count] = res.getInt(1);
@@ -109,8 +110,8 @@
           function test(){
               <%
               session.removeAttribute("classid");
-              /*int d = Integer.parseInt(request.getParameter("c"));*/
-              session.setAttribute("classid", id[c]);
+              d = Integer.parseInt(request.getParameter("c"));
+              session.setAttribute("classid", id[d]);
               %>
           }
       </script>
