@@ -15,7 +15,7 @@
 <body>
 <style><%@include file="Lecturer-peopleList.css"%></style>
 
-<%@include file="Lecturer-navbar.html"%>
+<%@include file="NavBar.jsp"%>
 
         <div class="boxb">
             <a href="Lecturer-taskList.jsp" class="T">Task</a>
