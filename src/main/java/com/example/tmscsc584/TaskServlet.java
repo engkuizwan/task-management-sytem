@@ -65,9 +65,6 @@ public class TaskServlet extends HttpServlet {
         Task task = new Task();
         Classs classs = new Classs();
 
-        session.removeAttribute("classid");
-        session.setAttribute("classid", id);
-
         task.setTaskName(name);
         task.setTaskType(type);
         task.setTaskDesc(desc);

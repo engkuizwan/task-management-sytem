@@ -41,6 +41,7 @@
         if(request.getParameter("classid") != null)
         {
             id = Integer.parseInt(request.getParameter("classid"));
+            session.removeAttribute("classid");
             session.setAttribute("classid", id);
         }
         else
