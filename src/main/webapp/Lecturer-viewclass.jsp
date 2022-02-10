@@ -70,7 +70,7 @@
                   listclass.add(classs);
                   Classs obj = (Classs) listclass.get(count);
 
-                  session.setAttribute("classid", classs.getClassId());
+
 
 
       %>
