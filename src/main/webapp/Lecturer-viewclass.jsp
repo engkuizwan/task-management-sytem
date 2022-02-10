@@ -118,9 +118,14 @@
 <script>
     function test(){
         <%
-        session.removeAttribute("classid");
+        try{
+
+            session.removeAttribute("classid");
         d = Integer.parseInt(request.getParameter("c"));
         session.setAttribute("classid", id[d]);
+
+        }catch (Exception e){e.printStackTrace();}
+
         %>
     }
 </script>
