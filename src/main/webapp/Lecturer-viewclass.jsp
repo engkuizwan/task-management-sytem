@@ -89,7 +89,7 @@
                   <input type="" name="c" value="${result.rank}">
                   <input type="hidden" name="action" value="delete">
 
-                  <p><button type="submit"  onclick="form.action='Lecturer-taskList.jsp'" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
+                  <p><button type="submit"  onclick="test();" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
                   <p><button type="submit"  formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%"></button></p>
                   <p><button type="submit" formaction="classServlet"
                              onclick="return confirm('Confirm delete Class: <c:out value="${result.classname}"/>  Subject: <c:out value="${result.classsubject}"/> ?');">
