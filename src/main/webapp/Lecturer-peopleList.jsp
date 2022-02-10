@@ -17,7 +17,7 @@
 
 <%@include file="NavBar.jsp"%>
 <%
-    int id = Integer.parseInt(request.getParameter("clssid")); //dpt dri taskListpage
+    /*int id = Integer.parseInt(request.getParameter("clssid")); //dpt dri taskListpage*/
 
     int id = 0;
 
