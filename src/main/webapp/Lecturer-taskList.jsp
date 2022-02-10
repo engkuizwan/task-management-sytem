@@ -76,7 +76,7 @@
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
-            <form>
+            <form  method="post">
                 <input type="hidden" name="taskid" value="${result.taskid}>">
             <button type="submit" formaction="Lecturer-taskView.jsp" >View Task</button>
             </form>
