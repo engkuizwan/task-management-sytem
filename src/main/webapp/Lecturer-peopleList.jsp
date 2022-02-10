@@ -66,7 +66,7 @@
 
 <sql:query dataSource="${ic}" var="ec">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT studentid, row_number() over () "rank"
+    SELECT count(studentid) "total"
     from class_student
     WHERE classid=?
     <sql:param value="${clsid}" />
@@ -75,7 +75,7 @@
 <c:forEach var="result" items="${ec.rows}">
 <div class="frame2">
     <div id="text3">TOTAL STUDENTS</div>
-    <div class="round"><p><c:out value="${result.rank}"/></p></div>
+    <div class="round"><p><c:out value="${result.total}"/></p></div>
     <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
 </div>
 </c:forEach>
