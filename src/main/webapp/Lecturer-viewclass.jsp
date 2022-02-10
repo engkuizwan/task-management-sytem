@@ -61,12 +61,15 @@
 
               while (res.next()){
 
+                  int[] id = new int[99999999];
                       Classs classs = new Classs();
 
                   classs.setClassId(res.getInt(1));
                   classs.setClassName(res.getString(2));
                   classs.setClassSubject(res.getString(3));
                   classs.setClassTotalstud(res.getInt(4));
+
+                  id[count] = classs.getClassId();
                   listclass.add(classs);
                   Classs obj = (Classs) listclass.get(count);
 
@@ -89,7 +92,7 @@
                   <input type="hidden" name="action" value="delete">
 
 
-                  <p><button type="submit" formaction="Lecturer-taskList.jsp" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
+                  <p><button type="submit" formaction="Lecturer-taskList.jsp"  onclick="test();" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
                   <p><button type="submit" formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%"></button></p>
                   <p><button type="submit" formaction="classServlet"
                              onclick="return confirm('Confirm delete Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">
@@ -101,6 +104,12 @@
               </div>
           </div>
       </div>
+
+      <script>
+          function test(){
+              <% session.setAttribute("classid", id[count]);%>
+          }
+      </script>
 
 
 
