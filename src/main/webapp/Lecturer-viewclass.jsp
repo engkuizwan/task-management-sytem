@@ -63,16 +63,12 @@
 
       <sql:query dataSource="${ic}" var="oc">
           <c:set var="clsid" value="<%=lecturerid%>"/>
-          SELECT * from class where lecturerid=?
+          SELECT classid,classname,classsubject,classtotalstudent,row_number() over () "rank" from class where lecturerid=?
           <sql:param value="${clsid}" />
       </sql:query>
 
 <c:forEach var="result" items="${oc.rows}">
 
-    <%
-        int c = 0;
-
-    %>
 
 
 
@@ -90,7 +86,7 @@
                   <p><c:out value="${result.classname}"/></p>
 
                   <input type="hidden" name="classid" value="${result.classid}">
-                  <input type="" name="c" value="<%=c%>">
+                  <input type="" name="c" value="${result.rank}">
                   <input type="hidden" name="action" value="delete">
 
                   <p><button type="submit" formaction="Lecturer-taskList.jsp"  onclick="test();" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
@@ -106,9 +102,7 @@
           </div>
       </div>
 
-    <%
-        c++;
-    %>
+
 
 </c:forEach>
 
