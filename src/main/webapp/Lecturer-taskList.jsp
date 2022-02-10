@@ -28,13 +28,6 @@
 <%@include file="Lecturer-navbar.jsp"%>
 
 <%
-
-    Class.forName("org.postgresql.Driver"); // ni stay
-    String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
-    String user = "awludfehnzjioi"; //ni user dri heroku database
-    String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
-    Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
     int id = 0;
 
     try{
@@ -49,8 +42,6 @@
             id = (Integer) session.getAttribute("classid");
         }
     }catch (Exception e){e.printStackTrace();}
-
-
 
 %>
 

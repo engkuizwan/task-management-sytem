@@ -25,80 +25,95 @@
 
 <%@include file="Student-navbar.html"%>
 
+<%
+
+    int id = (Integer) session.getAttribute("classid");
+
+
+%>
+<sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
+
+<sql:query dataSource="${ic}" var="oc">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT l.lecturername
+    from class c
+    join lecturer l
+    on c.lecturerid = l.lecturerid
+    WHERE c.classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
+
+
+<%--<sql:query dataSource="${ic}" var="oc">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT L.lecturerid,L.lecturername,S.studentid,S.studentname
+    from student S
+        JOIN class_student CS
+            ON S.studentid=CS.studentid
+        JOIN class C
+            ON CS.classid=C.classid
+        JOIN lecturer L
+            ON C.lecturerid=L.lecturerid
+    WHERE CS.classid=?
+    <sql:param value="${clsid}" />
+</sql:query>--%>
+
 <div class="boxb">
-    <a href="Student-taskList.jsp" class="T">Task</a>
+    <a href="Lecturer-taskList.jsp" class="T">Task</a>
     <a href="#" class="P">Person</a>
 </div>
 
-
-<div class="frame">
-    <img src="images/lect.png"/>
-    <div id="text1">LECTURER NAME</div>
-    <div id="text2">Teacher</div>
-</div>
-
-
-<div class="frame2">
-    <div id="text3">TOTAL STUDENTS</div>
-    <div class="round"><p>31</p></div>
-</div>
+<c:forEach var="result" items="${oc.rows}">
+    <div class="frame">
+        <img src="images/lect.png"/>
+        <div id="text1">${result.lecturername}</div>
+        <div id="text2">Teacher</div>
+    </div>
+</c:forEach>
 
 
 
-    <%
-    Class.forName("org.postgresql.Driver"); // ni stay
-    String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
-    String user = "awludfehnzjioi"; //ni user dri heroku database
-    String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
-    Connection conn = DriverManager.getConnection(dbURL, user, pass);
+<sql:query dataSource="${ic}" var="ec">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT count(studentid) "total"
+    from class_student
+    WHERE classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
 
-    //int studentid = (Integer) session.getAttribute("id");
-    //int classid = (Integer) session.getAttribute("id");
-
-    if (conn != null){
-        DatabaseMetaData dm = conn.getMetaData();
-        System.out.println("Driver name: " + dm.getDriverName());
-        System.out.println("Driver version: " + dm.getDriverVersion());
-        System.out.println("Product Name: " + dm.getDatabaseProductName());
-        System.out.println("Product version: " + dm.getDatabaseProductVersion());
-
-        try{
-
-            PreparedStatement st = conn.prepareStatement("SELECT student.studentname from student " +
-                    " full join class_student ON  student.studentid = class_student.studentid ");
+<c:forEach var="result" items="${ec.rows}">
+    <div class="frame2">
+        <div id="text3">TOTAL STUDENTS</div>
+        <div class="round"><p><c:out value="${result.total}"/></p></div>
+        <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
+    </div>
+</c:forEach>
 
 
-            //st.setInt(1,studentid);
-            //st.setInt(1,classid);
-            ResultSet res = st.executeQuery();
-            LinkedList listclass = new LinkedList();
 
-            int count=0;
+<sql:query dataSource="${ic}" var="ac">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT s.studentname
+    from class_student cs
+    join student s
+    on cs.studentid = s.studentid
+    WHERE cs.classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
 
-            while (res.next()){
 
-                Student student = new Student();
-
-                //student.setStudentId(res.getInt(2));
-                student.setStudentName(res.getString(1));
-                listclass.add(student);
-                Student obj = (Student) listclass.get(count);
-
-%>
-<div class="frame3">
-    <img src="images/Capture_ccexpress.png"/>
-    <div id="text4"><%=obj.getStudentName()%></div>
-
-</div>
-<%
-
-    count++;
-    }
-    }catch (Exception e){
-    e.printStackTrace();
-    }
-    }
-%>
+<c:forEach var="test" items="${ac.rows}">
+    <div class="frame3">
+        <img src="images/Capture_ccexpress.png"/>
+        <div id="text4"><c:out value="${test.studentname}"/></div>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
+            <div class="dropdown-content">
+                <a href="#"><i class="fa fa-trash-o"></i> Remove</a>
+            </div>
+        </div>
+    </div>
+</c:forEach>
 </body>
 </html>
 
