@@ -63,9 +63,28 @@
 </c:forEach>
 
 
+
+<sql:query dataSource="${ic}" var="ec">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT studentid, row_number() over () "rank"
+    from class_student
+    WHERE classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
+
+<c:forEach var="result" items="${ec.rows}">
+<div class="frame2">
+    <div id="text3">TOTAL STUDENTS</div>
+    <div class="round"><p><c:out value="${result.rank}"/></p></div>
+    <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
+</div>
+</c:forEach>
+
+
+
 <sql:query dataSource="${ic}" var="ac">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT s.studentname
+    SELECT s.studentname,
     from class_student cs
     join student s
     on cs.studentid = s.studentid
@@ -73,13 +92,6 @@
     <sql:param value="${clsid}" />
 </sql:query>
 
-
-
-         <div class="frame2">
-             <div id="text3">TOTAL STUDENTS</div>
-             <div class="round"><p>31</p></div>
-             <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
-         </div>
 
 <c:forEach var="test" items="${ac.rows}">
          <div class="frame3">
