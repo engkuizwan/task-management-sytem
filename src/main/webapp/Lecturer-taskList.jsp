@@ -75,7 +75,6 @@
             </div>
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
-        <p style="text-align: center"><c:out value="${result.taskid}"/></p>
         <div class="myLink">
             <form>
                 <input type="hidden" name="taskid" value="${result.taskid}">
