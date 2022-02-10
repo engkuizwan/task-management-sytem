@@ -69,7 +69,6 @@
                   classs.setClassTotalstud(res.getInt(4));
                   listclass.add(classs);
                   Classs obj = (Classs) listclass.get(count);
-                  session.setAttribute("classid",classs.getClassId());
 
       %>
 
@@ -88,7 +87,7 @@
                   <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
                   <input type="hidden" name="action" value="delete">
 
-                  <p><button type="submit" formaction="Lecturer-taskList.jsp" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
+                  <p><button type="submit" onclick="test()" formaction="Lecturer-taskList.jsp" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
                   <p><button type="submit" formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%"></button></p>
                   <p><button type="submit" formaction="classServlet"
                              onclick="return confirm('Confirm delete Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">
@@ -101,6 +100,13 @@
           </div>
       </div>
 
+      <script>
+          function test(){
+              <% session.setAttribute("class", listclass.get(count));%>
+          }
+      </script>
+
+
 
       <%
 
@@ -111,6 +117,7 @@
               }
           }
       %>
+
 
 
 
