@@ -13,9 +13,10 @@
 <html>
 <head>
     <title>List Of People</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Student-peopleList.css">
 </head>
 <body>
-<style><%@include file="Student-peopleList.css"%></style>
 
 <%@include file="Student-navbar.html"%>
 
