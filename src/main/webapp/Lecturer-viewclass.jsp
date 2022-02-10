@@ -105,7 +105,7 @@
           </div>
       </div>
 
-      <script>
+     <%-- <script>
           function test(){
               <%
               session.removeAttribute("classid");
@@ -113,7 +113,7 @@
               session.setAttribute("classid", id[d]);
               %>
           }
-      </script>
+      </script>--%>
 
     <%
         c++;
