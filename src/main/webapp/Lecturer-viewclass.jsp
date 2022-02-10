@@ -105,15 +105,15 @@
           </div>
       </div>
 
-     <%-- <script>
+     <script>
           function test(){
               <%
               session.removeAttribute("classid");
-              int d = Integer.parseInt(request.getParameter("c"));
-              session.setAttribute("classid", id[d]);
+              /*int d = Integer.parseInt(request.getParameter("c"));*/
+              session.setAttribute("classid", id[c]);
               %>
           }
-      </script>--%>
+      </script>
 
     <%
         c++;
