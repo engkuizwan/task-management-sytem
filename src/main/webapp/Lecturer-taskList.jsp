@@ -58,13 +58,14 @@
 </sql:query>
 
 <div class="boxb">
+
     <a href="#" class="T">Task</a>
+
     <form>
      <input type="hidden" name="clssid" value="<%=id%>">
-        <div class="button">
-            <a class="p"><input type="submit" formaction="Lecturer-peopleList.jsp" value="Add"></a>
-        </div>
+     <a href="#" class="P"><input type="submit" value="Person"></a>
     </form>
+
 </div>
 
 <div class="createbtn">
