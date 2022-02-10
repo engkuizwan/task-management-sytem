@@ -55,14 +55,14 @@
 <div class="boxb">
     <a href="#" class="T">Task</a>
     <form>
-     <input type="text" name="clssid" value="<%=id%>">
-    <a href="Lecturer-peopleList.jsp" class="P"><button type="submit" formaction="Lecturer-peopleList.jsp">Person</button></a>
+     <input type="hidden" name="clssid" value="<%=id%>">
+    <button type="submit" formaction="Lecturer-peopleList.jsp">Person</button>
     </form>
 </div>
 
 <div class="createbtn">
     <form>
-        <input type="hidden" name="classid" value="${classid}">
+        <input type="hidden" name="classid" value="<%=id%>">
         <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
     </form>
 </div>
