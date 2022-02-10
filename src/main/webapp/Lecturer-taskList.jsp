@@ -63,7 +63,7 @@
 
     <form>
      <input type="hidden" name="clssid" value="<%=id%>">
-     <a href="#" class="P"><input type="submit" value="Person"></a>
+     <a href="#" class="P">Person</a>
     </form>
 
 </div>
