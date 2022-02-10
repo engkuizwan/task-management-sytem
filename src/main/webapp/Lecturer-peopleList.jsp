@@ -26,6 +26,17 @@
 
 <sql:query dataSource="${ic}" var="oc">
     <c:set var="clsid" value="<%=id%>"/>
+    SELECT l.lecturername
+    from class c
+    join lecturer l
+    on c.lecturerid = l.lecturerid
+    WHERE c.classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
+
+
+<%--<sql:query dataSource="${ic}" var="oc">
+    <c:set var="clsid" value="<%=id%>"/>
     SELECT L.lecturerid,L.lecturername,S.studentid,S.studentname
     from student S
         JOIN class_student CS
@@ -36,7 +47,7 @@
             ON C.lecturerid=L.lecturerid
     WHERE CS.classid=?
     <sql:param value="${clsid}" />
-</sql:query>
+</sql:query>--%>
 
         <div class="boxb">
             <a href="Lecturer-taskList.jsp" class="T">Task</a>
@@ -51,16 +62,29 @@
         </div>
 </c:forEach>
 
+
+<sql:query dataSource="${ic}" var="ac">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT s.studentname
+    from class_student cs
+    join student s
+    on cs.studentid = s.studentid
+    WHERE cs.classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
+
+
+
          <div class="frame2">
              <div id="text3">TOTAL STUDENTS</div>
              <div class="round"><p>31</p></div>
              <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
          </div>
 
-<c:forEach var="result" items="${oc.rows}">
+<c:forEach var="test" items="${ac.rows}">
          <div class="frame3">
              <img src="images/Capture_ccexpress.png"/>
-             <div id="text4"><c:out value="${result.studentname}"/></div>
+             <div id="text4"><c:out value="${test.studentname}"/></div>
              <div class="dropdown">
                  <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                  <div class="dropdown-content">
