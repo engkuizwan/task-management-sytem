@@ -73,7 +73,7 @@ public class TaskServlet extends HttpServlet {
         classs.setClassId(id);
 
         td.create(task, classs);
-        response.sendRedirect("Lecturer-viewclass.jsp");
+        response.sendRedirect("Lecturer-taskList.jsp");
     }
 
 
