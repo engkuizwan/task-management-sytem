@@ -90,7 +90,7 @@
                   <p><c:out value="${result.classname}"/></p>
 
                   <input type="hidden" name="classid" value="${result.classid}">
-                  <input type="hidden" name="c" value="<%=c%>">
+                  <input type="" name="c" value="<%=c%>">
                   <input type="hidden" name="action" value="delete">
 
                   <p><button type="submit" formaction="Lecturer-taskList.jsp"  onclick="test();" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
@@ -106,16 +106,6 @@
           </div>
       </div>
 
-     <script>
-          function test(){
-              <%
-              session.removeAttribute("classid");
-              d = Integer.parseInt(request.getParameter("c"));
-              session.setAttribute("classid", id[d]);
-              %>
-          }
-      </script>
-
     <%
         c++;
     %>
@@ -124,6 +114,16 @@
 
     </div>
   </div>
+
+<script>
+    function test(){
+        <%
+        session.removeAttribute("classid");
+        d = Integer.parseInt(request.getParameter("c"));
+        session.setAttribute("classid", id[d]);
+        %>
+    }
+</script>
 
 
 
