@@ -31,7 +31,7 @@
 </sql:query>
 
         <div class="boxb">
-            <a href="#" class="T">Task</a>
+            <a href="Lecturer-taskList.jsp" class="T">Task</a>
             <a href="#" class="P">Person</a>
         </div>
 
