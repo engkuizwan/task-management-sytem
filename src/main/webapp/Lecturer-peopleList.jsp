@@ -84,7 +84,7 @@
 
 <sql:query dataSource="${ic}" var="ac">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT s.studentname,
+    SELECT s.studentname
     from class_student cs
     join student s
     on cs.studentid = s.studentid
