@@ -41,7 +41,7 @@
 
 
 <%
-    int classid = Integer.parseInt(request.getParameter("classid"));
+    /*int classid = Integer.parseInt(request.getParameter("classid"));*/
     Date today = new Date();
 
 
