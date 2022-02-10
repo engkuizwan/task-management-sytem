@@ -86,7 +86,7 @@
                   <p><c:out value="${result.classname}"/></p>
 
                   <input type="hidden" name="classid" value="${result.classid}">
-                  <input type="" name="c" value="${result.rank}">
+                  <input type="hidden" name="c" value="${result.rank}">
                   <input type="hidden" name="action" value="delete">
 
                   <p><button type="submit" onclick="test();" formaction="Lecturer-taskList.jsp"   class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
