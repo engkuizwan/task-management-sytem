@@ -76,7 +76,7 @@
 
 <div class="createbtn">
     <input type="hidden" name="currentclassid">
-    <button type="submit" style="font-size:17px"  ><a href="Lecturer%20-%20taskAdd.jsp">Create <i class="fa fa-plus"></i></a></button>
+    <a href="Lecturer%20-%20taskAdd.jsp"><button type="submit" style="font-size:17px"  >Create <i class="fa fa-plus"></i></button></a>
 </div>
 
     <div class="frame">
