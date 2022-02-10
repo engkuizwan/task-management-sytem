@@ -44,7 +44,7 @@
 </div>
 
 
-<div class="frame3">
+
     <%
     Class.forName("org.postgresql.Driver"); // ni stay
     String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
@@ -85,9 +85,11 @@
                 Student obj = (Student) listclass.get(count);
 
 %>
+<div class="frame3">
     <img src="images/Capture_ccexpress.png"/>
     <div id="text4"><%=obj.getStudentName()%></div>
 
+</div>
 <%
 
     count++;
@@ -96,7 +98,7 @@
     e.printStackTrace();
     }
     }
-%></div>
+%>
 </body>
 </html>
 
