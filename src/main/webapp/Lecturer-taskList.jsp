@@ -74,8 +74,10 @@
 </div>
 
 <div class="createbtn">
-    <input type="hidden" name="classid" value="<%=classid%>">
-    <a href="Lecturer%20-%20taskAdd.jsp"><button type="submit" style="font-size:17px"  >Create <i class="fa fa-plus"></i></button></a>
+    <form>
+        <input type="hidden" name="classid" value="<%=classid%>">
+        <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
+    </form>
 </div>
 
     <div class="frame">
