@@ -105,7 +105,10 @@
 
       <script>
           function test(){
-              <% session.setAttribute("classid", id[count]);%>
+              <%
+              session.removeAttribute("classid");
+              session.setAttribute("classid", id[count]);
+              %>
           }
       </script>
 
