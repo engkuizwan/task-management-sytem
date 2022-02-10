@@ -32,7 +32,7 @@
 
 
       <%
-          Class.forName("org.postgresql.Driver"); // ni stay
+          /*Class.forName("org.postgresql.Driver"); // ni stay
           String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
           String user = "awludfehnzjioi"; //ni user dri heroku database
           String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
@@ -43,12 +43,12 @@
               System.out.println("Driver name: " + dm.getDriverName());
               System.out.println("Driver version: " + dm.getDriverVersion());
               System.out.println("Product Name: " + dm.getDatabaseProductName());
-              System.out.println("Product version: " + dm.getDatabaseProductVersion());
+              System.out.println("Product version: " + dm.getDatabaseProductVersion());*/
 
 
-              int lecturerid = (Integer) session.getAttribute("id");
+               int lecturerid = (Integer) session.getAttribute("id");
 
-              try{
+              /*try{
 
               PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=?");
               st.setInt(1,lecturerid);
@@ -71,10 +71,21 @@
 
                   id[count] = classs.getClassId();
                   listclass.add(classs);
-                  Classs obj = (Classs) listclass.get(count);
+                  Classs obj = (Classs) listclass.get(count);*/
 
 
       %>
+
+
+      <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
+
+      <sql:query dataSource="${ic}" var="oc">
+          <c:set var="clsid" value="<%=lecturerid%>"/>
+          SELECT * from class where lecturerid=?
+          <sql:param value="${clsid}" />
+      </sql:query>
+
+<c:forEach var="result" items="${oc.rows}">
 
       <div class="w3-col l3 m6 w3-margin-bottom">
           <div class="w3-card">
@@ -86,15 +97,17 @@
               <div class="w3-container w3-sand">
                   <form method="post">
 
-                  <h3><%=obj.getClassSubject()%></h3>
-                  <p><%=obj.getClassName()%></p>
-                  <input type="hidden" name="classid" value="<%=obj.getClassId()%>">
-                  <input type="hidden" name="c" value="<%=count%>">
+                  <h3><c:out value="${result.classsubject}"/></h3>
+                  <p><c:out value="${result.classname}"/></p>
+
+                  <input type="hidden" name="classid" value="${result.classid}">
+                  <%--<input type="hidden" name="c" value="<%=count%>">--%>
                   <input type="hidden" name="action" value="delete">
+
                   <p><button type="submit" formaction="Lecturer-taskList.jsp"  onclick="test();" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
                   <p><button type="submit" formaction="Lecturer-classupdate.jsp"><img src="edit.png" style="width:10%"></button></p>
                   <p><button type="submit" formaction="classServlet"
-                             onclick="return confirm('Confirm delete Class: <%=obj.getClassName() %>  Subject: <%=obj.getClassSubject()%> ?');">
+                             onclick="return confirm('Confirm delete Class: <c:out value="${result.classname}"/>  Subject: <c:out value="${result.classsubject}"/> ?');">
                       <img src="delete.png" style="width:10%">
                   </button></p>
 
@@ -104,7 +117,7 @@
           </div>
       </div>
 
-      <script>
+      <%--<script>
           function test(){
               <%
               session.removeAttribute("classid");
@@ -112,12 +125,12 @@
               session.setAttribute("classid", id[c]);
               %>
           }
-      </script>
+      </script>--%>
+
+</c:forEach>
 
 
-
-
-      <%
+      <%--<%
 
             count++;
               }
@@ -125,7 +138,7 @@
                   e.printStackTrace();
               }
           }
-      %>
+      %>--%>
 
 
 
