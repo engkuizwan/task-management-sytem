@@ -55,7 +55,8 @@ public class TaskServlet extends HttpServlet {
 
     private void create(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("classid"));
+        HttpSession session = request.getSession();
+        int id = (Integer) session.getAttribute("classid");
         String name = request.getParameter("taskname");
         String type = request.getParameter("tasktype");
         String desc = request.getParameter("taskdescription");
