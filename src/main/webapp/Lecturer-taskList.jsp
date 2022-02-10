@@ -5,6 +5,12 @@
   Time: 3:01 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="oracle.sql.DatumWithConnection" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
@@ -22,52 +28,41 @@
 <%@include file="NavBar.jsp"%>
 
 <%
-       /*int classid = Integer.parseInt(request.getParameter("classid"));*/
+
+    Class.forName("org.postgresql.Driver"); // ni stay
+    String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+    String user = "awludfehnzjioi"; //ni user dri heroku database
+    String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+    Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+    int id = Integer.parseInt(request.getParameter("classid"));
+
+    int taskId =0;
+    String tskname =null;
+    Date tskduedate= new Date();
+    Date tskassgndate = new Date();
+
+    try {
+
+        PreparedStatement st = conn.prepareStatement("SELECT taskid,taskname,taskduedate,taskassigndate from task where classid=?");
+        st.setInt(1, id);
+
+        ResultSet res = st.executeQuery();
+
+        while(res.next()){
+
+            taskId = res.getInt(1);
+            tskname = res.getString(2);
+            tskduedate = res.getDate(4);
+            tskassgndate = res.getDate(6);
+
+        }
+
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+
 %>
-
-        <div class="boxb">
-            <a href="#" class="T">Task</a>
-            <a href="Lecturer-peopleList.jsp" class="P">Person</a>
-        </div>
-
-        <div class="createbtn">
-            <input type="hidden" name="currentclassid">
-            <button type="submit" style="font-size:17px">Create <i class="fa fa-plus"></i></button>
-       </div>
-
-       <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user="awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
-
-        <sql:query dataSource="${ic}" var="oc">
-                <c:set var="classid" value="3"/>
-                SELECT t.taskname,t.taskassigndate,t.taskduedate, from task t JOIN class c ON t.classid = c.classid WHERE c.classid=?
-                <sql:param value="${classid}" />
-        </sql:query>
-
-       <c:forEach var="result" items="${oc.rows}">
-           <c:out value="${result.lecturerName}"/>
-        <div class="frame">
-            <div class="pd">
-                <div >Posted <c:out value="${result.taskassigndate}"/></div>
-                <div >Due : <c:out value="${result.taskduedate}"/>
-                        <div class="dropdown">
-                            <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
-                            <div class="dropdown-content">
-                                <a href="#"><i class="fa fa-edit"></i>  Edit</a>
-                                <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
-                                <a href="#"><i class="fa fa-clone"></i>  Report</a>
-                            </div>
-                        </div>
-                </div>
-            </div>
-                <p style="text-align: center"><c:out value="${result.taskname}"/></p>
-            <div class="myLink">
-                <button type="submit">View Task</button>
-            </div>
-        </div>
-       </c:forEach>
-
-
-
 
 
 <div class="boxb">
@@ -77,15 +72,15 @@
 
 <div class="createbtn">
     <form>
-        <input type="hidden" name="classid" value="${classs.classId}">
+        <input type="hidden" name="classid" value="<%=id%>">
         <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
     </form>
 </div>
 
     <div class="frame">
         <div class="pd">
-            <div id="e1">Posted </div>
-            <div id="e2">Due :
+            <div id="e1">Posted <%=tskassgndate%></div>
+            <div id="e2">Due : <%=tskduedate%>
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
@@ -96,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <p style="text-align: center">ASSIGNMENT NAME</p>
+        <p style="text-align: center"><%=tskname%></p>
         <div class="myLink">
             <button type="submit">View Task</button>
         </div>
