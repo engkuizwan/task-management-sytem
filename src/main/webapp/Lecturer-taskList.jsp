@@ -35,7 +35,7 @@
     String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-    int id = Integer.parseInt(session.getAttribute("classid").toString());
+    int id = Integer.parseInt(request.getParameter("classid"));
 %>
 
 
