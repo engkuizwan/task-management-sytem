@@ -76,7 +76,10 @@
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
+            <form>
+                <input type="hidden" name="taskid" value="${result.taskid}>">
             <button type="submit" formaction="Lecturer-taskView.jsp" >View Task</button>
+            </form>
         </div>
     </div>
 </c:forEach>
