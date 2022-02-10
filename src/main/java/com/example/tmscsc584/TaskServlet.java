@@ -40,6 +40,7 @@ public class TaskServlet extends HttpServlet {
                     break;
                 case "update":
                     update(request, response);
+                    break;
 
             }
         } catch (SQLException ex) {
