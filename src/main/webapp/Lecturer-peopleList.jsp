@@ -17,20 +17,9 @@
 
 <%@include file="NavBar.jsp"%>
 <%
-    /*int id = Integer.parseInt(request.getParameter("clssid")); //dpt dri taskListpage*/
 
-    int id = 0;
+    int id = (Integer) session.getAttribute("classid");
 
-    try{
-        if(request.getParameter("clssid") != null)
-        {
-            id = Integer.parseInt(request.getParameter("clssid"));
-        }
-        else
-        {
-            id = (Integer) session.getAttribute("classid");
-        }
-    }catch (Exception e){e.printStackTrace();}
 
 %>
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
@@ -42,10 +31,7 @@
 </sql:query>
 
         <div class="boxb">
-            <form>
-                <input type="hidden" name="classid" value="<%=id%>">
-                <a href="Lecturer-taskList.jsp" class="T"><button type="submit" formaction="Lecturer-taskList.jsp">Task</button></a>
-            </form>
+            <a href="#" class="T">Task</a>
             <a href="#" class="P">Person</a>
         </div>
 
