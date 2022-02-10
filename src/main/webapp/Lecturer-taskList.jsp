@@ -36,34 +36,16 @@
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
     int id = Integer.parseInt(request.getParameter("classid"));
-
-    int taskId =0;
-    String tskname =null;
-    Date tskduedate= new Date();
-    Date tskassgndate = new Date();
-
-    try {
-
-        PreparedStatement st = conn.prepareStatement("SELECT taskid,taskname,taskduedate,taskassigndate from task where classid=?");
-        st.setInt(1, id);
-
-        ResultSet res = st.executeQuery();
-
-        while(res.next()){
-
-            taskId = res.getInt(1);
-            tskname = res.getString(2);
-            tskduedate = res.getDate(4);
-            tskassgndate = res.getDate(6);
-
-        }
-
-    }catch (Exception e){
-        e.printStackTrace();
-    }
-
 %>
 
+
+<sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
+
+<sql:query dataSource="${ic}" var="oc">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT taskid,taskname,taskduedate,taskassigndate from task where classid=?
+    <sql:param value="${clsid}" />
+</sql:query>
 
 <div class="boxb">
     <a href="#" class="T">Task</a>
@@ -77,10 +59,11 @@
     </form>
 </div>
 
+<c:forEach var="result" items="${oc.rows}">
     <div class="frame">
         <div class="pd">
-            <div id="e1">Posted <%=tskassgndate%></div>
-            <div id="e2">Due : <%=tskduedate%>
+            <div id="e1">Posted <c:out value="${result.taskassigndate}"/></div>
+            <div id="e2">Due : <c:out value="${result.taskduedate}"/>
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
@@ -91,11 +74,13 @@
                 </div>
             </div>
         </div>
-        <p style="text-align: center"><%=tskname%></p>
+        <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
             <button type="submit">View Task</button>
         </div>
     </div>
+</c:forEach>
+
 
 
 
