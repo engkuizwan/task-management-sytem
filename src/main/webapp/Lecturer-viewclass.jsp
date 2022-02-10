@@ -84,6 +84,7 @@
 
                   <h3><c:out value="${result.classsubject}"/></h3>
                   <p><c:out value="${result.classname}"/></p>
+                  <input type="" name="try" value="<%=id[1]%>">
 
                   <input type="hidden" name="classid" value="${result.classid}">
                   <input type="" name="c" value="${result.rank}">
