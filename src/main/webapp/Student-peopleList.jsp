@@ -29,7 +29,23 @@
     <a href="Student-taskList.jsp" class="T">Task</a>
     <a href="#" class="P">Person</a>
 </div>
-<%
+
+
+<div class="frame">
+    <img src="images/lect.png"/>
+    <div id="text1">LECTURER NAME</div>
+    <div id="text2">Teacher</div>
+</div>
+
+
+<div class="frame2">
+    <div id="text3">TOTAL STUDENTS</div>
+    <div class="round"><p>31</p></div>
+</div>
+
+
+<div class="frame3">
+    <%
     Class.forName("org.postgresql.Driver"); // ni stay
     String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
     String user = "awludfehnzjioi"; //ni user dri heroku database
@@ -73,24 +89,9 @@
                 Student obj = (Student) listclass.get(count);
 
 %>
-
-<div class="frame">
-    <img src="images/lect.png"/>
-    <div id="text1">LECTURER NAME</div>
-    <div id="text2">Teacher</div>
-</div>
-
-
-<div class="frame2">
-    <div id="text3">TOTAL STUDENTS</div>
-    <div class="round"><p>31</p></div>
-</div>
-
-
-<div class="frame3">
     <img src="images/Capture_ccexpress.png"/>
     <div id="text4"><%=obj.getStudentName()%></div>
-</div>
+
 <%
 
     count++;
@@ -99,7 +100,7 @@
     e.printStackTrace();
     }
     }
-%>
+%></div>
 </body>
 </html>
 
