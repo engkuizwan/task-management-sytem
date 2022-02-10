@@ -36,15 +36,12 @@
     Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
     int id = 0;
-    boolean test = false;
 
     try{
-        if(request.getParameter("classid") == null)
+        if(request.getParameter("classid") != null)
         id = Integer.parseInt(request.getParameter("classid"));
         else
-        {
-            id = (Integer) session.getAttribute("classid");
-        }
+        id = (Integer) session.getAttribute("classid");
     }catch (Exception e){e.printStackTrace();}
 
 

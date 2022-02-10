@@ -42,7 +42,7 @@
 
 
 
-          String query = "select classid from class where lecturerid = '" + lecturerid + "'";
+          /*String query = "select classid from class where lecturerid = '" + lecturerid + "'";
           Statement st = conn.createStatement();
           ResultSet res  = st.executeQuery(query);
 
@@ -53,7 +53,7 @@
           while(res.next()){
               id[count] = res.getInt(1);
               count++;
-          }
+          }*/
 
 
       %>
