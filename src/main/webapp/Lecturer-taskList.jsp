@@ -39,7 +39,7 @@
 
     try{
         id = Integer.parseInt(request.getParameter("classid"));
-    }catch (Exception e){e.printStackTrace();
+    }catch (Exception e){e.printStackTrace();}
 
 %>
 
@@ -99,7 +99,5 @@
 
 </body>
 
-<script>
 
-</script>
 </html>
