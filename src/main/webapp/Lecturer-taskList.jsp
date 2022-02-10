@@ -72,7 +72,7 @@
 
 <div class="createbtn">
     <form>
-        <input type="hidden" name="classid" value="<%=id%>">
+        <input type="hidden" name="classid" value="${class.classId}">
         <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
     </form>
 </div>
