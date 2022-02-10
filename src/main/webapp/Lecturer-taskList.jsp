@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<%@include file="NavBar.jsp"%>
+<%@include file="Lecturer-navbar.html"%>
 
 <%
 
@@ -54,7 +54,7 @@
 
 <div class="createbtn">
     <form>
-        <input type="hidden" name="classid" value="${classid}>">
+        <input type="hidden" name="classid" value="${classid}">
         <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
     </form>
 </div>
@@ -76,8 +76,8 @@
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
-            <form  method="post">
-                <input type="hidden" name="taskid" value="${result.taskid}>">
+            <form>
+                <input type="hidden" name="taskid" value="${result.taskid}">
             <button type="submit" formaction="Lecturer - taskView.jsp" >View Task</button>
             </form>
         </div>
