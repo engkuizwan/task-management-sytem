@@ -32,27 +32,27 @@
 
 
       <%
-          /*Class.forName("org.postgresql.Driver"); // ni stay
+          Class.forName("org.postgresql.Driver"); // ni stay
           String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
           String user = "awludfehnzjioi"; //ni user dri heroku database
           String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
-          Connection conn = DriverManager.getConnection(dbURL, user, pass);*/
+          Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
           int lecturerid = (Integer) session.getAttribute("id");
 
 
 
-          /*String query = "select classid from class where lecturerid = '" + lecturerid + "'";
+          String query = "select classid from class where lecturerid = '" + lecturerid + "'";
           Statement st = conn.createStatement();
           ResultSet res  = st.executeQuery(query);
 
-          int[] id = new int[999];
+          int[] id = new int[20];
           int count = 0;
 
           while(res.next()){
               id[count] = res.getInt(1);
               count++;
-          }*/
+          }
 
 
       %>
@@ -105,7 +105,7 @@
           </div>
       </div>
 
-      <%--<script>
+      <script>
           function test(){
               <%
               session.removeAttribute("classid");
@@ -113,7 +113,7 @@
               session.setAttribute("classid", id[d]);
               %>
           }
-      </script>--%>
+      </script>
 
     <%
         c++;
