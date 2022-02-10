@@ -39,9 +39,14 @@
 
     try{
         if(request.getParameter("classid") != null)
-        id = Integer.parseInt(request.getParameter("classid"));
+        {
+            id = Integer.parseInt(request.getParameter("classid"));
+            session.setAttribute("classid", id);
+        }
         else
-        id = (Integer) session.getAttribute("classid");
+        {
+            id = (Integer) session.getAttribute("classid");
+        }
     }catch (Exception e){e.printStackTrace();}
 
 
