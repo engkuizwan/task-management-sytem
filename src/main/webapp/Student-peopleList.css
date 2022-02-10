@@ -116,8 +116,12 @@ a:nth-child(2){
     font-weight: 500;
 }
 
-#text3,.round{
+#text3,.round,.frame2 button {
     display: inline-block;
+}
+
+.frame2 button{
+    float: right;
 }
 
 .frame3 {
@@ -130,7 +134,7 @@ a:nth-child(2){
     margin: 10px auto;
 }
 
-.frame3 img, #text4{
+.frame3 img, #text4, .dropdown.dropbtn{
     display: inline-block;
 }
 
@@ -142,4 +146,47 @@ a:nth-child(2){
     width: 63px;
     height: 64px;
     margin: 20px;
+}
+
+.dropbtn {
+    margin-top: 35px;
+    margin-right: 5px;
+    background-color: transparent;
+    color: #240948;
+    padding: 5px 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: lightgrey;
 }

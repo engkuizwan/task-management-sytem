@@ -40,6 +40,8 @@ a:nth-child(2){
     width: 330px;
 }
 
+
+
 .frame {
     width: 700px;
     height: 120px;
@@ -61,7 +63,7 @@ a:nth-child(2){
 
 #e2{
     float: right;
-    padding: 10px 10px;
+    padding-right: 10px;
 }
 
 .frame .myLink {
@@ -81,7 +83,63 @@ a:nth-child(2){
     margin-bottom: 10px;
 }
 
+.createbtn {
+    margin: 10px;
+    text-align: center;
+}
+
+.createbtn button {
+    background-color: slateblue;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 17px;
+    cursor: pointer;
+    width: 700px;
+}
+
 button :hover {
     background-color: whitesmoke;
     color: slateblue;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: black;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding:10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: lightgrey;
 }
