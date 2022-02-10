@@ -59,8 +59,8 @@
 
 <div class="container">
   <div class="title">View Task</div>
+<c:forEach var="result" items="${oc.rows}">
   <form action="#">
-
     <div class="taskdetails" >
       <div class="input-box">
         <span class="details">Task Name</span>
@@ -92,6 +92,7 @@
 
 
   </form>
+</c:forEach>
 </div>
 
 

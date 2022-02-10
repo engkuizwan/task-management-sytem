@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<%@include file="Lecturer-navbar.html"%>
+<%@include file="NavBar.jsp"%>
 
 <%
 
