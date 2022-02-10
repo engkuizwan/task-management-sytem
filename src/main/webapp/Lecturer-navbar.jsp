@@ -26,9 +26,9 @@
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
 
-            <a href="Lecturer-taskList.jsp" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
-            <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-user"></i> PROFILE</a>
-            <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
+            <a href="Lecturer-viewclass.jsp" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
+            <a href="Lecturer%20-%20ViewProfile.jsp" class="w3-bar-item w3-button"><i class="fa fa-user"></i> PROFILE</a>
+            <a href="index.jsp" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
 
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->

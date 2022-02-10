@@ -26,7 +26,15 @@
 
 <sql:query dataSource="${ic}" var="oc">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT L.lecturerid,L.lecturername,S.studentid,S.studentname from student S JOIN class_student CS ON S.studentid=CS.studentid JOIN class C ON CS.classid=C.classid JOIN lecturer L ON C.lecturerid=L.lecturerid WHERE CS.classid=?
+    SELECT L.lecturerid,L.lecturername,S.studentid,S.studentname
+    from student S
+        JOIN class_student CS
+            ON S.studentid=CS.studentid
+        JOIN class C
+            ON CS.classid=C.classid
+        JOIN lecturer L
+            ON C.lecturerid=L.lecturerid
+    WHERE CS.classid=?
     <sql:param value="${clsid}" />
 </sql:query>
 
