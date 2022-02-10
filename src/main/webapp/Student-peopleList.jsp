@@ -5,9 +5,11 @@
   Time: 12:27 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="com.example.tmscsc584.Classs" %>
+<%@ page import="com.example.tmscsc584.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <html>
 <head>
     <title>List Of People</title>
@@ -21,7 +23,51 @@
     <a href="Student-taskList.jsp" class="T">Task</a>
     <a href="#" class="P">Person</a>
 </div>
+<%
+    Class.forName("org.postgresql.Driver"); // ni stay
+    String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
+    String user = "awludfehnzjioi"; //ni user dri heroku database
+    String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
+    Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
+    //int studentid = (Integer) session.getAttribute("id");
+    int classid = (Integer) session.getAttribute("id");
+
+    if (conn != null){
+        DatabaseMetaData dm = conn.getMetaData();
+        System.out.println("Driver name: " + dm.getDriverName());
+        System.out.println("Driver version: " + dm.getDriverVersion());
+        System.out.println("Product Name: " + dm.getDatabaseProductName());
+        System.out.println("Product version: " + dm.getDatabaseProductVersion());
+
+
+
+
+        try{
+
+
+            PreparedStatement st = conn.prepareStatement("SELECT class_student.studentid, student.studentname from class_student " +
+                    "join student ON  class_student.studentid = student.studentid " +
+                    "where class_student.classid=?;");
+
+
+            //st.setInt(1,studentid);
+            st.setInt(1,classid);
+            ResultSet res = st.executeQuery();
+            LinkedList listclass = new LinkedList();
+
+            int count=0;
+
+            while (res.next()){
+
+                Student student = new Student();
+
+                //student.setStudentId(res.getInt(2));
+                student.setStudentName(res.getString(2));
+                listclass.add(student);
+                Student obj = (Student) listclass.get(count);
+
+%>
 
 <div class="frame">
     <img src="images/lect.png"/>
@@ -38,9 +84,17 @@
 
 <div class="frame3">
     <img src="images/Capture_ccexpress.png"/>
-    <div id="text4">STUDENT NAME</div>
+    <div id="text4"><%=obj.getStudentName()%></div>
 </div>
+<%
 
+    count++;
+    }
+    }catch (Exception e){
+    e.printStackTrace();
+    }
+    }
+%>
 </body>
 </html>
 
