@@ -61,7 +61,7 @@
 </sql:query>--%>
 
 <div class="boxb">
-    <a href="Lecturer-taskList.jsp" class="T">Task</a>
+    <a href="Student-taskList.jsp" class="T">Task</a>
     <a href="#" class="P">Person</a>
 </div>
 
