@@ -58,11 +58,11 @@
                   LinkedList listclass = new LinkedList();
 
                   int count=0;
+                  int[] id = new int[20];
 
               while (res.next()){
 
-                  int[] id = new int[99999999];
-                      Classs classs = new Classs();
+                  Classs classs = new Classs();
 
                   classs.setClassId(res.getInt(1));
                   classs.setClassName(res.getString(2));
