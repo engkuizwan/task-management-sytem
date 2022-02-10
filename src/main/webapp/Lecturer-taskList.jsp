@@ -62,6 +62,13 @@
 <%--        </div>--%>
 <%--       </c:forEach>--%>
 
+
+<%
+    int classid = Integer.parseInt(request.getParameter("classid"));
+    session.setAttribute("classid", classid);
+%>
+
+
 <div class="boxb">
     <a href="#" class="T">Task</a>
     <a href="Lecturer-peopleList.jsp" class="P">Person</a>
@@ -69,7 +76,7 @@
 
 <div class="createbtn">
     <input type="hidden" name="currentclassid">
-    <button type="submit" style="font-size:17px">Create <i class="fa fa-plus"></i></button>
+    <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
 </div>
 
     <div class="frame">

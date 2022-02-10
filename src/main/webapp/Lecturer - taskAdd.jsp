@@ -41,8 +41,9 @@
 
 
 <%
-    int classid = Integer.parseInt(request.getParameter("classid"));
+    /*int classid = Integer.parseInt(request.getParameter("classid"));*/
     Date today = new Date();
+    int classid = Integer.parseInt(request.getAttribute("classid").toString());
 
     SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
     String date = DATE_FORMAT.format(today);
@@ -53,7 +54,7 @@
     <div class="title">Add Task</div>
     <form action="TaskServlet" method="post">
 
-        <input type="hidden" name="classid" value="<%=classid%>">
+        <input  name="classid" value="<%=classid%>">
 
         <div class="taskdetails" >
             <div class="input-box">
