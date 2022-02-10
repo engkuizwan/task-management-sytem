@@ -26,7 +26,7 @@
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
 
-            <a href="#class" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
+            <a href="Lecturer-taskList.jsp" class="w3-bar-item w3-button"><i class="fa fa-th"></i> CLASS</a>
             <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-user"></i> PROFILE</a>
             <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
 

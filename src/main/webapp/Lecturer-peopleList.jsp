@@ -15,7 +15,7 @@
 <body>
 <style><%@include file="Lecturer-peopleList.css"%></style>
 
-<%@include file="NavBar.jsp"%>
+<%@include file="Lecturer-navbar.jsp"%>
 <%
 
     int id = (Integer) session.getAttribute("classid");
