@@ -32,46 +32,25 @@
 
 
       <%
-          /*Class.forName("org.postgresql.Driver"); // ni stay
+          Class.forName("org.postgresql.Driver"); // ni stay
           String dbURL = "jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v"; //ni url dri heroku database
           String user = "awludfehnzjioi"; //ni user dri heroku database
           String pass = "09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"; //ni password dri heroku database
           Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-          if (conn != null){
-              DatabaseMetaData dm = conn.getMetaData();
-              System.out.println("Driver name: " + dm.getDriverName());
-              System.out.println("Driver version: " + dm.getDriverVersion());
-              System.out.println("Product Name: " + dm.getDatabaseProductName());
-              System.out.println("Product version: " + dm.getDatabaseProductVersion());*/
+          int lecturerid = (Integer) session.getAttribute("id");
 
+          String query = "select classid from class where lecturerid = '" + lecturerid + "'";
+          Statement st = conn.createStatement();
+          ResultSet res  = st.executeQuery(query);
 
-               int lecturerid = (Integer) session.getAttribute("id");
+          int[] id = new int[999];
+          int count = 0;
 
-              /*try{
-
-              PreparedStatement st = conn.prepareStatement("SELECT * from class where lecturerid=?");
-              st.setInt(1,lecturerid);
-
-              ResultSet res = st.executeQuery();
-
-                  LinkedList listclass = new LinkedList();
-
-                  int count=0;
-                  int[] id = new int[20];
-
-              while (res.next()){
-
-                  Classs classs = new Classs();
-
-                  classs.setClassId(res.getInt(1));
-                  classs.setClassName(res.getString(2));
-                  classs.setClassSubject(res.getString(3));
-                  classs.setClassTotalstud(res.getInt(4));
-
-                  id[count] = classs.getClassId();
-                  listclass.add(classs);
-                  Classs obj = (Classs) listclass.get(count);*/
+          while(res.next()){
+              id[count] = res.getInt(1);
+              count++;
+          }
 
 
       %>
@@ -87,6 +66,13 @@
 
 <c:forEach var="result" items="${oc.rows}">
 
+    <%
+        int c = 0;
+
+    %>
+
+
+
       <div class="w3-col l3 m6 w3-margin-bottom">
           <div class="w3-card">
 
@@ -101,7 +87,7 @@
                   <p><c:out value="${result.classname}"/></p>
 
                   <input type="hidden" name="classid" value="${result.classid}">
-                  <%--<input type="hidden" name="c" value="<%=count%>">--%>
+                  <input type="hidden" name="c" value="<%=c%>">
                   <input type="hidden" name="action" value="delete">
 
                   <p><button type="submit" formaction="Lecturer-taskList.jsp"  onclick="test();" class="w3-button w3-blue-grey w3-block"></i> View class</button></p> <%-- wan update here--%>
@@ -117,32 +103,21 @@
           </div>
       </div>
 
-      <%--<script>
+      <script>
           function test(){
               <%
               session.removeAttribute("classid");
-              int c = Integer.parseInt(request.getParameter("c"));
-              session.setAttribute("classid", id[c]);
+              int d = Integer.parseInt(request.getParameter("c"));
+              session.setAttribute("classid", id[d]);
               %>
           }
-      </script>--%>
+      </script>
+
+    <%
+        c++;
+    %>
 
 </c:forEach>
-
-
-      <%--<%
-
-            count++;
-              }
-              }catch (Exception e){
-                  e.printStackTrace();
-              }
-          }
-      %>--%>
-
-
-
-
 
     </div>
   </div>
