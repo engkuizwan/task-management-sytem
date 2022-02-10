@@ -9,6 +9,8 @@
 <%@ page import="java.util.LinkedList" %>
 <%@ page import="com.example.tmscsc584.Classs" %>
 <%@ page import="com.example.tmscsc584.Student" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
