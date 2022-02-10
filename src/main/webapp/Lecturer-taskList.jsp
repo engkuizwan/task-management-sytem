@@ -61,7 +61,7 @@
     <a href="#" class="T">Task</a>
     <form>
      <input type="hidden" name="clssid" value="<%=id%>">
-    <button type="submit" formaction="Lecturer-peopleList.jsp">Person</button>
+     <a class="P"><button type="submit" formaction="Lecturer-peopleList.jsp">Person</button></a>
     </form>
 </div>
 

@@ -16,20 +16,22 @@
 <style><%@include file="Lecturer-peopleList.css"%></style>
 
 <%@include file="NavBar.jsp"%>
-
+<%
+    int id = Integer.parseInt(request.getParameter("clssid")); //dpt dri taskListpage
+%>
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
 <sql:query dataSource="${ic}" var="oc">
-    <%
-        int id = Integer.parseInt(request.getParameter("clssid")); //dpt dri taskListpage
-    %>
     <c:set var="clsid" value="<%=id%>"/>
     SELECT L.lecturerid,L.lecturername,S.studentid,S.studentname from student S JOIN class_student CS ON S.studentid=CS.studentid JOIN class C ON CS.classid=C.classid JOIN lecturer L ON C.lecturerid=L.lecturerid WHERE CS.classid=?
     <sql:param value="${clsid}" />
 </sql:query>
 
         <div class="boxb">
-            <a href="Lecturer-taskList.jsp" class="T"><button>Task</button></a>
+            <form>
+                <input type="hidden" name="classid" value="<%=id%>">
+                <a href="Lecturer-taskList.jsp" class="T"><button type="submit" formaction="Lecturer-taskList.jsp">Task</button></a>
+            </form>
             <a href="#" class="P">Person</a>
         </div>
 
