@@ -46,7 +46,7 @@
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
-<sql:query dataSource="${ic}" var="oc">
+<%--<sql:query dataSource="${ic}" var="oc">
     <c:set var="clsid" value="<%=id%>"/>
     SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
     from class_student cs
@@ -56,6 +56,17 @@
         on s.studentid = st.studentid
     where cs.classid=?
     and st.taskid = ?
+    <sql:param value="<%=id%>" />
+    <sql:param value="<%=tid%>" />
+</sql:query>--%>
+
+<sql:query dataSource="${ic}" var="oc">
+    <c:set var="clsid" value="<%=id%>"/>
+    SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
+    from student s
+    left outer join student_task st
+    on s.studentid = st.studentid
+    where st.taskid = ?
     <sql:param value="<%=id%>" />
     <sql:param value="<%=tid%>" />
 </sql:query>
