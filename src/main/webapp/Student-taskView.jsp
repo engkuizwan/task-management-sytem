@@ -85,7 +85,7 @@
                     <sql:param value="<%=tskid%>"/>
                 </sql:query>
                 <c:forEach var="test" items="${od.rows}">
-                       <dd><c:out value="${test.taskwork}"/></dd>
+                       <a href="src/main/webapp/images/${test.taskworkname}"><c:out value="${test.taskworkname}"/></a>
                 </c:forEach>
                 <input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">
