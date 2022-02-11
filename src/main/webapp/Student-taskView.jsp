@@ -76,7 +76,7 @@
 
                 <div class="input-box">
                     <span class="details">Your Works</span></br>
-                    <input type="file" name="task" id="task" data-height="300" required="required">
+                    <input type="file" name="task" id="task" data-height="300">
                 </div>
 
                 <sql:query dataSource="${ic}" var="od">

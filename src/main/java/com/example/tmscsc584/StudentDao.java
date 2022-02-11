@@ -6,6 +6,7 @@ import java.sql.*;
 import javax.servlet.http.Part;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import java.io.OutputStream;
 
 import static java.lang.System.out;
 
@@ -150,12 +151,14 @@ public class StudentDao {
                 while(rs.next()) {
                     byte[] imgBytes = rs.getBytes(1);
                     // use the stream in some way here
+                    FileOutputStream fos = new FileOutputStream(imagename);
+                    fos.write(imgBytes);
                 }
                 rs.close();
             }
 
-        } catch (SQLException e) {
-            printSQLException(e);
+        } catch (SQLException | IOException e) {
+            printSQLException((SQLException) e);
         }
     }
 
