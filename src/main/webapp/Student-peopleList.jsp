@@ -87,7 +87,6 @@
     <div class="frame2">
         <div id="text3">TOTAL STUDENTS</div>
         <div class="round"><p><c:out value="${result.total}"/></p></div>
-        <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
     </div>
 </c:forEach>
 
@@ -108,12 +107,6 @@
     <div class="frame3">
         <img src="images/Capture_ccexpress.png"/>
         <div id="text4"><c:out value="${test.studentname}"/></div>
-        <div class="dropdown">
-            <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
-            <div class="dropdown-content">
-                <a href="#"><i class="fa fa-trash-o"></i> Remove</a>
-            </div>
-        </div>
     </div>
 </c:forEach>
 </body>
