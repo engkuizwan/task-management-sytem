@@ -14,7 +14,7 @@
 	<form action="LecturerServlet" method="POST">
 		<div class="container">
 		<img src="teachIcon.png">
-		<h2>LECTURER LOGIN</h2>
+		<h2>LECTURER SIGN UP</h2>
 			<div class="row">
 				<div class="col-25">
 					<label style="">Lecturer Name</label>

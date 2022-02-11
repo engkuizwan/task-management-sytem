@@ -14,7 +14,7 @@
 	<form action="" method="POST">
 		<div class="container">
 		<img src="studIcon.png">
-		<h2>STUDENT LOGIN</h2>
+		<h2>STUDENT SIGN UP</h2>
 			<div class="row">
 				<div class="col-25">
 					<label style="">Student Name</label>
