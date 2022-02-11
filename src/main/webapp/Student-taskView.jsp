@@ -81,7 +81,7 @@
 
                 <sql:query dataSource="${ic}" var="od">
                     <c:set var="tskid" value="<%=tskid%>"/>
-                    SELECT taskwork FROM student_task WHERE taskid=?
+                    SELECT taskwork,taskworkname FROM student_task WHERE taskid=?
                     <sql:param value="<%=tskid%>"/>
                 </sql:query>
                 <c:forEach var="test" items="${od.rows}">
