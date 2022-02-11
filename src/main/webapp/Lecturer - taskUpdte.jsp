@@ -84,7 +84,7 @@
             </div>
             <div class="input-box">
                 <span class="details">Description</span></br>
-                <input name="taskdescription" cols="30" rows="10" placeholder="Enter task description" value="${result.taskdescription}">
+                <input name="taskdescription" cols="30" rows="10" value="${result.taskdescription}">
             </div>
 
             <input type="hidden" name="action" value="update">
