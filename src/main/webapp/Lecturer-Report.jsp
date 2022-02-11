@@ -64,7 +64,6 @@
     SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
     from student s full outer join student_task st
     on st.studentid = s.studentid
-    <sql:param value="<%=tid%>" />
 </sql:query>
 
 
