@@ -82,9 +82,9 @@
                     <input type="file" name="task" value="${result.taskwork}">
                 </div>
 
-                <input type="hidden" name="action" value="addwork">
+                <%--<input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">
-                <input type="hidden" name="studentid" value="<%=studentid%>">
+                <input type="hidden" name="studentid" value="<%=studentid%>">--%>
             </div>
 
             <div class="button">
