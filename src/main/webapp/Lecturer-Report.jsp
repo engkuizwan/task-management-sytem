@@ -70,23 +70,6 @@
     <div class="frame">
         <div class="pd">
 
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
-                    <div class="dropdown-content">
-                        <a href="#"><i class="fa fa-edit"></i>  Edit</a>
-                        <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
-                        <a href="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <p style="text-align: center"><c:out value="${result.taskname}"/></p>
-        <div class="myLink">
-            <form>
-                <input type="hidden" name="taskid" value="${result.taskid}">
-
-            </form>
         </div>
     </div>
 </c:forEach>
