@@ -104,7 +104,7 @@ public class StudentDao {
     public void addwork(String Filename, int studentid, int taskid)throws SQLException{
 
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork) values(?)");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork) values(?,?,?)");)
         {
             preparedStatement.setInt(1, taskid);
             preparedStatement.setInt(2, studentid);
