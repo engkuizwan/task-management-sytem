@@ -98,7 +98,7 @@
         <div class="myLink">
             <form>
                 <input type="hidden" name="taskid" value="${result.taskid}">
-            <button type="submit" formaction="Student-taskView.jsp" >View Task</button>
+            <button type="submit" formaction="Lecturer-taskView.jsp" >View Task</button>
             </form>
         </div>
     </div>
