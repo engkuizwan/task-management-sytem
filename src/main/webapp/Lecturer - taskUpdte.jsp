@@ -51,7 +51,7 @@
 
 <sql:query dataSource="${ic}" var="oc">
     <c:set var="taskid" value="<%=taskid%>"/>
-    SELECT taskid,taskname,taskduedate,tasktype
+    SELECT taskid,taskname,taskduedate,tasktype, taskdescription
     from task
     where taskid=?
     <sql:param value="${taskid}"/>
@@ -61,7 +61,7 @@
 
 
 <!--form-->
-<div class="container" style="margin-bottom: 9%; margin-top: 9%;">
+<div class="container">
     <div class="title">Add Task</div>
     <form action="TaskServlet" method="post">
 
