@@ -30,10 +30,10 @@ body{
     color: purple;
     font-weight: bolder;
 }
-.boxb a.active {
+/*.boxb a.active {
     background-color: purple;
     color: white;
-}
+}*/
 
 a:nth-child(1){
     width: 330px;
@@ -43,7 +43,7 @@ a:nth-child(2){
     width: 330px;
 }
 
-.active{
+.boxb a.active{
     width: 330px;
     height: 10px;
     background-color: #71437a;
