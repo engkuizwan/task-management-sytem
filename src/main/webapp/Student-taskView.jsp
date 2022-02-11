@@ -39,6 +39,7 @@
     full outer join student_task st
         on s.studentid = st.studentid
     join task t
+    on st.taskid = t.taskid
     WHERE s.studentid=?
     and st.taskid=?
     <sql:param value="<%=studentid%>"/>
