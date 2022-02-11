@@ -62,18 +62,17 @@
 
 </div>
 
-<div class="createbtn">
-    <form>
-        <input type="hidden" name="classid" value="<%=id%>">
-        <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
-    </form>
+<div class="report">
+
+        <div id="e1">REPORT ON <c:out value="${result.taskname}"/></div>
+        <div id="e2">DUE : <c:out value="${result.taskduedate}"/>
+
 </div>
 
 <c:forEach var="result" items="${oc.rows}">
     <div class="frame">
         <div class="pd">
-            <div id="e1">Posted <c:out value="${result.taskassigndate}"/></div>
-            <div id="e2">Due : <c:out value="${result.taskduedate}"/>
+
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
