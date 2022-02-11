@@ -43,15 +43,7 @@ a:nth-child(2){
     width: 330px;
 }
 
-.active{
-    width: 330px;
-    height: 10px;
-    background-color: #71437a;
-    overflow: hidden;
-    border-radius: 11px 11px 0px 0px;
-    margin: 137px 10px;
-    z-index: 2;
-}
+
 
 .frame {
     width: 700px;
