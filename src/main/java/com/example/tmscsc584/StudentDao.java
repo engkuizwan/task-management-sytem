@@ -108,7 +108,7 @@ public class StudentDao {
     public void addwork(Part f, int studentid, int taskid) throws SQLException, FileNotFoundException {
 
         String FileName=f.getSubmittedFileName();
-        File file = new File("src/main/webapp/images"+ FileName);
+        File file = new File("src/main/webapp/images/"+ FileName);
 
         try {
             FileOutputStream fos = new FileOutputStream(file);
