@@ -72,15 +72,11 @@
 
 <sql:query dataSource="${ic}" var="oc">
     SELECT row_number() over () "rank", s.studentname, st.taskstatus
-    from class_student cs
-    join student s on s.studentid = cs.studentid
-    join student_task st on st.studentid = s.studentid
-    where cs.classid=?
+    from student_task st
+    join student s on st.studentid = s.studentid
     and st.taskid=?
-    <sql:param value="<%=id%>" />
     <sql:param value="<%=tid%>" />
 </sql:query>
-
 
 
     <div class="frame2" style="margin-top: 5%; padding: 5%; border-radius: 5px; min-height: 90%;">
