@@ -69,6 +69,24 @@
         </div>
     </div>
 
+    <div class="frame">
+        <div class="pd">
+
+            <table>
+                <tr>
+                    <th>NO</th>
+                    <th>STUDENT NAME</th>
+                    <th>TASK STATUS</th>
+                    <th>STUDENT WORK</th>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
 </c:forEach>
 
 
