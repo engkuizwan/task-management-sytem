@@ -218,7 +218,7 @@ public class StudentServlet extends HttpServlet {
 
         Part f=request.getPart("task");
         String FileName=f.getSubmittedFileName();
-        File file = new File("C:/Users/Public/LAB EXERCISE/Task-Management-system/src/main/webapp/images/" + FileName);
+        File file = new File("C:/Users/Public/LAB EXERCISE/Task-Management-system/src/images/" + FileName);
 
         try {
             FileOutputStream fos = new FileOutputStream(file);
