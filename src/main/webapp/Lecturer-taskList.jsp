@@ -83,7 +83,7 @@
                     <div class="dropdown-content">
                         <form>
                             <input type="hidden" name="taskid" value="${result.taskid}">
-                            <a><button type="submit" formaction="Lecturer - taskUpdte"><i class="fa fa-edit"></i>  Edit</button></a>
+                            <a><button type="submit" formaction="Lecturer - taskUpdte.jsp"><i class="fa fa-edit"></i>  Edit</button></a>
                         </form>
                         <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
                         <form>
