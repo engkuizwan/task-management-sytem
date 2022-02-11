@@ -23,6 +23,7 @@
 
 <%
     int tskid = Integer.parseInt(request.getParameter("taskid"));
+    int studentid = (Integer) session.getAttribute("id");
 %>
 
 <sql:setDataSource var="ic"
@@ -33,8 +34,14 @@
 
 
 <sql:query dataSource="${ic}" var="oc">
-    SELECT * from task WHERE taskid=?
+    SELECT t.taskname, t.taskassigndate, t.taskduedate, t.tasktype, t.taskdescription, st.taskwork
+    from student_task st
+    join task t
+        on st.taskid = t.taskid
+    WHERE st.taskid=?
+    and st.studentid=?
     <sql:param value="<%=tskid%>"/>
+    <sql:param value="<%=studentid%>"/>
 </sql:query>
 
 
@@ -44,7 +51,7 @@
 <div class="container" style="margin-top: 9%; margin-bottom: 9%;">
     <div class="title">View Task</div>
     <c:forEach var="result" items="${oc.rows}">
-        <form action="#">
+        <form action="StudentServlet">
             <div class="taskdetails" >
                 <div class="input-box">
                     <span class="details">Task Name</span>
@@ -72,10 +79,12 @@
 
                 <div class="input-box">
                     <span class="details">Your Works</span></br>
-                    <input type="file" name="task">
+                    <input type="file" name="task" value="${result.taskwork}">
                 </div>
 
-
+                <input type="hidden" name="action" value="addwork">
+                <input type="hidden" name="taskid" value="<%=tskid%>">
+                <input type="hidden" name="studentid" value="<%=studentid%>">
             </div>
 
             <div class="button">

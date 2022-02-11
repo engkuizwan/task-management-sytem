@@ -50,6 +50,8 @@ public class StudentServlet extends HttpServlet {
                 case "quitclass":
                     quitclass(request, response);
                     break;
+                case "addwork":
+                    addwork(request,response);
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -202,6 +204,22 @@ public class StudentServlet extends HttpServlet {
         sd.quitclass(classs);
         response.sendRedirect("Student-viewclass.jsp");
 
+
+    }
+
+
+    /*######################################################( ADD WORK )#############################################################*/
+
+    private void addwork(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+
+
+        int studentid = Integer.parseInt(request.getParameter("studentid"));
+        int taskid = Integer.parseInt(request.getParameter("taskid"));
+        String work = request.getParameter("task");
+
+        sd.addwork(work, studentid, taskid);
+        response.sendRedirect("Student-viewclass.jsp");
 
     }
 
