@@ -64,8 +64,8 @@
 
     <div class="frame">
         <div class="pd">
-            <div id="e1">REPORT ON <c:out value="${result.taskname}"/></div>
-            <div id="e2">DUE : <c:out value="${result.taskduedate}"/></div>
+            <div id="e1">Report on <c:out value="${result.taskname}"/></div>
+            <div id="e2">Due : <c:out value="${result.taskduedate}"/></div>
         </div>
     </div>
 
@@ -80,7 +80,11 @@
                     <th>STUDENT WORK</th>
                 </tr>
                 <tr>
-                    <td>Centro comercial Moctezuma</td>
+                    <td>1</td>
+                    <td>Engku</td>
+                    <td>Completed</td>
+                    <td></td>
+
                 </tr>
 
             </table>
