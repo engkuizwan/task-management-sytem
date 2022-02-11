@@ -42,7 +42,7 @@
     from class_student cs
     join student s
         on cs.studentid = s.studentid
-    full outer join student_task st
+    right outer join student_task st
     on s.studentid = st.studentid
     where cs.classid=?
     and st.taskid = ?
