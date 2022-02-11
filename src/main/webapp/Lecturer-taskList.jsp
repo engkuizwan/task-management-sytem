@@ -81,11 +81,14 @@
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
-                        <a href="#"><i class="fa fa-edit"></i>  Edit</a>
+                        <form>
+                            <input type="hidden" name="taskid" value="${result.taskid}">
+                            <a><button type="submit" formaction="Lecturer-taskUpdte"><i class="fa fa-edit"></i>  Edit</button></a>
+                        </form>
                         <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
                         <form>
                             <input type="hidden" name="taskid" value="${result.taskid}">
-                            <a ><button type="submit" formaction="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</button></a>
+                            <a><button type="submit" formaction="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</button></a>
                         </form>
                     </div>
                 </div>
