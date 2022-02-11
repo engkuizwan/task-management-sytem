@@ -62,10 +62,12 @@
 
 <sql:query dataSource="${ic}" var="oc">
     SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
-    from student s full outer join student_task st
+    from class_student cs
+    join student s on s.studentid = cs.studentid
+    full outer join student_task st
     on st.studentid = s.studentid
-    where st.taskid = ?
-    <sql:param value="<%=tid%>" />
+    where cs.classid=?
+    <sql:param value="<%=id%>" />
 </sql:query>
 
 
