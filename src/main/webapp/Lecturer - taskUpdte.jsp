@@ -48,11 +48,11 @@
     try{
         if(request.getParameter("taskid") != null)
         {
-            taskid = Integer.parseInt(request.getParameter("classid"));
+            taskid = Integer.parseInt(request.getParameter("taskid"));
         }
         else
         {
-            taskid = (Integer) session.getAttribute("classid");
+            taskid = (Integer) session.getAttribute("taskid");
         }
     }catch (Exception e){e.printStackTrace();}
 
@@ -76,7 +76,7 @@
 
 <!--form-->
 <div class="container" style="margin-top: 9%; margin-bottom: 9%;">
-    <div class="title">Add Task</div>
+    <div class="title">Update Task</div>
     <form action="TaskServlet" method="post">
 
         <input type="hidden" name="taskid" value="<%=taskid%>">
