@@ -48,16 +48,14 @@
 
 <sql:query dataSource="${ic}" var="oc">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT studentid, to_char(null)"studentname", to_char(null)"status"
-    from class_student
-    where classid = ?
-    intersect
-    select studentid, studentname, to_char(null)
-    from student
-    union
-    select studentid, to_char(null), coalesce(taskstatus, 'Not Complete')
-    from student_task
-    where taskid=?
+    SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
+    from class_student cs
+    join student s
+        on cs.studentid = s.studentid
+    full outer join student_task st
+        on st.studentid = s.studentid
+    where cs.classid=?
+    and st.taskid = ?
     <sql:param value="<%=id%>" />
     <sql:param value="<%=tid%>" />
 </sql:query>
