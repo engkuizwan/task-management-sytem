@@ -47,14 +47,14 @@
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
-<sql:query dataSource="${ic}" var="task">
+<sql:query dataSource="${ic}" var="oc">
     <c:set var="tskid" value="<%=taskid%>"/>
     SELECT * from task where taskid=?
     <sql:param value="${tskid}" />
 </sql:query>
 
 <!--form-->
-<c:forEach var="tsk" items="${task.rows}">
+<c:forEach var="result" items="${oc.rows}">
 <div class="container">
     <div class="title">Add Task</div>
     <form action="TaskServlet" method="post">
@@ -64,20 +64,20 @@
         <div class="taskdetails" >
             <div class="input-box">
                 <span class="details">Task Name</span>
-                <input type="text" name="taskname" value="${tsk.name}" required>
+                <input type="text" name="taskname" value="${result.taskname}" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Task Type</span>
-                <input type="text" name="tasktype" value="${tsk.type}" required>
+                <input type="text" name="tasktype" value="${result.tasktype}" required>
             </div>
             <div class="input-box">
                 <span class="details">Due Date</span>
-                <input type="date" name="taskduedate"  value="${tsk.duedate}" required>
+                <input type="date" name="taskduedate"  value="${result.taskduedate}" required>
             </div>
             <div class="input-box">
                 <span class="details">Description</span></br>
-                <input name="taskdescription" cols="30" rows="10" placeholder="Enter task description" value="${tsk.description}">
+                <input name="taskdescription" cols="30" rows="10" placeholder="Enter task description" value="${result.taskdescription}">
             </div>
 
             <input type="hidden" name="action" value="update">
@@ -85,7 +85,7 @@
         </div>
 
         <div class="button">
-            <input type="submit" value="Update">
+            <input type="submit" onclick="return confirm('Confirm update your profile?');" value="Update">
         </div>
 
     </form>

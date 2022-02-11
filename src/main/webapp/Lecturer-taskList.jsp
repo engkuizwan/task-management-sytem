@@ -88,7 +88,7 @@
                         <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
                         <form>
                             <input type="hidden" name="taskid" value="${result.taskid}">
-                            <a><button type="submit" formaction="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</button></a>
+                            <a><button type="submit" formaction="Lecturer-Report.jsp" ><i class="fa fa-clone"></i>  Report</button></a>
                         </form>
                     </div>
                 </div>
