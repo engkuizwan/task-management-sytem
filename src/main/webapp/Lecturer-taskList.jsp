@@ -58,7 +58,7 @@
 
 <div class="boxb">
 
-    <a href="#" class="T">Task</a>
+    <a href="#" class="active" class="T">Task</a>
     <a href="Lecturer-peopleList.jsp" class="P">Person</a>
 
 
