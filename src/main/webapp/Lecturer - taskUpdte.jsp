@@ -54,7 +54,6 @@
 </sql:query>
 
 <!--form-->
-<c:forEach var="result" items="${oc.rows}">
 <div class="container">
     <div class="title">Add Task</div>
     <form action="TaskServlet" method="post">
@@ -64,20 +63,20 @@
         <div class="taskdetails" >
             <div class="input-box">
                 <span class="details">Task Name</span>
-                <input type="text" name="taskname" value="${result.taskname}" required>
+                <input type="text" name="taskname" value="${oc.taskname}" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Task Type</span>
-                <input type="text" name="tasktype" value="${result.tasktype}" required>
+                <input type="text" name="tasktype" value="${task.tasktype}" required>
             </div>
             <div class="input-box">
                 <span class="details">Due Date</span>
-                <input type="date" name="taskduedate"  value="${result.taskduedate}" required>
+                <input type="date" name="taskduedate"  value="${oc.taskduedate}" required>
             </div>
             <div class="input-box">
                 <span class="details">Description</span></br>
-                <input name="taskdescription" cols="30" rows="10" placeholder="Enter task description" value="${result.taskdescription}">
+                <input name="taskdescription" cols="30" rows="10" placeholder="Enter task description" value="${oc.taskdescription}">
             </div>
 
             <input type="hidden" name="action" value="update">
@@ -90,7 +89,6 @@
 
     </form>
 </div>
-</c:forEach>
 
 
 
