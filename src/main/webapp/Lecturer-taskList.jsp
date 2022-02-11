@@ -86,7 +86,7 @@
                             <a><button type="submit" formaction="Lecturer - taskUpdte.jsp"><i class="fa fa-edit"></i>  Edit</button></a>
                         </form>
 
-                        <form>
+                        <form method="post">
                         <input type="hidden" name="taskid" value="${result.taskid}">
                         <input type="hidden" name="action" value="delete">
                         <a ><button type="submit" onclick="return confirm('Confirm delete task: <c:out value="${result.taskname}"/>?');" formaction="TaskServlet" ><i class="fa fa-trash-o"></i>  Delete</button></a>
