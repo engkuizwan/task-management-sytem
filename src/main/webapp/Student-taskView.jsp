@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
@@ -32,7 +34,7 @@
 
 <sql:query dataSource="${ic}" var="oc">
     SELECT * from task WHERE taskid=?
-    <sql:param value="<%=tskid%>" />
+    <sql:param value="<%=tskid%>"/>
 </sql:query>
 
 
@@ -40,7 +42,7 @@
 <%@include file="Student-navbar.html"%>
 
 <div class="container">
-    <div class="title">View Task<%=tskid%></div>
+    <div class="title">View Task</div>
     <c:forEach var="result" items="${oc.rows}">
         <form action="#">
             <div class="taskdetails" >
