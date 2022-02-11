@@ -28,15 +28,25 @@
 <%@include file="Lecturer-navbar.jsp"%>
 
 <%
+    int tid = 0;
     int id = (Integer) session.getAttribute("classid");
-    int tid = Integer.parseInt(request.getParameter("taskid"));
+
+    if(request.getParameter("taskid") != null)
+    {
+         tid = Integer.parseInt(request.getParameter("taskid"));
+         session.removeAttribute("taskid");
+         session.setAttribute("taskid", tid);
+    }
+    else
+        tid = (Integer) session.getAttribute("taskid");
+
 
 %>
 
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
 
-<sql:query dataSource="${ic}" var="oc">
+<%--<sql:query dataSource="${ic}" var="oc">
     <c:set var="clsid" value="<%=id%>"/>
     SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
     from class_student cs
@@ -48,9 +58,22 @@
     and st.taskid = ?
     <sql:param value="<%=id%>" />
     <sql:param value="<%=tid%>" />
+</sql:query>--%>
+
+<sql:query dataSource="${ic}" var="oc">
+    SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
+    from student s full outer join student_task st
+    on (s.studentid = st.studentid)
+    where st.taskid = ?
+    <sql:param value="<%=tid%>" />
 </sql:query>
 
-    <div class="frame2" style="margin-top: 15%; padding: 5%; border-radius: 11px; min-height: 50%;">
+
+
+
+
+
+    <div class="frame2" style="margin-top: 15%; padding: 5%; border-radius: 5px; min-height: 50%;">
         <div class="pd">
 
             <table>

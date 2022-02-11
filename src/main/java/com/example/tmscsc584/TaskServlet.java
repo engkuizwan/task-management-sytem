@@ -96,9 +96,12 @@ public class TaskServlet extends HttpServlet {
         task.setTaskDueDate(duedate);
         task.setTaskId(id);
 
+        session.removeAttribute("taskid");
+        session.setAttribute("taskid", id);
+
         td.update(task);
 
-        response.sendRedirect("Lecturer-viewclass.jsp");
+        response.sendRedirect("Lecturer-taskList.jsp");
     }
 
 

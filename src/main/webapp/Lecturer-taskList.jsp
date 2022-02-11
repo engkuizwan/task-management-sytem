@@ -76,16 +76,25 @@
     <input type="hidden" name="taskid" value="${result.taskid}">
     <div class="frame">
         <div class="pd">
-            <div id="e1">Posted <c:out value="${result.taskassigndate}"/></div>
+            <div id="e1">Posted : <c:out value="${result.taskassigndate}"/></div>
             <div id="e2">Due : <c:out value="${result.taskduedate}"/>
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
-                        <a href="#"><i class="fa fa-edit"></i>  Edit</a>
-                        <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
                         <form>
                             <input type="hidden" name="taskid" value="${result.taskid}">
-                            <a ><button type="submit" formaction="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</button></a>
+                            <a><button type="submit" formaction="Lecturer - taskUpdte.jsp"><i class="fa fa-edit"></i>  Edit</button></a>
+                        </form>
+
+                        <form>
+                        <input type="hidden" name="taskid" value="${result.taskid}">
+                        <input type="hidden" name="action" value="delete">
+                        <a ><button type="submit" onclick="return confirm('Confirm delete task: <c:out value="${result.taskname}"/>?');" formaction="TaskServlet" ><i class="fa fa-trash-o"></i>  Delete</button></a>
+                        </form>
+
+                        <form>
+                            <input type="hidden" name="taskid" value="${result.taskid}">
+                            <a><button type="submit" formaction="Lecturer-Report.jsp" ><i class="fa fa-clone"></i>  Report</button></a>
                         </form>
                     </div>
                 </div>
@@ -95,7 +104,7 @@
         <div class="myLink">
             <form>
                 <input type="hidden" name="taskid" value="${result.taskid}">
-            <button type="submit" formaction="Student-taskView.jsp" >View Task</button>
+            <button type="submit" formaction="Lecturer - taskView.jsp" >View Task</button>
             </form>
         </div>
     </div>

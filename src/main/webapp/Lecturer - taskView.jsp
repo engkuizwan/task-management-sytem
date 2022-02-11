@@ -57,7 +57,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top: 9%; margin-bottom: 9%;">
   <div class="title">View Task</div>
 <c:forEach var="result" items="${oc.rows}">
   <form action="#">
