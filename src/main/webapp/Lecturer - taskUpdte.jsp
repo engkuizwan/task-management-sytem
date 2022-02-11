@@ -54,7 +54,7 @@
 </sql:query>
 
 <!--form-->
-<div class="container">
+<div class="container" style="margin-bottom: 9%; margin-top: 9%;">
     <div class="title">Add Task</div>
     <form action="TaskServlet" method="post">
 
