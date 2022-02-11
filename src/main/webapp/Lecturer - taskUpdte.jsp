@@ -49,7 +49,7 @@
 
 <sql:query dataSource="${ic}" var="oc">
     <c:set var="tskid" value="<%=taskid%>"/>
-    SELECT * from task where taskid=?
+    SELECT taskid,taskname,taskduedate,tasktype from task where taskid=?
     <sql:param value="${tskid}" />
 </sql:query>
 
@@ -85,7 +85,7 @@
         </div>
 
         <div class="button">
-            <input type="submit" onclick="return confirm('Confirm update your profile?');" value="Update">
+            <input type="submit" onclick="return confirm('Confirm update your task?');" value="Update">
         </div>
 
     </form>
