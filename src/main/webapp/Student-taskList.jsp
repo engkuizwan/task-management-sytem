@@ -59,16 +59,8 @@
 
     <a href="#" class="T">Task</a>
     <a href="Student-peopleList.jsp" class="P">Person</a>
-
-
 </div>
 
-<div class="createbtn">
-    <form>
-        <input type="hidden" name="classid" value="<%=id%>">
-        <button type="submit" style="font-size:17px" formaction="Lecturer - taskAdd.jsp" >Create <i class="fa fa-plus"></i></button>
-    </form>
-</div>
 
 <c:forEach var="result" items="${oc.rows}">
     <div class="frame">
