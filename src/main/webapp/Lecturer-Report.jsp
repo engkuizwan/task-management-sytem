@@ -71,7 +71,7 @@
 </sql:query>--%>
 
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
+    SELECT row_number() over () "rank", s.studentname, st.taskstatus
     from class_student cs
     join student s on s.studentid = cs.studentid
     join student_task st on st.studentid = s.studentid
@@ -80,18 +80,6 @@
     <sql:param value="<%=id%>" />
     <sql:param value="<%=tid%>" />
 </sql:query>
-
-<sql:query dataSource="${ic}" var="ac">
-    SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
-    from class_student cs
-    join student s on s.studentid = cs.studentid
-    full outer join student_task st on st.studentid = s.studentid
-    where cs.classid=?
-    and st.taskstatus is null
-    <sql:param value="<%=id%>" />
-</sql:query>
-
-
 
 
 
@@ -118,28 +106,6 @@
             </table>
         </div>
 
-
-        <div class="pd" style="margin-top: 10%;">
-            <h1>NOT COMPLETE</h1>
-            <table>
-                <tr>
-                    <th>NO</th>
-                    <th>STUDENT NAME</th>
-                    <th>TASK STATUS</th>
-                    <th>STUDENT WORK</th>
-                </tr>
-                <c:forEach var="result" items="${ac.rows}">
-                    <tr>
-                        <td>${result.rank}</td>
-                        <td>${result.studentname}</td>
-                        <td>${result.status}</td>
-                        <td></td>
-
-                    </tr>
-                </c:forEach>
-
-            </table>
-        </div>
     </div>
 
 
