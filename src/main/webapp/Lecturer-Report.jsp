@@ -29,6 +29,7 @@
 
 <%
     int id = (Integer) session.getAttribute("classid");
+    int tid = Integer.parseInt(request.getParameter("taskid"));
 
 %>
 
@@ -37,24 +38,22 @@
 
 <sql:query dataSource="${ic}" var="oc">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT taskid,taskname,taskduedate,taskassigndate from task where classid=?
-    <sql:param value="${clsid}" />
+    SELECT row_number() over () "rank", s.studentname, coalesce(st.taskstatus, 'Not Complete') "status"
+    from class_student cs
+    join student s
+        on cs.studentid = s.studentid
+    full outer join student_task st
+    on s.studentid = st.studentid
+    where cs.classid=?
+    and st.taskid = ?
+    <sql:param value="<%=id%>" />
+    <sql:param value="<%=tid%>" />
 </sql:query>
 
-<div class="boxb">
-    <a href="#" class="T">Task</a>
-    <a href="Lecturer-peopleList.jsp" class="P">Person</a>
-</div>
 
 
-<c:forEach var="result" items="${oc.rows}">
 
-    <div class="frame">
-        <div class="pd">
-            <div id="e1">Report on <c:out value="${result.taskname}"/></div>
-            <div id="e2">Due : <c:out value="${result.taskduedate}"/></div>
-        </div>
-    </div>
+
 
     <div class="frame2">
         <div class="pd">
@@ -66,19 +65,21 @@
                     <th>TASK STATUS</th>
                     <th>STUDENT WORK</th>
                 </tr>
+                <c:forEach var="result" items="${oc.rows}">
                 <tr>
-                    <td>1</td>
-                    <td>Engku</td>
-                    <td>Completed</td>
+                    <td>${result.rank}</td>
+                    <td>${result.studentname}</td>
+                    <td>${result.status}</td>
                     <td></td>
 
                 </tr>
+                </c:forEach>
 
             </table>
         </div>
     </div>
 
-</c:forEach>
+
 
 
 

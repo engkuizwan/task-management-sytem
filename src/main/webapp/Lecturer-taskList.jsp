@@ -54,6 +54,8 @@
     <sql:param value="${clsid}" />
 </sql:query>
 
+
+
 <div class="boxb">
 
     <a href="#" class="T">Task</a>
@@ -70,6 +72,8 @@
 </div>
 
 <c:forEach var="result" items="${oc.rows}">
+
+    <input type="hidden" name="taskid" value="${result.taskid}">
     <div class="frame">
         <div class="pd">
             <div id="e1">Posted <c:out value="${result.taskassigndate}"/></div>
@@ -79,7 +83,10 @@
                     <div class="dropdown-content">
                         <a href="#"><i class="fa fa-edit"></i>  Edit</a>
                         <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
-                        <a href="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</a>
+                        <form>
+                            <input type="hidden" name="taskid" value="${result.taskid}">
+                            <a ><button type="submit" formaction="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</button></a>
+                        </form>
                     </div>
                 </div>
             </div>
