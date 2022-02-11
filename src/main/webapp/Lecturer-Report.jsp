@@ -73,16 +73,18 @@
 <c:forEach var="result" items="${oc.rows}">
     <div class="frame">
         <div class="pd">
-
+            <div >Posted <c:out value="${result.taskassigndate}"/></div>
+            <div >Due : <c:out value="${result.taskduedate}"/>
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
                         <a href="#"><i class="fa fa-edit"></i>  Edit</a>
-                        <a href="Lecturer-Report.jsp"><i class="fa fa-trash-o"></i>  Delete</a>
-                        <a href="#"><i class="fa fa-clone"></i>  Report</a>
+                        <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
+                        <a href="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</a>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
