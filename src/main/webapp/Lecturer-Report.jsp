@@ -81,7 +81,6 @@
 
     <div class="frame2" style="margin-top: 5%; padding: 5%; border-radius: 5px; min-height: 90%;">
         <div class="pd">
-            <h1>COMPLETE</h1>
             <table>
                 <tr>
                     <th>NO</th>
