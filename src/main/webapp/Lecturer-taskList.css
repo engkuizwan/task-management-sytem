@@ -30,6 +30,10 @@ body{
     color: purple;
     font-weight: bolder;
 }
+.boxb a.active {
+    background-color: purple;
+    color: white;
+}
 
 
 a:nth-child(1){
