@@ -41,7 +41,21 @@
 </div>
 
 <%
-   int taskid = Integer.parseInt(request.getParameter("taskid"));
+
+
+    int taskid = 0;
+
+    try{
+        if(request.getParameter("taskid") != null)
+        {
+            taskid = Integer.parseInt(request.getParameter("classid"));
+        }
+        else
+        {
+            taskid = (Integer) session.getAttribute("classid");
+        }
+    }catch (Exception e){e.printStackTrace();}
+
 %>
 
 
