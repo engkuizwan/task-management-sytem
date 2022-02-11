@@ -76,7 +76,7 @@
     <input type="hidden" name="taskid" value="${result.taskid}">
     <div class="frame">
         <div class="pd">
-            <div id="e1">Posted <c:out value="${result.taskassigndate}"/></div>
+            <div id="e1">Posted : <c:out value="${result.taskassigndate}"/></div>
             <div id="e2">Due : <c:out value="${result.taskduedate}"/>
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
