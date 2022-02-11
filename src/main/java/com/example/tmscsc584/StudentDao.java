@@ -130,8 +130,8 @@ public class StudentDao {
             FileInputStream fis = new FileInputStream(file);
             preparedStatement.setInt(1, taskid);
             preparedStatement.setInt(2, studentid);
-            preparedStatement.setString(3, file.getName());
-            preparedStatement.setBinaryStream(4, fis, file.length());
+            preparedStatement.setString(4, file.getName());
+            preparedStatement.setBinaryStream(3, fis, file.length());
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
