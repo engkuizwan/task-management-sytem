@@ -28,8 +28,18 @@
 <%@include file="Lecturer-navbar.jsp"%>
 
 <%
+    int tid = 0;
     int id = (Integer) session.getAttribute("classid");
-    int tid = Integer.parseInt(request.getParameter("taskid"));
+
+    if(request.getParameter("taskid") != null)
+    {
+         tid = Integer.parseInt(request.getParameter("taskid"));
+         session.removeAttribute("taskid");
+         session.setAttribute("taskid", tid);
+    }
+    else
+        tid = (Integer) session.getAttribute("taskid");
+
 
 %>
 
