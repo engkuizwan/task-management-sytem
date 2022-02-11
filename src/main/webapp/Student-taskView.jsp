@@ -41,7 +41,7 @@
 
 <%@include file="Student-navbar.html"%>
 
-<div class="container" style="margin-top: 15%;">
+<div class="container" style="margin-top: 9%; margin-bottom: 9%;">
     <div class="title">View Task</div>
     <c:forEach var="result" items="${oc.rows}">
         <form action="#">
