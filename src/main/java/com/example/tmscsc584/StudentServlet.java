@@ -231,7 +231,7 @@ public class StudentServlet extends HttpServlet {
 
     }
 
-    /*######################################################( VIEW WORK )#############################################################*/
+    /*######################################################( VIEWS WORK )#############################################################*/
 
     private void viewwork(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
