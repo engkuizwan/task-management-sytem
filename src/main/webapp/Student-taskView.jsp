@@ -51,7 +51,7 @@
 <div class="container" style="margin-top: 9%; margin-bottom: 9%;">
     <div class="title">View Task</div>
     <c:forEach var="result" items="${oc.rows}">
-        <form action="StudentServlet">
+        <form action="StudentServlet" method="post">
             <div class="taskdetails" >
                 <div class="input-box">
                     <span class="details">Task Name</span>
@@ -82,9 +82,9 @@
                     <input type="file" name="task" value="${result.taskwork}">
                 </div>
 
-                <%--<input type="hidden" name="action" value="addwork">
+                <input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">
-                <input type="hidden" name="studentid" value="<%=studentid%>">--%>
+                <input type="hidden" name="studentid" value="<%=studentid%>">
             </div>
 
             <div class="button">
