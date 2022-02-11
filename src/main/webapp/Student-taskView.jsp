@@ -20,14 +20,12 @@
 <body>
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-34-205-46-149.compute-1.amazonaws.com:5432/d51mek36uogr3v" user = "awludfehnzjioi" password="09a37687d3b4f8b12b34ff9054fec599f1bbab64c06d01f8e33a5144585076eb"/>
-
+<%
+    int tskid = Integer.parseInt(request.getParameter("taskid"));
+%>
 <sql:query dataSource="${ic}" var="oc">
-    <%
-        int tskid = Integer.parseInt(request.getParameter("taskid"));
-    %>
-    <c:set var="tskid" value="<%=tskid%>"/>
     SELECT * from task WHERE taskid=?
-    <sql:param value="${tskid}" />
+    <sql:param value="<%=tskid%>" />
 </sql:query>
 
 
