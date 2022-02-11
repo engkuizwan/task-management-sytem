@@ -79,7 +79,7 @@
                     <div class="dropdown-content">
                         <a href="#"><i class="fa fa-edit"></i>  Edit</a>
                         <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
-                        <a href="#"><i class="fa fa-clone"></i>  Report</a>
+                        <a href="Lecturer-Report.jsp"><i class="fa fa-clone"></i>  Report</a>
                     </div>
                 </div>
             </div>
