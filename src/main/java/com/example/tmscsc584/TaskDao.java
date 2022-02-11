@@ -47,17 +47,39 @@ public class TaskDao {
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
 
+
             PreparedStatement s = connection.prepareStatement("select max(taskid) from task");
             ResultSet res = s.executeQuery();
             while (res.next()){
                 task.setTaskId(res.getInt(1));
             }
 
-            PreparedStatement st = connection.prepareStatement
-                    ("insert into student_task(studentid) " +
+            PreparedStatement t = connection.prepareStatement
+                    ("insert into temp(studentid) " +
                             "select studentid from class_student where classid=?");
-            st.setInt(1,classs.getClassId());
+            t.setInt(1,classs.getClassId());
+            t.executeUpdate();
+
+
+            PreparedStatement u = connection.prepareStatement
+                    ("update temp set taskid=?");
+            u.setInt(1,task.getTaskId());
+            u.executeUpdate();
+
+            PreparedStatement st = connection.prepareStatement
+                    ("insert into student_task(taskid,studentid) " +
+                            "select taskid,studentid from temp ");
             st.executeUpdate();
+
+            PreparedStatement y = connection.prepareStatement
+                    ("delete from temp");
+            y.executeUpdate();
+
+
+
+
+
+
 
         } catch (SQLException e) {
             printSQLException(e);
