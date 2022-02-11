@@ -34,6 +34,7 @@
 
 
 <sql:query dataSource="${ic}" var="oc">
+    <c:set var="tskid" value="<%=tskid%>"/>
     SELECT taskname, taskassigndate, taskduedate, tasktype, taskdescription
     from task
     where taskid=?
