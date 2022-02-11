@@ -55,16 +55,12 @@
 </sql:query>
 
 <div class="boxb">
-
     <a href="#" class="T">Task</a>
     <a href="Lecturer-peopleList.jsp" class="P">Person</a>
-
-
 </div>
 
 <div class="frame">
     <div class="pd">
-
         <div id="e1">REPORT ON <c:out value="${result.taskname}"/></div>
         <div id="e2">DUE : <c:out value="${result.taskduedate}"/></div>
     </div>
@@ -73,8 +69,7 @@
 <c:forEach var="result" items="${oc.rows}">
     <div class="frame">
         <div class="pd">
-            <div >Posted <c:out value="${result.taskassigndate}"/></div>
-            <div >Due : <c:out value="${result.taskduedate}"/>
+
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                     <div class="dropdown-content">
@@ -90,7 +85,7 @@
         <div class="myLink">
             <form>
                 <input type="hidden" name="taskid" value="${result.taskid}">
-            <button type="submit" formaction="Student-taskView.jsp" >View Task</button>
+
             </form>
         </div>
     </div>
