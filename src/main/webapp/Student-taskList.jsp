@@ -74,22 +74,13 @@
     <div class="frame">
         <div class="pd">
             <div id="e1">Posted <c:out value="${result.taskassigndate}"/></div>
-            <div id="e2">Due : <c:out value="${result.taskduedate}"/>
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
-                    <div class="dropdown-content">
-                        <a href="#"><i class="fa fa-edit"></i>  Edit</a>
-                        <a href="#"><i class="fa fa-trash-o"></i>  Delete</a>
-                        <a href="#"><i class="fa fa-clone"></i>  Report</a>
-                    </div>
-                </div>
-            </div>
+            <div id="e2">Due : <c:out value="${result.taskduedate}"/></div>
         </div>
         <p style="text-align: center"><c:out value="${result.taskname}"/></p>
         <div class="myLink">
             <form>
                 <input type="hidden" name="taskid" value="${result.taskid}">
-                <button type="submit" formaction="Lecturer - taskView.jsp" >View Task</button>
+                <button type="submit" formaction="Student-taskView.jsp" >View Task</button>
             </form>
         </div>
     </div>
