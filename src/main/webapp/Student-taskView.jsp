@@ -81,11 +81,15 @@
 
                 <sql:query dataSource="${ic}" var="od">
                     <c:set var="tskid" value="<%=tskid%>"/>
-                    SELECT taskwork,taskworkname FROM student_task WHERE taskid=?
+                    SELECT taskworkname FROM student_task WHERE taskid=?
                     <sql:param value="<%=tskid%>"/>
                 </sql:query>
                 <c:forEach var="test" items="${od.rows}">
-                       <a href="src/main/webapp/images/${test.taskworkname}"><c:out value="${test.taskworkname}"/></a>
+                    <form action="StudentServlet">
+                        <input type="hidden" name="action" value="viewfile">
+                        <input type="hidden" name="imgname" value="${test.taskworkname}">
+                        <button><c:out value="${test.taskworkname}"/></button>
+                    </form>
                 </c:forEach>
                 <input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">

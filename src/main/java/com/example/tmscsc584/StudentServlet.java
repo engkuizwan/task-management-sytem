@@ -1,5 +1,7 @@
 package com.example.tmscsc584;
 
+import org.w3c.dom.Text;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -55,6 +57,8 @@ public class StudentServlet extends HttpServlet {
                     break;
                 case "addwork":
                     addwork(request,response);
+                case "viewwork":
+                    viewwork(request,response);
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -227,10 +231,23 @@ public class StudentServlet extends HttpServlet {
 
     }
 
+    /*######################################################( VIEW WORK )#############################################################*/
 
+    private void viewwork(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
 
+        String imgname= request.getParameter("imgname");
+
+        sd.viewwork(imgname);
+        response.sendRedirect("Student-taskList.jsp");
 
     }
+
+
+
+
+
+}
 
 
 
