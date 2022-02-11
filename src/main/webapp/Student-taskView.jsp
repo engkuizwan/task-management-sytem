@@ -47,7 +47,7 @@
 <div class="container" style="margin-top: 9%; margin-bottom: 9%;">
     <div class="title">View Task</div>
     <c:forEach var="result" items="${oc.rows}">
-        <form action="StudentServlet" method="post">
+        <form action="StudentServlet" method="post" enctype = "multipart/form-data">
             <div class="taskdetails" >
                 <div class="input-box">
                     <span class="details">Task Name</span>
@@ -75,9 +75,10 @@
 
                 <div class="input-box">
                     <span class="details">Your Works</span></br>
-                    <input type="file" name="task" value="${result.taskwork}">
+                    <input type="file" name="task" id="task" data-height="300" required="required">
                 </div>
-
+                <c:out value="${result.taskwork}"/>
+<%--                value="${result.taskwork}"--%>
                 <input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">
                 <input type="hidden" name="studentid" value="<%=studentid%>">

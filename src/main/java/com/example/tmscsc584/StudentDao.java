@@ -101,14 +101,14 @@ public class StudentDao {
         return rowDeleted;
     }
 
-    public void addwork(String work, int studentid, int taskid)throws SQLException{
+    public void addwork(String Filename, int studentid, int taskid)throws SQLException{
 
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork) values(?)");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork) values(?,?,?)");)
         {
             preparedStatement.setInt(1, taskid);
             preparedStatement.setInt(2, studentid);
-            preparedStatement.setString(3, work);
+            preparedStatement.setString(3, Filename);
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
