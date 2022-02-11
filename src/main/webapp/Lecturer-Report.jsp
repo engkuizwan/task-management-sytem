@@ -59,20 +59,18 @@
     <a href="Lecturer-peopleList.jsp" class="P">Person</a>
 </div>
 
-<div class="frame">
-    <div class="pd">
-        <div id="e1">REPORT ON <c:out value="${result.taskname}"/></div>
-        <div id="e2">DUE : <c:out value="${result.taskduedate}"/></div>
-    </div>
-</div>
 
 <c:forEach var="result" items="${oc.rows}">
+
     <div class="frame">
         <div class="pd">
-
+            <div id="e1">REPORT ON <c:out value="${result.taskname}"/></div>
+            <div id="e2">DUE : <c:out value="${result.taskduedate}"/></div>
         </div>
     </div>
+
 </c:forEach>
+
 
 
 </body>
