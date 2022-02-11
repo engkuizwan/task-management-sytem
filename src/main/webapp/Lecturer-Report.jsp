@@ -55,7 +55,7 @@
 
 
 
-    <div class="frame2" style="margin-top: 15%; padding: 5%; border-radius: 11px; min-height: 50%;">
+    <div class="frame2" style="margin-top: 15%; padding: 5%; border-radius: 5px; min-height: 50%;">
         <div class="pd">
 
             <table>
