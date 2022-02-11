@@ -95,7 +95,7 @@
 
 
 
-    <div class="frame2" style="margin-top: 15%; padding: 5%; border-radius: 5px; min-height: 50%;">
+    <div class="frame2" style="margin-top: 10%; padding: 5%; border-radius: 5px; min-height: 90%;">
         <div class="pd">
             <h1>COMPLETE</h1>
             <table>
