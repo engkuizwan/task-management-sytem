@@ -76,12 +76,14 @@
 
             <table>
                 <tr>
+                    <th>NO</th>
                     <th>STUDENT NAME</th>
                     <th>TASK STATUS</th>
                     <th>STUDENT WORK</th>
                 </tr>
                 <c:forEach var="result" items="${oc.rows}">
                 <tr>
+                    <td>${result.rank}</td>
                     <td>${result.studentname}</td>
                     <td>${result.status}</td>
                     <td></td>
