@@ -1,7 +1,11 @@
 package com.example.tmscsc584;
 
 import javax.servlet.http.HttpSession;
+import java.io.*;
 import java.sql.*;
+import javax.servlet.http.Part;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 
 import static java.lang.System.out;
 
@@ -101,14 +105,33 @@ public class StudentDao {
         return rowDeleted;
     }
 
-    public void addwork(String Filename, int studentid, int taskid)throws SQLException{
+    public void addwork(Part f, int studentid, int taskid) throws SQLException, FileNotFoundException {
+
+        String FileName=f.getSubmittedFileName();
+        File file = new File("C:/Users/Public/LAB EXERCISE/Task-Management-system/src/main/webapp/images/"+ FileName);
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            InputStream is = f.getInputStream();
+
+            byte[] data=new byte[is.available()];
+            is.read(data);
+            fos.write(data);
+            fos.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork) values(?,?,?)");)
+
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork , taskworkname) values(?,?,?,?)");)
         {
+            FileInputStream fis = new FileInputStream(file);
             preparedStatement.setInt(1, taskid);
             preparedStatement.setInt(2, studentid);
-            preparedStatement.setString(3, Filename);
+            preparedStatement.setString(3, file.getName());
+            preparedStatement.setBinaryStream(4, fis, file.length());
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

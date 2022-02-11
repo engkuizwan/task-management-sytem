@@ -217,27 +217,12 @@ public class StudentServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
 
         Part f=request.getPart("task");
-        String FileName=f.getSubmittedFileName();
-        File file = new File("C:/Users/Public/LAB EXERCISE/nonresident/src/main/webapp/images/"+ FileName);
-
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            InputStream is = f.getInputStream();
-
-            byte[] data=new byte[is.available()];
-            is.read(data);
-            fos.write(data);
-            fos.close();
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
 
         int studentid = Integer.parseInt(request.getParameter("studentid"));
         int taskid = Integer.parseInt(request.getParameter("taskid"));
 
-        sd.addwork(FileName, studentid, taskid);
+        sd.addwork(f, studentid, taskid);
         response.sendRedirect("Student-taskList.jsp");
 
     }
