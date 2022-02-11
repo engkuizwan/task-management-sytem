@@ -35,13 +35,11 @@ public class TaskServlet extends HttpServlet {
                     create(request, response);
                     break;
                 case "delete":
-                    /*deleteUser(request, response);*/
+                    delete(request, response);
                     break;
                 case "update":
                     update(request, response);
                     break;
-
-
 
             }
         } catch (SQLException ex) {
@@ -103,6 +101,15 @@ public class TaskServlet extends HttpServlet {
 
         td.update(task);
 
+        response.sendRedirect("Lecturer-taskList.jsp");
+    }
+
+    /*######################################################( DELETE )#############################################################*/
+
+    private void delete(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("taskid"));
+        td.deletetask(id);
         response.sendRedirect("Lecturer-taskList.jsp");
     }
 

@@ -106,6 +106,25 @@ public class TaskDao {
         return rowUpdated;
     }
 
+    public boolean deletetask(int id) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("delete from student_task where taskid=?");) {
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+
+
+            PreparedStatement y = connection.prepareStatement
+                    ("delete from task where taskid=?");
+            y.setInt(1, id);
+            y.executeUpdate();
+
+
+
+        }
+        return rowDeleted;
+    }
+
 
 
 
