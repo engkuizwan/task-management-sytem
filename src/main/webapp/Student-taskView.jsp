@@ -70,10 +70,17 @@
                     <dd><c:out value="${result.taskdescription}"/></dd>
                 </div>
 
+                <div class="input-box">
+                    <span class="details">Your Works</span></br>
+                    <input type="file" name="task">
+                </div>
+
 
             </div>
 
-
+            <div class="button">
+                <input type="submit" value="Submit Your Works">
+            </div>
 
         </form>
     </c:forEach>
