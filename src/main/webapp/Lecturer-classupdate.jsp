@@ -81,34 +81,34 @@
 <!--form-->
 <div class="container">
     <div class="title">Update Class</div>
-    <form action="classServlet" method="post">
-        <input type="hidden" name="classid" value="<%=id%>">
+     <form action="classServlet" method="post">
+            <input type="hidden" name="classid" value="<%=id%>">
 
-        <div class="taskdetails" >
-            <div class="input-box">
-                <span class="details">Class Name</span>
-                <input type="text" name="classname" value="<%= name %>" required>
+            <div class="taskdetails" >
+                <div class="input-box">
+                    <span class="details">Class Name</span>
+                    <input type="text" name="classname" value="<%= name %>" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Subject</span>
+                    <input type="text" name="classsubject" value="<%= subject %>" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Total Student</span>
+                    <input type="text" name="classtotalstudent" value="<%= total %>" required>
+                </div>
             </div>
+                <input type="hidden" name="action" value="update">
 
-            <div class="input-box">
-                <span class="details">Subject</span>
-                <input type="text" name="classsubject" value="<%= subject %>" required>
+
+            <div class="button">
+                <input type="submit" value="update">
             </div>
-            <div class="input-box">
-                <span class="details">Total Student</span>
-                <input type="text" name="classtotalstudent" value="<%= total %>" required>
-            </div>
-        </div>
-            <input type="hidden" name="action" value="update">
-
-
-        <div class="button">
-            <input type="submit" value="update">
-        </div>
-
-
     </form>
 </div>
+</div>
+
 
 
 
