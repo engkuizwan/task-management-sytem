@@ -93,7 +93,7 @@
                 <tr>
                     <td>${result.rank}</td>
                     <td>${result.studentname}</td>
-                    <td>${result.status}</td>
+                    <td>${result.taskstatus}</td>
                     <td></td>
 
                 </tr>
