@@ -55,7 +55,7 @@
 
 
 
-    <div class="frame2" style="margin-top: 50%">
+    <div class="frame2" style="margin-top: 15%">
         <div class="pd">
 
             <table>
