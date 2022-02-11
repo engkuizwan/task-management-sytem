@@ -42,8 +42,8 @@
     from class_student cs
     join student s
         on cs.studentid = s.studentid
-    right outer join student_task st
-    on s.studentid = st.studentid
+    left outer join student_task st
+        on s.studentid = st.studentid
     where cs.classid=?
     and st.taskid = ?
     <sql:param value="<%=id%>" />
