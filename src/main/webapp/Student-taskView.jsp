@@ -36,7 +36,7 @@
 <sql:query dataSource="${ic}" var="oc">
     SELECT t.taskname, t.taskassigndate, t.taskduedate, t.tasktype, t.taskdescription, st.taskwork
     from student s
-    full outer join student_task st
+    left outer join student_task st
         on s.studentid = st.studentid
     join task t
     on st.taskid = t.taskid

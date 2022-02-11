@@ -219,7 +219,7 @@ public class StudentServlet extends HttpServlet {
         String work = request.getParameter("task");
 
         sd.addwork(work, studentid, taskid);
-        response.sendRedirect("Student-viewclass.jsp");
+        response.sendRedirect("Student-taskList.jsp");
 
     }
 
