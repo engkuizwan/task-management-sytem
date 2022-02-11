@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="frame">
+    <div class="frame2">
         <div class="pd">
 
             <table>
