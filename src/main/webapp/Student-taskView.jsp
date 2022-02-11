@@ -78,8 +78,14 @@
                     <span class="details">Your Works</span></br>
                     <input type="file" name="task" id="task" data-height="300" required="required">
                 </div>
-                <c:out value="${result.taskwork}"/>
-<%--                value="${result.taskwork}"--%>
+                <sql:query dataSource="${ic}" var="od">
+                    <c:set var="tskid" value="<%=tskid%>"/>
+                    SELECT taskwork FROM student_task WHERE taskid=?
+                    <sql:param value="<%=tskid%>"/>
+                </sql:query>
+                <c:forEach var="test" items="${od.rows}">
+                       <dd><c:out value="${test.taskwork}"/></dd>
+                </c:forEach>
                 <input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">
                 <input type="hidden" name="studentid" value="<%=studentid%>">
