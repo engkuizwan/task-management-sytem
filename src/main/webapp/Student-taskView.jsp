@@ -35,13 +35,14 @@
 
 <sql:query dataSource="${ic}" var="oc">
     SELECT t.taskname, t.taskassigndate, t.taskduedate, t.tasktype, t.taskdescription, st.taskwork
-    from student_task st
+    from student s
+    full outer join student_task st
+        on s.studentid = st.studentid
     join task t
-        on st.taskid = t.taskid
-    WHERE st.taskid=?
-    and st.studentid=?
-    <sql:param value="<%=tskid%>"/>
+    WHERE s.studentid=?
+    and st.taskid=?
     <sql:param value="<%=studentid%>"/>
+    <sql:param value="<%=tskid%>"/>
 </sql:query>
 
 
