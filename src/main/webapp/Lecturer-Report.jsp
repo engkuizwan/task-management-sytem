@@ -119,7 +119,7 @@
         </div>
 
 
-        <div class="pd">
+        <div class="pd" style="margin-top: 10%;">
             <h1>NOT COMPLETE</h1>
             <table>
                 <tr>
