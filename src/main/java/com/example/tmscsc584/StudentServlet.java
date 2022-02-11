@@ -3,10 +3,13 @@ package com.example.tmscsc584;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.*;
+import javax.servlet.http.Part;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 
+@MultipartConfig
 @WebServlet(name = "StudentServlet", value = "/StudentServlet")
 public class StudentServlet extends HttpServlet {
 
@@ -211,14 +214,30 @@ public class StudentServlet extends HttpServlet {
     /*######################################################( ADD WORK )#############################################################*/
 
     private void addwork(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, ServletException {
+
+        Part f=request.getPart("task");
+        String FileName=f.getSubmittedFileName();
+        File file = new File("C:/Users/Public/LAB EXERCISE/Task-Management-system/src/main/webapp/images/" + FileName);
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            InputStream is = f.getInputStream();
+
+            byte[] data=new byte[is.available()];
+            is.read(data);
+            fos.write(data);
+            fos.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
         int studentid = Integer.parseInt(request.getParameter("studentid"));
         int taskid = Integer.parseInt(request.getParameter("taskid"));
-        String work = request.getParameter("task");
 
-        sd.addwork(work, studentid, taskid);
+        sd.addwork(FileName, studentid, taskid);
         response.sendRedirect("Student-taskList.jsp");
 
     }
