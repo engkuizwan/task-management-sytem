@@ -28,20 +28,7 @@
 <%@include file="Lecturer-navbar.jsp"%>
 
 <%
-    int id = 0;
-
-    try{
-        if(request.getParameter("classid") != null)
-        {
-            id = Integer.parseInt(request.getParameter("classid"));
-            session.removeAttribute("classid");
-            session.setAttribute("classid", id);
-        }
-        else
-        {
-            id = (Integer) session.getAttribute("classid");
-        }
-    }catch (Exception e){e.printStackTrace();}
+    int id = (Integer) session.getAttribute("classid");
 
 %>
 
