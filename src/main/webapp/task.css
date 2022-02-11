@@ -10,6 +10,7 @@ html
 
 .container
 {
+    margin-top:100px;
     margin:auto;
     max-width: 700px;
     width: 100%;
