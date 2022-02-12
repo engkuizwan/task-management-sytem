@@ -72,22 +72,11 @@ public class ClassDao {
         boolean rowDeleted2;
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement("delete from class where classid=?");) {
-
-            PreparedStatement st  =connection.prepareStatement("delete from class_student where classid=?");
-            st.setInt(1,classs.getClassId());
-            rowDeleted2 = st.executeUpdate() > 0;
-
             statement.setInt(1, classs.getClassId());
             rowDeleted = statement.executeUpdate() > 0;
         }
         return rowDeleted;
     }
-
-
-
-
-
-
 
 
 
