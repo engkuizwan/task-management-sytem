@@ -5,7 +5,8 @@
     background-color: #fcfcfc;
     overflow: visible;
     border-radius: 21px;
-    margin:auto;
+    margin-top: auto;
+    margin-left: auto;
 }
 
 .frame button {
@@ -14,7 +15,8 @@
     box-shadow: 19px 19px 17px 0px rgba(0, 0, 0, 0.25);
     background-color: #9c75db;
     overflow: visible;
-    margin-bottom: 10px;
+    margin-top: 200px;
+    margin-left: auto;
     color:white;
 }
 
@@ -29,4 +31,8 @@
     background-color: #fcfcfc;
     overflow: visible;
     margin: 10px auto;
+}
+
+.frame2 p{
+    margin-top: 30px;
 }
