@@ -142,30 +142,6 @@ public class StudentDao {
 
     }
 
-    public void viewwork(String imagename) throws SQLException, FileNotFoundException {
-        try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT taskwork FROM student_task WHERE imgname=?");)
-        {
-            preparedStatement.setString(1, imagename);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs != null) {
-                while(rs.next()) {
-                    byte[] imgBytes = rs.getBytes(1);
-                    // use the stream in some way here
-                    FileOutputStream fos = new FileOutputStream(imagename);
-                    fos.write(imgBytes);
-                }
-                rs.close();
-            }
-
-        } catch (SQLException | IOException e) {
-            printSQLException((SQLException) e);
-        }
-    }
-
-
-
-
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {

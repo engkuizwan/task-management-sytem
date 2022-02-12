@@ -90,12 +90,11 @@
                 </sql:query>
 
                 <c:forEach var="test" items="${od.rows}">
-                    <form action="StudentServlet">
-                        <input type="hidden" name="action" value="viewfile">
-                        <input type="hidden" name="imgname" value="${test.taskworkname}">
-                        <button><c:out value="${test.taskworkname}"/></button>
-                    </form>
+                    <div>
+                        <a style="text-align: left"><c:out value="${test.taskworkname}"/></a>
+                    </div>
                 </c:forEach>
+
                 <input type="hidden" name="action" value="addwork">
                 <input type="hidden" name="taskid" value="<%=tskid%>">
                 <input type="hidden" name="studentid" value="<%=studentid%>">
