@@ -87,7 +87,7 @@
 
 <sql:query dataSource="${ic}" var="ac">
     <c:set var="clsid" value="<%=id%>"/>
-    SELECT s.studentname
+    SELECT s.studentname, s.studentid
     from class_student cs
     join student s
     on cs.studentid = s.studentid
@@ -103,7 +103,11 @@
              <div class="dropdown">
                  <button class="dropbtn"><i class="fa fa-ellipsis-v"></i></button>
                  <div class="dropdown-content">
-                     <a href="#"><i class="fa fa-trash-o"></i> Remove</a>
+                     <form action="classServlet" method="post">
+                     <input type="hidden" name="action" value="remove">
+                     <input type="hidden" name="studentid" value="${test.studentid}">
+                     <a><button type="submit"><i class="fa fa-trash-o"></i> Remove</button></a>
+                     </form>
                  </div>
              </div>
          </div>

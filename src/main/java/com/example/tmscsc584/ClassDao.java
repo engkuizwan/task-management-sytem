@@ -78,6 +78,23 @@ public class ClassDao {
         return rowDeleted;
     }
 
+    public boolean remove(Student student) throws SQLException {
+        boolean rowDeleted;
+        boolean rowDeleted2;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("delete from class_student where studentid=?");) {
+            statement.setInt(1, student.getStudentId());
+            rowDeleted = statement.executeUpdate() > 0;
+
+            PreparedStatement st = connection.prepareStatement("delete from student_task where studentid=?");
+            st.setInt(1, student.getStudentId());
+            rowDeleted = st.executeUpdate() > 0;
+
+
+        }
+        return rowDeleted;
+    }
+
 
 
 
