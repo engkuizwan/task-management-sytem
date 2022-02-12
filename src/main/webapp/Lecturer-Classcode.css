@@ -1,0 +1,32 @@
+.frame {
+    width: 955px;
+    height: 427px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #fcfcfc;
+    overflow: visible;
+    border-radius: 21px;
+    margin:auto;
+}
+
+.frame button {
+    width: 786px;
+    height: 73px;
+    box-shadow: 19px 19px 17px 0px rgba(0, 0, 0, 0.25);
+    background-color: #9c75db;
+    overflow: visible;
+    margin-bottom: 10px;
+    color:white;
+}
+
+.frame h1{
+    font-weight: bolder;
+}
+
+.frame2{
+    width: 955px;
+    height: 111px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #fcfcfc;
+    overflow: visible;
+    margin: 10px auto;
+}

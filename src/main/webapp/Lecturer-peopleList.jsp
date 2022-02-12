@@ -76,7 +76,10 @@
 <div class="frame2">
     <div id="text3">TOTAL STUDENTS</div>
     <div class="round"><p><c:out value="${result.total}"/></p></div>
-    <button type="submit"><i class="fa fa-plus"></i> Add Student</button>
+    <form>
+        <input type="hidden" name="classid" value="<%=id%>">
+    <button type="submit" formaction="Lecturer-Classcode.jsp" ><i class="fa fa-plus"></i> Add Student</button>
+    </form>
 </div>
 </c:forEach>
 
