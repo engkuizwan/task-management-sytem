@@ -105,7 +105,7 @@ a:nth-child(2){
     margin-right: 10px;
 }
 
-.frame2 button{
+.frame2 form button{
     margin-right: 10px;
     padding: 5px;
     font-weight: 500;

@@ -11,6 +11,7 @@
     <title>Join Class Code</title>
 </head>
 <body>
+<style><%@include file="Lecturer-Classcode.css"%></style>
 <%
 
     int id = (Integer) session.getAttribute("classid");
