@@ -17,6 +17,13 @@ body{
     margin: 100px auto 50px auto;  /*(top right bottom left)*/
 }
 
+form button{
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    color: black;
+}
+
 .boxb a {
     text-decoration: none;
     padding:10px;
