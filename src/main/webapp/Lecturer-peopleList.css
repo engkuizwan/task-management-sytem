@@ -144,10 +144,12 @@ a:nth-child(2){
 }
 
 .dropbtn {
+    margin-top: 35px;
+    margin-right: 5px;
     background-color: transparent;
-    color: black;
+    color: #240948;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 20px;
     border: none;
     cursor: pointer;
 }
