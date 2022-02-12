@@ -43,7 +43,7 @@
 					</div>
 					<input type="hidden" name="action" value="delete">
 					<button type="submit" class="button button1" name="submit"><a href="Student-updateprofile.jsp">Update</a></button>
-					<button type="submit" class="button button1" name="submit" onclick="form.action='StudentServlet'">Delete</button><br><br>
+					<button type="submit" class="button button1" name="submit" onclick="return confirm('Confirm delete your account?');" >Delete</button><br><br>
 					
 
 			</div>
