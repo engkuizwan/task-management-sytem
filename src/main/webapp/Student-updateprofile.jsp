@@ -45,7 +45,8 @@
 							<input type="hidden" name="action" value="update">
 						</div>
 					</div>
-				<button type="submit"  class="button button1" name="submit" form.action='StudentServlet'  onclick="return confirm('Confirm update your profile?');" >Update</button>
+				<button type="submit"  class="button button1" name="submit" formaction='StudentServlet'  onclick="return confirm('Confirm update your profile?');" >Update</button>
+
 					<button type="submit" class="button button1" name="submit" ><a href="Student-viewprofile.jsp">Cancel</a></button>
 				<br><br>
 					
