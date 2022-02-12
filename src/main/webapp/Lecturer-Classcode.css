@@ -1,0 +1,50 @@
+
+body{
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.frame {
+    width: 455px;
+    height: 227px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #fcfcfc;
+    overflow: visible;
+    border-radius: 21px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+}
+
+.frame button {
+    width: 455px;
+    height: 60px;
+    box-shadow: 19px 19px 17px 0px rgba(0, 0, 0, 0.25);
+    background-color: #9c75db;
+    overflow: visible;
+    margin: 50px auto;
+    color:white;
+    border: none;
+    cursor: pointer;
+}
+
+.frame input{
+    font-weight: bolder;
+    font-size: 50px;
+    border: none;
+    width: 455px;
+}
+
+.frame2{
+    width: 455px;
+    height: 30px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #fcfcfc;
+    overflow: visible;
+    margin: 30px auto;
+    padding: 30px;
+}
+
+.frame2 p{
+    margin-top: 15px;
+}

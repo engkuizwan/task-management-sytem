@@ -126,14 +126,14 @@ public class StudentDao {
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork , taskworkname, taskstatus) values(?,?,?,?)");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork , taskworkname, taskstatus) values(?,?,?,?,?)");)
         {
             FileInputStream fis = new FileInputStream(file);
             preparedStatement.setInt(1, taskid);
             preparedStatement.setInt(2, studentid);
+            preparedStatement.setBinaryStream(3, fis, file.length());
             preparedStatement.setString(4, file.getName());
             preparedStatement.setString(5, status);
-            preparedStatement.setBinaryStream(3, fis, file.length());
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -141,30 +141,6 @@ public class StudentDao {
         }
 
     }
-
-    public void viewwork(String imagename) throws SQLException, FileNotFoundException {
-        try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT taskwork FROM student_task WHERE imgname=?");)
-        {
-            preparedStatement.setString(1, imagename);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs != null) {
-                while(rs.next()) {
-                    byte[] imgBytes = rs.getBytes(1);
-                    // use the stream in some way here
-                    FileOutputStream fos = new FileOutputStream(imagename);
-                    fos.write(imgBytes);
-                }
-                rs.close();
-            }
-
-        } catch (SQLException | IOException e) {
-            printSQLException((SQLException) e);
-        }
-    }
-
-
-
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
