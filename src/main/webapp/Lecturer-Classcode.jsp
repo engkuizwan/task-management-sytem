@@ -18,16 +18,15 @@
 
 
 %>
-    <div class="frame">
-        <p style="text-align: center">INVITATION CLASS CODE</p>
-        <h1 style="text-align: center"><%=id%></h1>
-        <input type="hidden" value="<%=id%>" id="myCode">
-        <button onclick="myFunction()">Copy code</button>
-    </div>
+<div class="frame">
+    <p style="text-align: center">INVITATION CLASS CODE</p>
+    <input type="text" value="<%=id%>" id="myCode" style="text-align: center" readonly/>
+    <button onclick="myFunction()">Copy code</button>
+</div>
 
-    <div class="frame2">
-        <p style="text-align: center">YOU CAN COPY CODE AND SHARE WITH YOUR STUDENT<p>
-    </div>
+<div class="frame2">
+    <p style="text-align: center">YOU CAN COPY CODE AND SHARE WITH YOUR STUDENT<p>
+</div>
 </body>
 </html>
 
