@@ -38,6 +38,10 @@ public class ClassServlet extends HttpServlet {
                     break;
                 case "delete":
                     delete(request,response);
+                    break;
+                case  "remove":
+                    remove(request,response);
+                    break;
             }
         } catch (Exception ex) {
             throw new ServletException(ex);
@@ -112,6 +116,17 @@ public class ClassServlet extends HttpServlet {
         classs.setClassId(id);
         cd.delete(classs);
         response.sendRedirect("Lecturer-viewclass.jsp");
+    }
+
+    /*######################################################( REMOVE )#############################################################*/
+
+    private void remove(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("studentid"));
+        Student student = new Student();
+        student.setStudentId(id);
+        cd.remove(student);
+        response.sendRedirect("Lecturer-peopleList.jsp");
     }
 
 
