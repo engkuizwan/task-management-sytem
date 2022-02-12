@@ -17,11 +17,12 @@ body{
     margin: 100px auto 50px auto;  /*(top right bottom left)*/
 }
 
-form button{
+.dropdown-content form button{
     background-color: transparent;
     padding: 10px;
     border: none;
     color: black;
+    font-size: 20px;
 }
 
 .boxb a {
