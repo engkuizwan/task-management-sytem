@@ -225,8 +225,9 @@ public class StudentServlet extends HttpServlet {
 
         int studentid = Integer.parseInt(request.getParameter("studentid"));
         int taskid = Integer.parseInt(request.getParameter("taskid"));
+        String status = request.getParameter("taskstatus");
 
-        sd.addwork(f, studentid, taskid);
+        sd.addwork(f, studentid, taskid, status);
         response.sendRedirect("Student-taskList.jsp");
 
     }

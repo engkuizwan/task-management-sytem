@@ -106,7 +106,7 @@ public class StudentDao {
         return rowDeleted;
     }
 
-    public void addwork(Part f, int studentid, int taskid) throws SQLException, FileNotFoundException {
+    public void addwork(Part f, int studentid, int taskid, String status) throws SQLException, FileNotFoundException {
 
         String FileName=f.getSubmittedFileName();
         File file = new File("src/main/webapp/images/"+ FileName);
@@ -126,12 +126,13 @@ public class StudentDao {
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork , taskworkname) values(?,?,?,?)");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork , taskworkname, taskstatus) values(?,?,?,?)");)
         {
             FileInputStream fis = new FileInputStream(file);
             preparedStatement.setInt(1, taskid);
             preparedStatement.setInt(2, studentid);
             preparedStatement.setString(4, file.getName());
+            preparedStatement.setString(5, status);
             preparedStatement.setBinaryStream(3, fis, file.length());
             out.println(preparedStatement);
             preparedStatement.executeUpdate();

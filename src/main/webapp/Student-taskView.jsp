@@ -79,6 +79,10 @@
                     <input type="file" name="task" id="task" data-height="300">
                 </div>
 
+
+                <input type="hidden" name="taskstatus" value="Complete">
+
+
                 <sql:query dataSource="${ic}" var="od">
                     <c:set var="tskid" value="<%=tskid%>"/>
                     SELECT taskworkname FROM student_task WHERE taskid=?
