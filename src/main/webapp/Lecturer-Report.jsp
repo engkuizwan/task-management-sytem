@@ -48,7 +48,7 @@
 
 
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over () "rank", s.studentname, st.taskstatus
+    SELECT row_number() over () "rank", s.studentname, st.taskstatus , st.taskworkname
     from student_task st
     join student s on st.studentid = s.studentid
     and st.taskid=?
@@ -70,7 +70,7 @@
                     <td>${result.rank}</td>
                     <td>${result.studentname}</td>
                     <td>${result.taskstatus}</td>
-                    <td></td>
+                    <td><a>${result.taskworkname}</a></td>
 
                 </tr>
                 </c:forEach>
