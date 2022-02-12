@@ -119,15 +119,14 @@ a:nth-child(2){
     float: right;
 }
 
-
 .frame3 {
     width: 700px;
-    height: 120px;
-    box-shadow:4px 6px 11px 0px rgba(0,0,0,0.25);
-    background-color: #fcfcfc;
+    height: 103px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25), 4px 6px 11px 0px rgba(0,0,0,0.25);
+    background-color: #b8a4cc;
     overflow: visible;
     border-radius: 21px;
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
 .frame3 img, #text4, .dropdown.dropbtn{
@@ -156,21 +155,21 @@ a:nth-child(2){
 .dropdown {
     position: relative;
     display: inline-block;
-    float: right;
+    padding-top: 10px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 50px;
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding:10px;
     text-decoration: none;
     display: block;
 }
