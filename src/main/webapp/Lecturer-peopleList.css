@@ -142,7 +142,14 @@ a:nth-child(2){
     height: 64px;
     margin: 20px;
 }
-
+.dropdown-content button{
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+}
 .dropbtn {
     margin-top: 35px;
     margin-right: 5px;
