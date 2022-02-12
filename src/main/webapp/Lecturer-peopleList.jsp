@@ -51,7 +51,7 @@
 
         <div class="boxb">
             <a href="Lecturer-taskList.jsp" class="T">Task</a>
-            <a href="#" class="active" class="P">Person</a>
+            <a href="#" class="active" class="P">People</a>
         </div>
 
 <c:forEach var="result" items="${oc.rows}">
