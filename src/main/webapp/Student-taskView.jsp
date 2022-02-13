@@ -91,7 +91,7 @@
 
                 <c:forEach var="test" items="${od.rows}">
                     <div>
-                        <a href="C:/Users/Public/LAB EXERCISE/Task-Management-system/src/main/webapp/images/${test.taskworkname}" style="text-align: left"><c:out value="${test.taskworkname}"/></a>
+                        <a href="https://github.com/engkuizwan/Task-Management-system/tree/master/src/main/webapp/images/${test.taskworkname}" style="text-align: left"><c:out value="${test.taskworkname}"/></a>
                     </div>
                 </c:forEach>
 
