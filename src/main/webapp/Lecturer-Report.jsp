@@ -70,7 +70,7 @@
                     <td>${result.rank}</td>
                     <td>${result.studentname}</td>
                     <td>${result.taskstatus}</td>
-                    <td><a>${result.taskworkname}</a></td>
+                    <td><a href="#">${result.taskworkname}</a></td>
 
                 </tr>
                 </c:forEach>
