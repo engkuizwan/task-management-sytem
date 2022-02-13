@@ -126,18 +126,14 @@ public class StudentDao {
 
         try (Connection connection = getConnection();
 
-             PreparedStatement preparedStatement = connection.prepareStatement("update student_task set taskwork=?, taskworkname=?, taskstatus=? where studentid=? and taskid=?");)
+             PreparedStatement preparedStatement = connection.prepareStatement("insert into student_task(taskid, studentid, taskwork , taskworkname, taskstatus) values(?,?,?,?,?)");)
         {
-
-
             FileInputStream fis = new FileInputStream(file);
-
-            preparedStatement.setBinaryStream(1, fis, file.length());
-            preparedStatement.setString(2, file.getName());
-            preparedStatement.setString(3, status);
-            preparedStatement.setInt(4, studentid);
-            preparedStatement.setInt(5, taskid);
-
+            preparedStatement.setInt(1, taskid);
+            preparedStatement.setInt(2, studentid);
+            preparedStatement.setBinaryStream(3, fis, file.length());
+            preparedStatement.setString(4, file.getName());
+            preparedStatement.setString(5, status);
             out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
