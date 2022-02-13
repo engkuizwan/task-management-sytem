@@ -109,7 +109,7 @@ public class StudentDao {
     public void addwork(Part f, int studentid, int taskid, String status) throws SQLException, FileNotFoundException {
 
         String FileName=f.getSubmittedFileName();
-        File file = new File("https://github.com/engkuizwan/Task-Management-system/blob/master/src/main/webapp/images/"+ FileName);
+        File file = new File("src/main/webapp/images/"+ FileName);
 
         try {
             FileOutputStream fos = new FileOutputStream(file);
